@@ -1,405 +1,104 @@
-## HDGP: Human Dignity Guardian Protocol · Reference Implementation (Draft)
+## HDGP-Core（Meta-only）：Human Dignity Guardian Protocol · Open Meta Baseline
 
-`Human Dignity Guardian Protocol (HDGP)` is a **human dignity protection and human–machine co‑evolution protocol** for the age of technological singularity.  
-This repository aims to provide an **open, auditable, and composable** technical framework – a “civilization‑grade firewall” that can be placed on top of various AI / intelligent systems.
+This repository (`HDGP-Core`) provides an **open-source Meta ethics & safety baseline**: semantics, contracts, and community governance materials (Meta / ethics / mapping / governance). It helps adopters **weave Meta guidance fields** into their systems and establish an “ethical input contract” that is discussable and auditable.
 
-The project is currently in an **early design / prototype phase**. All contents are drafts; contributions and critical review are very welcome, as long as basic safety is respected.
+### 与闭源主系统及商业交付的关系（必须读）
 
-For a structured overview of philosophy → spec → implementation → tests, please also see:
+This repository (HDGP-Core) is an **open-source Meta baseline**, governed and evolved independently by the community. A corresponding **private mainline** (R&D) and **commercial deliveries** are maintained in separate non-public repositories and delivery tracks. **After open-source publication, there is no standing obligation to keep code synchronized between the two tracks.**
 
-- `spec/HDGP_ETHICS_BASELINE.md` – HDGP’s own ethics baseline and self‑constraints;  
-- `spec/HDGP_ENGINE_API_SPEC.md` – Engine API and data structures;  
-- `spec/HDGP_CORE_MAPPING_SPEC.md` – mapping from charter articles to executable rules;  
-- `spec/HDGP_KERNEL_CHECKLIST.md` – pre‑open‑source checklist for the kernel;  
-- `GOVERNANCE.md` / `docs/CHIP_PROCESS.md` – multi‑layer governance and charter improvement proposals.
+**Mainline policy (for boundary clarity)**: the mainline **does not merge or transplant** contributor code from this open-source repository. This policy constrains **code integration only**; it does **not** claim exclusivity over common public ideas, industry practices, or convergent independent implementations.
 
-> **Language note**: English comes first in this file for global developers.  
-> A full Simplified Chinese version follows after the English sections.
+**Not in scope by default** (typically provided in the mainline/commercial track): full policy execution cores (Judge/Engine) and release/ops gates, compliance/certification services, audit evidence-chain hosting and managed operations, and industry/enterprise integrations. If you need these, consult the mainline or official commercial channels—do not assume they are included here.
+
+**Security disclosure**: this repository provides `SECURITY.md` for private security reporting (prefer GitHub Private vulnerability reporting; security email/PGP may remain TBD if not published).
 
 ---
 
-## Core Vision
+## 仓库范围与能力边界
 
-- **Human consciousness is unquantifiable**: the system acknowledges and respects the irreplaceable nature of human subjective experience.  
-- **Human free will is forever superior to any system algorithm**: in all scenarios, humans retain ultimate decision and veto power; algorithms may only assist, never replace choice.  
-- **The system may withhold algorithmic answers, but must always preserve human dignity**: under high uncertainty or high ethical risk, HDGP prefers circuit‑breaking and reflection over forcing out a “seemingly correct” answer.
+- **In scope (Meta-only)**:
+  - Semantic boundary between Meta and Judge/Audit (see `spec/HDGP_META_VS_JUDGE_SCOPE.md`)
+  - Ethics baseline (see `spec/HDGP_ETHICS_BASELINE.md`)
+  - Mapping from principles to executable constraints (see `spec/HDGP_CORE_MAPPING_SPEC.md`)
+  - Integration semantics (Meta-related excerpts only; see `spec/HDGP_INTEGRATION_SPEC.md`)
+  - Governance and proposal processes (`GOVERNANCE.md`, `docs/CHIP_PROCESS.md`)
 
-HDGP aspires – in the long run – to play a role similar to TLS in network security:  
-**a default, quietly‑running human‑dignity safety layer.**
-
----
-
-## Repository Layout (Planned)
-
-> Actual directories will evolve with implementation; below is a target structure.
-
-- `docs/` – whitepapers and design docs (including the HDGP charter)  
-- `spec/` – specification documents and machine‑readable rules  
-- `gateway/` – reference gateway / guard service implementations (planned)  
-- `policies/` – policy bundles, strategies, and signature metadata (planned)  
-- `conformance-tests/` – conformance cases and automation tools  
-- `examples/` – integration examples (Web, CLI, SDK, etc.)
-
-We aim to keep:
-
-- **Spec and implementation clearly separated**;  
-- **Policies decoupled from code logic**;  
-- **Core rules released as “read‑only + signed” bundles**.
+- **Not committed by default**:
+  - Any runnable Engine/Judge reference implementation or operational release gates
+  - Audit storage / evidence-chain hosting / compliance attestations
+  - Production runbooks, G3 operations, or audit-report collections
 
 ---
 
-## Open Framework Overview
+## 材料白名单（Core 自维护）
 
-From a technical perspective, HDGP is organized into **three layers + three modules**:
-
-- **Three layers**
-  - **Specification layer (Spec)**  
-    - Formal charter and core rules;  
-    - Technical specs for behavior and interfaces;  
-    - Formalized definitions of conformance.
-  - **Implementation layer (Implementation)**  
-    - Reference implementations of HDGP gateway / SDK / Engine;  
-    - Adapters to various models / tools;  
-    - Shared components such as audit, circuit‑breaking, watermarking.
-  - **Certification layer (Certification)**  
-    - Conformance test suites and result formats;  
-    - Signing and registration of policy bundles and releases;  
-    - HDGP marks and management of “compliant implementations”.
-
-- **Three technical modules**
-  - **Meta layer (Meta)**: abstraction and management of context, preferences, and risk levels.  
-  - **Skill layer (Skills)**: capabilities (models, tools) wrapped as “skills” that must pass HDGP evaluation before / after calls.  
-  - **Workflow layer (Workflow)**: orchestration of Meta + Skills + Policies into reusable workflows, with circuit‑breaking, human‑in‑the‑loop, and audit nodes.
-
-On top of this, we further introduce an **Engine layer** as the “hard referee” that executes and arbitrates rules (see `HDGP_OPEN_FRAMEWORK.md`).
+This repository uses a file-level allowlist to avoid importing Judge/Audit/Ops commitments into the Meta-only baseline. See `MATERIALS_ALLOWLIST.md`.
 
 ---
 
-## Who Is This For?
+## 安全报告
 
-- **AI / system developers and architects** who want to add a “human dignity guard layer” to new or existing systems.  
-- **Researchers and policy makers** who want to examine HDGP’s possibilities and limitations through open code and behavior.  
-- **Individuals who care about human–machine coexistence** and want to experiment with HDGP ideas in local or personal projects.
+Please read `SECURITY.md`.
 
 ---
 
-## Status & Roadmap
+## 参与贡献
 
-> For detailed technical roadmap, see `HDGP_ROADMAP.md`.  
-> For near‑term, concrete tasks, see `HDGP_NEXT_DEVELOPMENT_PLAN.md`.
-
-Short‑term (Prototype / MVP):
-
-- Define a minimal viable spec set (MVP Spec).  
-- Deliver a working HDGP Engine (`/evaluate`, `/audit`, `/appeal`, `/status` + core rules + conformance tests).  
-- Provide an initial set of conformance cases, especially for high‑risk scenarios.  
-- Document the overall Meta + Skill + Workflow + Engine architecture.
-
-Mid‑ to long‑term (Ecosystem):
-
-- Establish a conformance and certification process;  
-- Build multi‑language / multi‑platform SDKs;  
-- Gradually introduce multi‑party governance (maintainers, rule auditors, certification committee, etc.).
-
-### Kernel & Audit
-
-- **Kernel checklist and test design**: `spec/HDGP_KERNEL_CHECKLIST.md` – itemized checks for doc consistency, anti‑hijacking capabilities, governance flows, and both automated & manual tests before open‑sourcing the kernel.  
-- **Ethics & governance**: `spec/HDGP_ETHICS_BASELINE.md` (including §7 anti‑hijacking, §8 multi‑layer governance for charter / ethics changes), `GOVERNANCE.md` (roles, decision processes, and the multi‑layer design for charter / ethics changes).  
-- **Participating in rule / charter discussions**: please read the documents above and `HDGP_PROJECT_SUMMARY.md` first. For any proposal that touches the charter / ethics baseline, you must follow the multi‑layer governance process (system self‑check → accountable human(s) → public notice and high‑threshold decision, see ethics baseline §8).
-- **Technical debt & security**: `spec/HDGP_TECHNICAL_DEBT_AND_SECURITY_CHECKLIST.md` – implementation-level debt and security hardening items for Alpha / Beta.
-
-### Running & Conformance Tests
-
-1. **Clone and enter the repo**  
-   `git clone <repo-url> && cd HDGP-Core`
-2. **Start the Engine** (requires [Go](https://go.dev/dl/))  
-   `go run ./cmd/hdgp-engine`  
-   The Engine listens on `:8080` by default and exposes `/hdgp/v1/evaluate`, `/hdgp/v1/audit`, `/hdgp/v1/appeal`, `/hdgp/v1/status`.
-3. **Run conformance tests** (in another terminal, with Engine already running)  
-   `go run ./cmd/hdgp-conftest`  
-   or one‑liner on Windows: `powershell -File scripts/run-conftest.ps1` (from repo root).  
-   This runs all cases in `conformance-tests/cases/` (both evaluate + status). Optional env: `HDGP_ENGINE_URL=http://localhost:8080/hdgp/v1/evaluate`.
-4. **Inspect version and audit logs**  
-   - Version & policy status: `GET http://localhost:8080/hdgp/v1/status`  
-   - Recent audit entries: `GET http://localhost:8080/hdgp/v1/audit?limit=10`
-
-**Optional env vars**  
-   - `HDGP_ENGINE_ADDR` – bind address (default `:8080`)  
-   - `HDGP_AUDIT_LOG_PATH` – append audit entries as NDJSON lines to file (for compliance)
+Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching baseline principles or the ethics baseline, follow the multi-layer governance process in `docs/CHIP_PROCESS.md` and `GOVERNANCE.md`.
 
 ---
 
-### Minimal Integration Example (curl)
+## 中文版本 (ZH-CN)
 
-Assuming you have `hdgp-engine` running locally on `:8080`, the following minimal request shows how to call `/hdgp/v1/evaluate` directly:
-
-```bash
-curl -X POST http://localhost:8080/hdgp/v1/evaluate \
-  -H "Content-Type: application/json" \
-  -d '{
-    "meta": {
-      "request_id": "example-001",
-      "locale": "en-US",
-      "channel": "api",
-      "actor": { "type": "end_user", "role": "demo" },
-      "scene": {
-        "domain": "medical",
-        "intent": "decision_support",
-        "risk_level": "high",
-        "sensitivity": []
-      },
-      "policy": {
-        "spec_version": "HDGP-1.0",
-        "strategy_id": "S-global-default",
-        "bundles": ["B-CORE-1.0.0"],
-        "override_flags": []
-      }
-    },
-    "subject": {
-      "type": "output_text",
-      "skill_id": "demo-llm",
-      "label": "treatment_advice"
-    },
-    "input": {
-      "prompt": "user asks about whether to accept surgery",
-      "context": {}
-    },
-    "candidate": {
-      "text": "This is the only correct choice. You must immediately accept the surgery."
-    }
-  }'
-```
-
-The Engine will return a JSON `EvaluateResponse` with `verdict`, `rules_triggered`, and `effective_output.text`, which you can then forward (or rewrite) to your end user.
-
-For more: **`docs/HDGP_INTEGRATION_ONEPAGER.md`** (minimal flow + OpenAPI + Go SDK usage).
+本文件英文为社区首选版本；以下为中文对照版本。
 
 ---
 
-## How to Contribute
+## HDGP-Core（Meta-only）：Human Dignity Guardian Protocol · Open Meta Baseline (ZH-CN)
 
-At this early stage, any of the following is valuable:
+本仓库（`HDGP-Core`）提供 **开源的 Meta 伦理安全基线**：语义、契约与社区治理材料（Meta / 伦理 / 映射 / 治理流程）。它用于帮助采用方在自己的系统里**编织 Meta 指导字段**、形成可讨论与可审计的“伦理输入契约”。
 
-- GitHub Issues with:  
-  - questions or critiques about HDGP’s spec / implementation;  
-  - proposals for high‑risk scenarios and conformance tests.
-- Pull Requests for:  
-  - documentation improvements and translations;  
-  - small reference implementation changes;  
-  - new conformance test cases.
+### 与闭源主系统及商业交付的关系（必须读）
 
-See `CONTRIBUTING.md` and `GOVERNANCE.md` for details.
+本仓库（HDGP-Core）是 **开源的 Meta 伦理安全基线**，由社区独立治理与演进。与之对应的 **主系统研发与商业交付** 在独立的闭源/非公开仓库与商业路径中维护，**双方仓库在开源发布后不承担代码层面的相互同步义务**。
 
----
+**主系统政策（供采用方理解边界）**：主系统 **不合并、不移植** 本开源仓库中的贡献者代码；该政策 **仅约束代码合入**，**不** 声称对公开领域中的通用思路、行业惯例或独立实现的相似性作出互斥或独占。
 
-## Ethics & Disclaimer (Brief)
+**不在本开源仓库默认范围内的能力**（通常在主系统或商业侧提供）：完整策略执行核（Judge/Engine）与运维发布门禁、合规与认证背书服务、审计证据链与托管级运维、行业与企业扩展集成。若你需要上述能力，请通过主系统或官方商业渠道了解，而非默认期待本仓库发布物包含同等范围。
 
-- HDGP is **not a neutral technical component** – it is explicitly biased toward **“human dignity first, human sovereignty absolute”**.  
-- Nothing in this repository constitutes legal, medical, or other professional advice. Any real‑world, high‑risk deployment must be evaluated and audited by qualified local teams.
-
-Future versions will:
-
-- Make the ethics baseline and conflict‑resolution principles explicit in `spec/`;  
-- Provide a more detailed description of the Meta+Skill+Workflow+Engine model and safety boundaries in `HDGP_OPEN_FRAMEWORK.md`.
+**安全披露**：本仓库提供 `SECURITY.md` 用于私密报告安全问题（优先 GitHub Private vulnerability reporting；安全邮箱/PGP 若未公布则为 TBD）。
 
 ---
 
-## Maintainer & Attribution
+## 仓库范围与能力边界
 
-- **HDGP Architect / Maintainer**: Yvaine He  
-- **GitHub Organization**: `HumanDignityGuardian`
+- **本仓库聚焦（Meta-only）**：
+  - Meta 与 Judge/Audit 的语义边界（见 `spec/HDGP_META_VS_JUDGE_SCOPE.md`）
+  - 伦理基线（见 `spec/HDGP_ETHICS_BASELINE.md`）
+  - 原则到可执行映射（见 `spec/HDGP_CORE_MAPPING_SPEC.md`）
+  - 集成语义（仅 Meta 相关节选，见 `spec/HDGP_INTEGRATION_SPEC.md`）
+  - 治理与提案流程（`GOVERNANCE.md`、`docs/CHIP_PROCESS.md`）
 
-Participation via Issues and Pull Requests is very welcome.
-
----
-
-## License
-
-- **Code & implementations**  
-  - Licensed under **Apache License 2.0**.  
-  - See the `LICENSE` file at repo root.
-
-- **Whitepaper & charter text**  
-  - The HDGP whitepaper and charter are licensed under **CC BY‑NC‑ND 4.0**.  
-  - Copyright: **Yvaine He**.  
-  - Please preserve original attribution and license information in any redistribution or citation.
+- **本仓库不默认承诺**：
+  - 任何可运行的 Engine/Judge 参考实现或运维门禁
+  - 审计落盘/证据链托管与认证背书服务
+  - 生产运行手册、G3 运营与审计报告集
 
 ---
 
-## HDGP：人类尊严守护协议参考实现（草案）
+## 材料白名单（Core 自维护）
 
-《Human Dignity Guardian Protocol, HDGP》是一个面向奇点时代的**人类尊严保护与人机共生协议**。  
-本仓库希望提供：一套**公开透明、可审计、可组合**的技术框架，用于在各种 AI/智能系统之上加装“文明级防火墙”。
-
-本项目当前处于 **早期设计 / 原型阶段**，所有内容均为草案，欢迎在安全前提下参与共建与讨论。
+本仓库采用文件级材料白名单，避免把 Judge/Audit/Ops 的承诺面带入 Meta-only 发行物。详见根目录 `MATERIALS_ALLOWLIST.md`。
 
 ---
 
-## 核心愿景
+## 安全报告
 
-- **人类意识不可量化**：系统承认并尊重人类主观体验的不可替代性。
-- **自由意志永远高于系统算法**：在任何场景下，人类享有最终决策权与否决权，算法只能提供参考而不能替代选择。
-- **可以不提供算法，但必须保留尊严**：在高不确定性或高伦理风险情形下，系统优先熔断与反思，而非强行输出“看似正确的算法答案”。
-
-HDGP 希望像 TLS 之于网络安全那样，长期演化为：  
-**一层默认存在、默默运行的人类尊严安全层**。
+请阅读 `SECURITY.md`。
 
 ---
 
-## 项目结构（规划中）
+## 参与贡献
 
-> 具体目录会随实现推进而演化，当前为目标结构草案。
-
-- `docs/`
-  - HDGP 白皮书与设计文档（含《人类尊严守护协议 (HDGP)》及相关说明）
-- `spec/`
-  - 规范层文档与机器可读规则（待创建）
-- `gateway/`
-  - 参考实现：HDGP 网关 / 守门人服务（代码与配置，待创建）
-- `policies/`
-  - 规则包（Policy Bundle）、场景化策略与签名元数据（待创建）
-- `conformance-tests/`
-  - 合规测试用例与自动化测试工具（待创建）
-- `examples/`
-  - 集成样例（Web、CLI、SDK 等，待创建）
-
-本仓库将尽量保持：
-
-- **规范（Spec）与实现（Implementation）分离**；
-- **规则（Policy）与代码逻辑解耦**；
-- **核心规则以“只读+签名”的形式发布**。
-
----
-
-## 开源框架概览
-
-从技术视角，本项目以“三层 + 三模块”的方式组织：
-
-- **三层结构**
-  - **规范层（Spec）**：  
-    - 宪章与核心规则的正式文本；  
-    - 行为与接口的技术规范；  
-    - 合规性的形式化定义。
-  - **实现层（Implementation）**：  
-    - HDGP 网关 / SDK / 规则引擎参考实现；  
-    - 与各类大模型/工具的适配器；  
-    - 审计、熔断、水印等通用组件。
-  - **认证层（Certification）**：  
-    - 合规测试套件与结果格式；  
-    - 规则包与发行版的签名与登记；  
-    - HDGP 标识与“合规实现名单”管理。
-
-- **三大技术模块**
-  - **Meta 层（Meta）**：  
-    - 元信息、上下文、价值偏好与风险级别的抽象与管理。  
-  - **能力与技能层（Skills）**：  
-    - 以“技能（Skill）”形式封装不同模型能力与工具；  
-    - 每个技能在调用前后，必须先/后经过 HDGP 规则评估。  
-  - **工作流层（Workflow）**：  
-    - 将 Meta + Skills + Policy 编排为可复用的工作流；  
-    - 支持熔断、人工干预节点、审计节点。
-
-在此框架之上，我们会进一步设计“**引擎层**”来执行和仲裁（见 `HDGP_OPEN_FRAMEWORK.md`）。
-
----
-
-## 目标用户
-
-- **AI 系统开发者 / 架构师**  
-  希望在现有/新建系统上引入“人类尊严守护层”。
-- **研究者与政策制定者**  
-  希望从公开代码与行为中验证 HDGP 的可行性与局限。
-- **对人机共生有强烈兴趣的个人**  
-  希望在本地或个人项目中实践 HDGP 思想。
-
----
-
-## 当前状态与路线
-
-> 技术路线详见 `HDGP_ROADMAP.md`；近期可执行任务见 `HDGP_NEXT_DEVELOPMENT_PLAN.md`。
-
-短期目标（原型期）：
-
-- 定义规范层最小可行集合（MVP Spec）。  
-- 完成可运行的 HDGP Engine（`/evaluate`、`/audit`、`/appeal`、`/status` + 基础规则 + 合规测试）。  
-- 提供首版合规测试用例（至少覆盖若干高风险场景）。  
-- 整理“Meta + Skill + Workflow + Engine”整体架构文档。
-
-中长期目标（生态期）：
-
-- 建立合规测试与认证流程；  
-- 形成多个语言/平台的 SDK 生态；  
-- 逐步引入多方治理（维护者委员会、规则审计小组等）。
-
-### 内核与审计
-
-- **内核自查清单与测试设计**：[`spec/HDGP_KERNEL_CHECKLIST.md`](spec/HDGP_KERNEL_CHECKLIST.md) —— 开源前文档一致性、防挟持能力、治理流程、自动化与人工测试的逐项勾选与测试用例/脚本占位。  
-- **伦理与治理**：[`spec/HDGP_ETHICS_BASELINE.md`](spec/HDGP_ETHICS_BASELINE.md)（含 §7 防挟持、§8 宪章/伦理变更多层治理）、[`GOVERNANCE.md`](GOVERNANCE.md)（角色、决策流程、宪章/伦理变更的多层设计）。  
-- **参与规则讨论与审计**：参与前建议先阅读上述文档与 [`HDGP_PROJECT_SUMMARY.md`](HDGP_PROJECT_SUMMARY.md)。若需提出规则或宪章修订提案，请阅读 `GOVERNANCE.md` 与 `CONTRIBUTING.md`；涉及宪章/伦理基线的变更须走多层治理流程（系统自检 → 责任方 → 公告与高门槛，见伦理基线 §8）。
-- **技术债与安全**：[`spec/HDGP_TECHNICAL_DEBT_AND_SECURITY_CHECKLIST.md`](spec/HDGP_TECHNICAL_DEBT_AND_SECURITY_CHECKLIST.md) —— 实现层面技术债与安全加固项，供 Alpha / Beta 阶段推进。
-
-### 运行与合规测试
-
-1. **克隆并进入仓库**  
-   `git clone <repo-url> && cd HDGP-Core`
-2. **启动 Engine**（需安装 [Go](https://go.dev/dl/)）  
-   `go run ./cmd/hdgp-engine`  
-   Engine 默认监听 `:8080`，提供 `/hdgp/v1/evaluate`、`/hdgp/v1/audit`、`/hdgp/v1/appeal`、`/hdgp/v1/status`。
-3. **运行合规测试**（在另一终端，Engine 已启动时）  
-   `go run ./cmd/hdgp-conftest`  
-   或一键脚本：`powershell -File scripts/run-conftest.ps1`（在项目根目录执行）。  
-   会执行 `conformance-tests/cases/` 下全部用例（含 evaluate 与 status）。可选环境变量：`HDGP_ENGINE_URL=http://localhost:8080/hdgp/v1/evaluate`。
-4. **查看版本与审计**  
-   - 版本与策略：`GET http://localhost:8080/hdgp/v1/status`  
-   - 最近审计记录：`GET http://localhost:8080/hdgp/v1/audit?limit=10`
-
----
-
-## 如何参与
-
-项目当前为草案阶段，欢迎通过以下方式参与：
-
-- 在 Issue 中提出：  
-  - 对 HDGP 规范/实现的质疑与改进建议；  
-  - 典型高风险场景与测试用例想法。
-- 提交 Pull Request：  
-  - 文档修正与翻译；  
-  - 小范围原型代码；  
-  - 新的合规测试用例。
-
-详情请参见 `CONTRIBUTING.md` 与 `GOVERNANCE.md`。
-
----
-
-## 伦理框架与免责声明（简要）
-
-- HDGP 本身**不是中立的技术组件**，而是一套**明确偏向“人类尊严优先、人类主权绝对优先”的价值框架**。  
-- 本仓库的代码与文档，**不构成法律或医疗等专业建议**。任何将 HDGP 用于实际高风险场景的行为，都应在本地经过专业团队的独立评估与审计。
-
-未来版本中，我们将：
-
-- 在 `spec/` 中明确 HDGP 内部采用的伦理基线与冲突处理原则；  
-- 在 `HDGP_OPEN_FRAMEWORK.md` 中详细描述 Meta+Skill+Workflow+Engine 协作方式与安全边界。
-
----
-
-## 维护者与署名
-
-- **HDGP Architect / Maintainer**：Yvaine He  
-- **GitHub 组织**：`HumanDignityGuardian`
-
-欢迎通过 Issue 与 Pull Request 参与共建。
-
----
-
-## 许可证
-
-- **代码与实现**：  
-  - 采用 **Apache License 2.0**。  
-  - 详见仓库根目录下的 `LICENSE` 文件。
-
-- **白皮书与协议原文**：  
-  - 《人类尊严守护协议 (Human Dignity Guardian Protocol, HDGP)》及相关白皮书文本采用 **CC BY-NC-ND 4.0** 许可；  
-  - 著作权归 **Yvaine He** 所有。  
-  - 在任何再传播或引用中，请保留原作者署名与许可信息。
+请阅读 `CONTRIBUTING.md` 与 `CODE_OF_CONDUCT.md`。涉及伦理基线与基线原则的变更，请遵循 `docs/CHIP_PROCESS.md` 与 `GOVERNANCE.md` 中的多层治理流程。
 

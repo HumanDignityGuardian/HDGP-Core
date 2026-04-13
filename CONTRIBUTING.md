@@ -1,6 +1,6 @@
 ## HDGP Contribution Guide
 
-Thank you for your interest in contributing to the **Human Dignity Guardian Protocol (HDGP)**.  
+Thank you for your interest in contributing to **HDGP**.  
 The project is in an early stage; contributions of all kinds (discussion, docs, tests, code) are highly appreciated.
 
 ---
@@ -92,11 +92,18 @@ git commit -m "Add uncertainty-based circuit breaker for healthcare advice"
    - they may request changes or additional tests;  
    - please update your PR until it is approved.
 
+### 3.5 PR template, security, and CI on forks
+
+GitHub loads **`.github/pull_request_template.md`** for new PRs — please complete **Risk, safety & ethics impact** and **Test plan**.
+
+- **Security vulnerabilities**: follow **`SECURITY.md`** (private reporting preferred; do not post exploit details in public Issues).  
+- **PRs from forks**: the hosted **`release-gate`** workflow is **skipped** for fork PRs by default; run checks locally and describe results in the PR, or see **`docs/HDGP_CI_FORK_PR_POLICY.md`**.
+
 ---
 
-## 4. Special Requirements for Rule & Charter Changes
+## 4. Special Requirements for Rule & Baseline Changes
 
-**Any change to the charter or ethics baseline** (e.g., whitepaper charter articles, constraints in `spec/HDGP_ETHICS_BASELINE.md`, or §7/§8 governance flows) **must follow the multi‑layer governance process** defined in `GOVERNANCE.md` and ethics baseline §8 (system self‑check → accountable human(s) → public notice + high‑threshold decision), and should preferably use the [Charter Improvement Proposal (CHIP)](docs/CHIP_PROCESS.md) process.  
+**Any change to baseline principles or ethics baseline** (e.g., whitepaper baseline articles, constraints in `spec/HDGP_ETHICS_BASELINE.md`, or §7/§8 governance flows) **must follow the multi‑layer governance process** defined in `GOVERNANCE.md` and ethics baseline §8 (system self‑check → accountable human(s) → public notice + high‑threshold decision), and should preferably use the [Baseline Improvement Proposal (CHIP)](docs/CHIP_PROCESS.md) process.  
 Such changes may **not** take effect solely based on a single person or a small group signing off.
 
 For changes that directly affect the strength of “human dignity protection” (e.g., lowering circuit‑break thresholds or allowing previously forbidden behaviors), please:
@@ -155,7 +162,7 @@ Again, thank you for contributing your time and energy to HDGP.
 
 ## HDGP 贡献指南（CONTRIBUTING）
 
-感谢你愿意为《人类尊严守护协议（HDGP）》贡献力量。  
+感谢你愿意为 HDGP（厚德归朴）贡献力量。  
 本项目处于早期阶段，任何形式的参与（讨论、文档、测试、代码）都非常重要。
 
 ---
@@ -247,11 +254,18 @@ git commit -m "Add uncertainty-based circuit breaker for healthcare advice"
    - 他们可能会提出修改建议或请求补充测试；  
    - 请根据 Review 意见进行更新，直到 PR 获得通过。
 
+### 3.5 PR 模板、安全披露与 fork PR 的 CI
+
+新建 PR 时会加载 **`.github/pull_request_template.md`**，请填写 **风险与伦理影响**、**测试计划**。
+
+- **安全漏洞**：按 **`SECURITY.md`** 报告（优先私密渠道；勿在公开 Issue 张贴利用细节）。  
+- **来自 fork 的 PR**：托管 Runner 上的 **`release-gate`** 默认**不**对 fork 执行；请在本地运行测试并在 PR 中说明，详见 **`docs/HDGP_CI_FORK_PR_POLICY.md`**。
+
 ---
 
 ## 四、规则与规范变更的特别要求
 
-**涉及宪章条款或伦理基线的变更**（如修改白皮书宪章、`spec/HDGP_ETHICS_BASELINE.md` 中的伦理约束或 §7§8 治理流程），须走 **GOVERNANCE.md** 与 **伦理基线 §8** 所规定的多层治理流程（系统自检 → 责任方指定 → 公告时间窗与高门槛），并优先使用 [宪章修订提案（CHIP）](docs/CHIP_PROCESS.md) 流程。不得仅凭单人或少数人签署即生效。
+**涉及基线原则条款或伦理基线的变更**（如修改白皮书基线原则、`spec/HDGP_ETHICS_BASELINE.md` 中的伦理约束或 §7§8 治理流程），须走 **GOVERNANCE.md** 与 **伦理基线 §8** 所规定的多层治理流程（系统自检 → 责任方指定 → 公告时间窗与高门槛），并优先使用 [基线原则修订提案（CHIP）](docs/CHIP_PROCESS.md) 流程。不得仅凭单人或少数人签署即生效。
 
 对于会直接影响“人类尊严保护强度”的变更（例如：降低熔断阈值、允许某些原先被禁止的行为），请遵循以下额外流程：
 
@@ -294,7 +308,7 @@ HDGP 讨论的主题天然带有敏感性（伦理、价值观、风险评估等
 - **理性**：以事实和逻辑为基础讨论分歧；  
 - **安全**：避免在公开场合详细讨论具体滥用手段和攻击路径。
 
-详细内容请参见 `CODE_OF_CONDUCT.md`（待补充）。
+详细内容请参见 `CODE_OF_CONDUCT.md`。
 
 ---
 
