@@ -26,6 +26,7 @@
 | `spec/HDGP_INTEGRATION_SPEC.md` | Integration semantics (**excerpt** Meta-related sections) |
 | `GOVERNANCE.md` | Governance |
 | `docs/CHIP_PROCESS.md` | CHIP process |
+| `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | Quarterly ethics alignment attestation (traceable link required; used by external review) |
 | `CONTRIBUTING.md` | Contributing guide |
 | `CODE_OF_CONDUCT.md` | Code of conduct |
 | `HDGP_OPEN_FRAMEWORK.md` | Framework overview (**excerpt** Meta-related sections) |
@@ -72,6 +73,7 @@
 | `spec/HDGP_INTEGRATION_SPEC.md` | 集成语义（**节选** Meta 相关章节） |
 | `GOVERNANCE.md` | 治理 |
 | `docs/CHIP_PROCESS.md` | CHIP 流程 |
+| `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | 伦理对齐季度声明（需可追溯链接；供外部复核） |
 | `CONTRIBUTING.md` | 贡献指南 |
 | `CODE_OF_CONDUCT.md` | 行为准则 |
 | `HDGP_OPEN_FRAMEWORK.md` | 框架总览（Core 侧 **节选** Meta 相关章节） |
