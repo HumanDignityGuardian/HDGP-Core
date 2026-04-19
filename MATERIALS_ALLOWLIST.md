@@ -1,6 +1,6 @@
 # HDGP-Core Materials Allowlist (file-level, maintained by Core)
 
-> **Status**: Final (initial baseline).  
+> **Status**: Final (post–Gate G; PRE-GATE draft reviewed into this file). Traceability: `docs/CORE_EXTRACT_SNAPSHOT.md`.  
 > **Purpose**: define the minimal **Meta-only** file set allowed in `HDGP-Core`, to avoid unintentionally importing Judge/Audit/Ops commitments.  
 > **Principles**: include only materials required for **Meta / ethics / mapping / governance** and the mandatory Core README statements. Engine, audit, release gates, and commercial deliverables are **out of scope** by default.  
 > **Semantic boundary index**: see `spec/HDGP_META_VS_JUDGE_SCOPE.md`.
@@ -25,6 +25,7 @@
 | `spec/HDGP_CORE_MAPPING_SPEC.md` | Mapping from principles to executable constraints |
 | `spec/HDGP_INTEGRATION_SPEC.md` | Integration semantics (**excerpt** Meta-related sections) |
 | `GOVERNANCE.md` | Governance |
+| `docs/CORE_EXTRACT_SNAPSHOT.md` | Post–Gate G extract snapshot (mainline SHA + §6 copy-paste block) |
 | `docs/CHIP_PROCESS.md` | CHIP process |
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | Quarterly ethics alignment attestation (traceable link required; used by external review) |
 | `CONTRIBUTING.md` | Contributing guide |
@@ -47,7 +48,7 @@
 
 ## HDGP-Core 材料白名单（文件级，Core 自维护）(ZH-CN)
 
-> **状态**：定稿（首发基线）。  
+> **状态**：定稿（门槛 G 之后；PRE-GATE 草案已审阅定稿为本文件）。可追溯：`docs/CORE_EXTRACT_SNAPSHOT.md`。  
 > **目的**：定义 `HDGP-Core` 可纳入的 **最小文件集合（Meta-only）**，避免无意引入 Judge/Audit/Ops 承诺面。  
 > **原则**：仅列入 **Meta / 伦理 / 映射 / 治理流程** 与 Core README 必备声明所需材料；Engine、审计、门禁、商业交付 **不** 属于默认同步范围。  
 > **语义边界索引**：见 `spec/HDGP_META_VS_JUDGE_SCOPE.md`。
@@ -72,6 +73,7 @@
 | `spec/HDGP_CORE_MAPPING_SPEC.md` | 原则到可执行映射 |
 | `spec/HDGP_INTEGRATION_SPEC.md` | 集成语义（**节选** Meta 相关章节） |
 | `GOVERNANCE.md` | 治理 |
+| `docs/CORE_EXTRACT_SNAPSHOT.md` | 门槛 G 之后提取快照（主系统 SHA + §6 可复制块） |
 | `docs/CHIP_PROCESS.md` | CHIP 流程 |
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | 伦理对齐季度声明（需可追溯链接；供外部复核） |
 | `CONTRIBUTING.md` | 贡献指南 |
