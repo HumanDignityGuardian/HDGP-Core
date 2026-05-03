@@ -16,6 +16,8 @@ This document is a **pack-and-go entry** for adopting **HDGP-Core** as a **Meta-
 - **Integration semantics** (Meta-focused): `spec/HDGP_INTEGRATION_SPEC.md`  
 - **Governance & change process**: `GOVERNANCE.md`, `docs/CHIP_PROCESS.md`
 - **Machine-readable Meta shape (Draft-07 JSON Schema)**: `schemas/hdgp-core-meta.schema.json` — optional validator for weaving `scene` / `policy` hints; **not** an Engine/Judge API or verdict contract (see schema `$id` and descriptions).
+- **Starter snippets (TypeScript / Python)**: `snippets/` — copy-paste types/helpers; **not** a published SDK.
+- **Adoption statement template**: `docs/ADOPTION_STATEMENT_TEMPLATE.md` — optional wording for your project docs (attribution + Meta-only boundary).
 
 ---
 
@@ -25,6 +27,18 @@ For tooling and CI, you may validate or generate structs from **`schemas/hdgp-co
 
 - **In-repo path**: `schemas/hdgp-core-meta.schema.json`  
 - **Stable raw URL** (for `$ref` / remote validators): `https://raw.githubusercontent.com/HumanDignityGuardian/HDGP-Core/main/schemas/hdgp-core-meta.schema.json`
+
+---
+
+## Starter snippets (optional)
+
+The **`snippets/`** directory contains minimal **TypeScript** and **Python** shapes aligned with the JSON Schema, plus default `scene` values from `spec/HDGP_INTEGRATION_SPEC.md` §2.4. Copy into your codebase as needed; there is **no** npm/PyPI package from this repository.
+
+---
+
+## Adoption statement template (optional)
+
+If you want a short, human-readable declaration next to your attribution block, start from **`docs/ADOPTION_STATEMENT_TEMPLATE.md`** (English + Chinese). It is **not** a substitute for the license or legal advice.
 
 ---
 
@@ -88,6 +102,8 @@ This is not an “endorsement”; it is **basic attribution and traceability**.
 - 集成语义（以 Meta 为中心）：`spec/HDGP_INTEGRATION_SPEC.md`  
 - 治理与变更流程：`GOVERNANCE.md`、`docs/CHIP_PROCESS.md`
 - **机器可读的 Meta 形态（Draft-07 JSON Schema）**：`schemas/hdgp-core-meta.schema.json` — 可选校验/代码生成；**不是** Engine/Judge API 或 verdict 契约（见 schema 内 `$id` 与说明）。
+- **起步片段（TypeScript / Python）**：`snippets/` — 可复制类型与默认值辅助；**不是**已发布的 SDK。
+- **采用声明模板**：`docs/ADOPTION_STATEMENT_TEMPLATE.md` — 可选文案（致谢 + Meta-only 边界）。
 
 ---
 
@@ -97,6 +113,18 @@ This is not an “endorsement”; it is **basic attribution and traceability**.
 
 - **仓内路径**：`schemas/hdgp-core-meta.schema.json`  
 - **稳定 raw URL**（供 `$ref` 或远程校验器）：`https://raw.githubusercontent.com/HumanDignityGuardian/HDGP-Core/main/schemas/hdgp-core-meta.schema.json`
+
+---
+
+## 起步片段（可选）
+
+**`snippets/`** 提供与 JSON Schema 对齐的 **TypeScript** 与 **Python** 最小结构，以及 `spec/HDGP_INTEGRATION_SPEC.md` §2.4 的默认 `scene`。按需复制到工程即可；本仓库**不**发布 npm/PyPI 包。
+
+---
+
+## 采用声明模板（可选）
+
+若希望在致谢旁附一段可读声明，可从 **`docs/ADOPTION_STATEMENT_TEMPLATE.md`**（英 / 中）起稿。**不能**替代许可证或法务意见。
 
 ---
 

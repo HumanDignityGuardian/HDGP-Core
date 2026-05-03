@@ -29,6 +29,10 @@
 | `docs/.nojekyll` | Disables Jekyll processing for GitHub Pages (`docs/` publishing) |
 | `docs/ADOPTION_BUNDLE.md` | Pack-and-go adoption entry (Meta-only boundary, attribution, contact; no Engine/Judge) |
 | `schemas/hdgp-core-meta.schema.json` | JSON Schema Draft-07 for Meta-only `meta`/scene shape (guidance weaving; not Engine/Judge API) |
+| `docs/ADOPTION_STATEMENT_TEMPLATE.md` | Optional EN/ZH adoption wording template (attribution + Meta-only boundary; non-normative) |
+| `snippets/README.md` | Index for optional TS/Python copy-paste snippets |
+| `snippets/hdgp-meta.types.ts` | TypeScript Meta shape + default scene helper |
+| `snippets/hdgp_meta.py` | Python 3.11+ TypedDict Meta shape + default scene helper |
 | `docs/CORE_EXTRACT_SNAPSHOT.md` | Post–Gate G extract snapshot (mainline SHA + §6 copy-paste block) |
 | `docs/CHIP_PROCESS.md` | CHIP process |
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | Quarterly ethics alignment attestation (traceable link required; used by external review) |
@@ -82,6 +86,10 @@
 | `docs/.nojekyll` | GitHub Pages 禁用 Jekyll（从 `docs/` 发布时） |
 | `docs/ADOPTION_BUNDLE.md` | 打包带走入口（Meta-only 边界、致谢/回链、联系方式；不含 Engine/Judge） |
 | `schemas/hdgp-core-meta.schema.json` | Meta-only `meta`/scene 的 JSON Schema Draft-07（编织指导；非 Engine/Judge API） |
+| `docs/ADOPTION_STATEMENT_TEMPLATE.md` | 可选英/中采用声明模板（致谢 + Meta-only 边界；非规范性） |
+| `snippets/README.md` | 可选 TS/Python 复制片段索引 |
+| `snippets/hdgp-meta.types.ts` | TypeScript Meta 形态与默认 scene 辅助 |
+| `snippets/hdgp_meta.py` | Python 3.11+ TypedDict Meta 形态与默认 scene 辅助 |
 | `docs/CORE_EXTRACT_SNAPSHOT.md` | 门槛 G 之后提取快照（主系统 SHA + §6 可复制块） |
 | `docs/CHIP_PROCESS.md` | CHIP 流程 |
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | 伦理对齐季度声明（需可追溯链接；供外部复核） |

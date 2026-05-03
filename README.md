@@ -20,7 +20,8 @@ You do **not** need two separate documentation trees in this repository: **one M
 ### Pack-and-go adoption entry (Meta-only)
 
 - Start here: **`docs/ADOPTION_BUNDLE.md`** — single-page “take-and-weave” entry with **hard boundary** (no Engine/Judge), attribution rules, and contact.  
-- Optional **machine-readable shape**: **`schemas/hdgp-core-meta.schema.json`** (JSON Schema Draft-07 for Meta weaving — not a verdict/Engine API).
+- Optional **machine-readable shape**: **`schemas/hdgp-core-meta.schema.json`** (JSON Schema Draft-07 for Meta weaving — not a verdict/Engine API).  
+- Optional **snippets**: **`snippets/`** (TypeScript + Python copy-paste starters) · **adoption wording**: **`docs/ADOPTION_STATEMENT_TEMPLATE.md`**.
 
 ### Open Letters & White Paper (readable editions on main site)
 
