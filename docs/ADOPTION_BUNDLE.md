@@ -15,6 +15,16 @@ This document is a **pack-and-go entry** for adopting **HDGP-Core** as a **Meta-
 - **Boundary index** (Meta vs Judge/Audit): `spec/HDGP_META_VS_JUDGE_SCOPE.md`  
 - **Integration semantics** (Meta-focused): `spec/HDGP_INTEGRATION_SPEC.md`  
 - **Governance & change process**: `GOVERNANCE.md`, `docs/CHIP_PROCESS.md`
+- **Machine-readable Meta shape (Draft-07 JSON Schema)**: `schemas/hdgp-core-meta.schema.json` — optional validator for weaving `scene` / `policy` hints; **not** an Engine/Judge API or verdict contract (see schema `$id` and descriptions).
+
+---
+
+## Machine-readable contract (optional)
+
+For tooling and CI, you may validate or generate structs from **`schemas/hdgp-core-meta.schema.json`** (JSON Schema Draft-07). It describes a **Meta-only** object: required `scene` (with `domain`, `intent`, `risk_level` patterns aligned to `spec/HDGP_INTEGRATION_SPEC.md` §2.4 defaults and documented enumerations). It deliberately **excludes** verdict, audit chain, enforcement, or runtime Judge fields.
+
+- **In-repo path**: `schemas/hdgp-core-meta.schema.json`  
+- **Stable raw URL** (for `$ref` / remote validators): `https://raw.githubusercontent.com/HumanDignityGuardian/HDGP-Core/main/schemas/hdgp-core-meta.schema.json`
 
 ---
 
@@ -77,6 +87,16 @@ This is not an “endorsement”; it is **basic attribution and traceability**.
 - 语义边界索引（Meta vs Judge/Audit）：`spec/HDGP_META_VS_JUDGE_SCOPE.md`  
 - 集成语义（以 Meta 为中心）：`spec/HDGP_INTEGRATION_SPEC.md`  
 - 治理与变更流程：`GOVERNANCE.md`、`docs/CHIP_PROCESS.md`
+- **机器可读的 Meta 形态（Draft-07 JSON Schema）**：`schemas/hdgp-core-meta.schema.json` — 可选校验/代码生成；**不是** Engine/Judge API 或 verdict 契约（见 schema 内 `$id` 与说明）。
+
+---
+
+## 机器可读契约（可选）
+
+若需在工具链或 CI 中校验/生成结构体，可使用 **`schemas/hdgp-core-meta.schema.json`**（JSON Schema Draft-07）。它描述 **Meta-only** 对象：必填 `scene`（`domain`、`intent`、`risk_level` 与 `spec/HDGP_INTEGRATION_SPEC.md` §2.4 默认值及文档枚举对齐）。**不包含** verdict、审计链、执法或运行时 Judge 字段。
+
+- **仓内路径**：`schemas/hdgp-core-meta.schema.json`  
+- **稳定 raw URL**（供 `$ref` 或远程校验器）：`https://raw.githubusercontent.com/HumanDignityGuardian/HDGP-Core/main/schemas/hdgp-core-meta.schema.json`
 
 ---
 

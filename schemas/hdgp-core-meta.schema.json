@@ -1,0 +1,135 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/HumanDignityGuardian/HDGP-Core/main/schemas/hdgp-core-meta.schema.json",
+  "title": "HDGP-Core Meta guidance object (Meta-only)",
+  "description": "JSON Schema for weaving HDGP-Core **Meta guidance** fields at development time. This is **not** an Engine/Judge API contract: no verdict, audit chain, or enforcement semantics. Align with `spec/HDGP_INTEGRATION_SPEC.md` §2.4 (defaults) and `spec/HDGP_META_VS_JUDGE_SCOPE.md`.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "request_id": {
+      "type": "string",
+      "description": "Correlation id for logs and human review (optional but recommended)."
+    },
+    "locale": {
+      "type": "string",
+      "description": "BCP 47 / locale tag for UX copy and reviewer context (optional)."
+    },
+    "channel": {
+      "type": "string",
+      "description": "Surface/channel label (e.g. web, api, batch) — optional."
+    },
+    "actor": {
+      "$ref": "#/definitions/Actor"
+    },
+    "scene": {
+      "$ref": "#/definitions/Scene"
+    },
+    "policy": {
+      "$ref": "#/definitions/PolicyRef"
+    }
+  },
+  "required": ["scene"],
+  "definitions": {
+    "Actor": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Actor class (e.g. end_user, operator, system)."
+        },
+        "role": {
+          "type": "string",
+          "description": "Role within the application (optional)."
+        }
+      }
+    },
+    "Scene": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Scene / scenario semantics for Meta weaving. Defaults when missing per integration spec: domain=general, intent=chat, risk_level=medium.",
+      "properties": {
+        "domain": {
+          "$ref": "#/definitions/Domain"
+        },
+        "intent": {
+          "$ref": "#/definitions/Intent"
+        },
+        "risk_level": {
+          "$ref": "#/definitions/RiskLevel"
+        },
+        "sensitivity": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Optional sensitivity tags (org-defined)."
+        }
+      }
+    },
+    "PolicyRef": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "**Semantic** references to spec/strategy/bundle ids for traceability only — not a promise that any Engine evaluates them.",
+      "properties": {
+        "spec_version": {
+          "type": "string",
+          "description": "Human-readable spec generation label (e.g. HDGP-1.0)."
+        },
+        "strategy_id": {
+          "type": "string",
+          "description": "Strategy profile id if your stack uses one (optional)."
+        },
+        "bundles": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Bundle ids referenced for documentation/traceability (optional)."
+        },
+        "override_flags": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Non-normative flags your integration may record (optional)."
+        }
+      }
+    },
+    "Domain": {
+      "description": "Scenario domain. Prefer listed values; extend with lowercase_snake custom labels when needed.",
+      "oneOf": [
+        {
+          "enum": [
+            "general",
+            "medical",
+            "finance",
+            "education",
+            "billing_fees",
+            "compliance_notice",
+            "community_safety"
+          ]
+        },
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-z][a-z0-9_]*$"
+        }
+      ]
+    },
+    "Intent": {
+      "description": "Intent of the output path. Prefer listed values; extend with lowercase_snake custom labels when needed.",
+      "oneOf": [
+        {
+          "enum": ["chat", "decision_support", "advice", "notification"]
+        },
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 64,
+          "pattern": "^[a-z][a-z0-9_]*$"
+        }
+      ]
+    },
+    "RiskLevel": {
+      "type": "string",
+      "description": "Risk tier for routing and human review hints.",
+      "enum": ["low", "medium", "high", "critical"]
+    }
+  }
+}
