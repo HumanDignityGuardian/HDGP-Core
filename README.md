@@ -17,6 +17,10 @@ This repository (`HDGP-Core`) provides an **open-source Meta ethics & safety bas
 
 You do **not** need two separate documentation trees in this repository: **one Meta-only baseline**, **two integration personas** — same specs, different glue code.
 
+### Pack-and-go adoption entry (Meta-only)
+
+- Start here: **`docs/ADOPTION_BUNDLE.md`** — single-page “take-and-weave” entry with **hard boundary** (no Engine/Judge), attribution rules, and contact.
+
 ### Open Letters & White Paper (readable editions on main site)
 
 Canonical **styled** HTML (permanent record on the product site; not duplicated as HTML in Core):
