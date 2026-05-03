@@ -1,6 +1,6 @@
 # HDGP-Core Materials Allowlist (file-level, maintained by Core)
 
-> **Status**: Final. **Final mainline→Core Meta-only pick** completed **2026-05-03** (mainline anchor `e60732ea78a29ddb168a41be8792dff96af5ee59`). PRE-GATE draft reviewed into this file. Traceability: `docs/CORE_EXTRACT_SNAPSHOT.md`. **Ongoing relationship**: repositories **fully isolated** except **quarterly ethics alignment** (`docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` and CHIP/ethics process).  
+> **Status**: Final; **open release `v1.0.0`** dated **2026-05-03** (Git tag `v1.0.0`). **Final mainline→Core Meta-only pick** completed **2026-05-03** (mainline anchor `e60732ea78a29ddb168a41be8792dff96af5ee59`). PRE-GATE draft reviewed into this file. Traceability & mainline acceptance cross-reference: `docs/CORE_EXTRACT_SNAPSHOT.md`. **Ongoing relationship**: repositories **fully isolated** except **quarterly ethics alignment** (`docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` and CHIP/ethics process).  
 > **Purpose**: define the minimal **Meta-only** file set allowed in `HDGP-Core`, to avoid unintentionally importing Judge/Audit/Ops commitments.  
 > **Principles**: include only materials required for **Meta / ethics / mapping / governance** and the mandatory Core README statements. Engine, audit, release gates, and commercial deliverables are **out of scope** by default.  
 > **Semantic boundary index**: see `spec/HDGP_META_VS_JUDGE_SCOPE.md`.
@@ -50,7 +50,7 @@
 
 ## HDGP-Core 材料白名单（文件级，Core 自维护）(ZH-CN)
 
-> **状态**：定稿。**终局 Meta-only 拣选**已于 **2026-05-03** 完成（主系统锚点 `e60732ea78a29ddb168a41be8792dff96af5ee59`）。PRE-GATE 草案已审阅定稿为本文件。可追溯：`docs/CORE_EXTRACT_SNAPSHOT.md`。**持续关系**：双仓 **完全隔离运作**，仅保留 **季度伦理对齐**（`docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` 与 CHIP/伦理流程）。  
+> **状态**：定稿；**公开发布 `v1.0.0`**（**2026-05-03**，Git 标签 `v1.0.0`）。**终局 Meta-only 拣选**已于 **2026-05-03** 完成（主系统锚点 `e60732ea78a29ddb168a41be8792dff96af5ee59`）。PRE-GATE 草案已审阅定稿为本文件。可追溯及主系统验收交叉引用：`docs/CORE_EXTRACT_SNAPSHOT.md`。**持续关系**：双仓 **完全隔离运作**，仅保留 **季度伦理对齐**（`docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` 与 CHIP/伦理流程）。  
 > **目的**：定义 `HDGP-Core` 可纳入的 **最小文件集合（Meta-only）**，避免无意引入 Judge/Audit/Ops 承诺面。  
 > **原则**：仅列入 **Meta / 伦理 / 映射 / 治理流程** 与 Core README 必备声明所需材料；Engine、审计、门禁、商业交付 **不** 属于默认同步范围。  
 > **语义边界索引**：见 `spec/HDGP_META_VS_JUDGE_SCOPE.md`。

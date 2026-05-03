@@ -2,6 +2,8 @@
 
 > **When to use**: after mainline **Gate G** is closed; records **pickable** specification states for `HDGP-Core`. **Not** a code-sync credential.  
 > **Final batch**: per mainline **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`** §7–§9, Core performed the **last Meta-only file-level pick** from private `HDGP-Protocol` on **2026-05-03**. After that pick, the two repositories are **operationally isolated** except **quarterly ethics alignment** (see **Repository isolation** below).  
+> **Mainline acceptance & freeze**: recorded in mainline **`docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`** (private `HDGP-Protocol`; not distributed in Core). Default: no further iteration of mainline→Core **batch pick** checklists; exceptions per that document (CHIP, security disclosure, written emergency alignment).  
+> **Core v1.0.0**: open Meta-only baseline **released** on **2026-05-03** with Git tag **`v1.0.0`** (first stable publication state after acceptance).  
 > **Related**: mainline policy `docs/HDGP_MAINLINE_BASELINE_FOR_CORE_EXTRACTION.md`; allowlist **Final** in **`MATERIALS_ALLOWLIST.md`** (from PRE-GATE review of `docs/HDGP_CORE_MATERIALS_ALLOWLIST_DRAFT.md`).
 
 ---
@@ -58,6 +60,22 @@ Per **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`** §7:
 - **无持续同步义务**：除另行书面约定并发布新快照外，**不**承担规范镜像、SHA 对齐或目录级持续拉取的义务。  
 - **例外——季度伦理对齐**：Core 仍按 **`MATERIALS_ALLOWLIST.md`** 与 CHIP/伦理流程，**按季度**维护 **`docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md`**（及白名单内伦理相关材料）；**不属于** Engine 或通用代码的双向同步。  
 - **关系口径**：开源 Core 与闭源主系统 **相互独立**；主系统 **不** 将 Core 贡献作为上游合入（见 README / 主系统政策文档）。
+
+---
+
+## Mainline formal acceptance, freeze & Core v1.0.0 (cross-reference)
+
+**English**
+
+- The private mainline records formal **handoff acceptance** in **`docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`** (`HDGP-Protocol`; **not** copied into Core): acceptance checklist, hash verification, Core `HEAD` at acceptance, and **§3** — **freeze** of further **batch “mainline → Core pick” work items**. **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`** and **`docs/HDGP_CORE_MATERIALS_PULL_GUIDE.md`** on mainline cross-reference this acceptance file.  
+- **Default thereafter (mainline)**: do **not** iterate standing “batch pull to Core” lists. **Exceptions**: CHIP-related coordination, **security disclosure**, or **written emergency alignment** with Core — as written in that acceptance document.  
+- **HDGP-Core `v1.0.0`**: this repository’s Meta-only baseline is **released as version 1.0.0** on **2026-05-03** (annotated tag **`v1.0.0`** on `main`), marking the first stable public baseline **after** mainline acceptance.
+
+**简体中文**
+
+- 私有主系统在 **`docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`**（**未**纳入本 Core 仓）记录终局 **验收**：清单、哈希核验、验收时 Core `HEAD`、**§3** 对主系统→Core **批量拣选议题的冻结**。主系统 **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`**、**`docs/HDGP_CORE_MATERIALS_PULL_GUIDE.md`** 已交叉引用该验收文。  
+- **此后默认（主系统）**：**不**再持续迭代「向 Core 批量拉取」类清单；**例外**：CHIP 相关协调、**安全披露**、或与 Core 的 **书面应急对齐**（见验收文）。  
+- **HDGP-Core `v1.0.0`**：本仓库 Meta-only 基线于 **2026-05-03** 以 **`v1.0.0`**（在 `main` 上打附注标签 **`v1.0.0`**）**正式发布**，作为通过主系统验收后的首个稳定公开状态。
 
 ---
 
@@ -118,6 +136,8 @@ If mainline has **not** finished stage C snapshot and finalized allowlist, compl
 # Core 提取快照（门槛 G 之后 · 终局拣选）
 
 > **用途**：记录 Gate G 闭合后的可拣选状态；并于 **`HDGP_CORE_FINAL_PULL_PLAN.md` §7–§9** 指导下完成 **最后一次** 主系统 → Core 的 **Meta-only 文件级拣选**（2026-05-03）。此后 **双仓完全隔离运作**，仅保留 **季度伦理对齐** 例外（见上文 **Repository isolation**）。  
+> **主系统验收与冻结**：见主系统 **`docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`**（**未**纳入 Core）；默认不再迭代「向 Core 批量拉取」清单，例外见该文（CHIP / 安全披露 / 书面应急对齐）。  
+> **Core v1.0.0**：**2026-05-03** 以 Git 标签 **`v1.0.0`** 正式发布首个稳定 Meta-only 公开基线。  
 > **关联**：主系统策略见 `docs/HDGP_MAINLINE_BASELINE_FOR_CORE_EXTRACTION.md`；白名单见根目录 **`MATERIALS_ALLOWLIST.md`**。
 
 ---
@@ -162,6 +182,12 @@ If mainline has **not** finished stage C snapshot and finalized allowlist, compl
 ## 双仓隔离（终局拣选之后）
 
 见上文 **Repository isolation** 中英对照。
+
+---
+
+## 主系统验收、冻结与 Core v1.0.0（交叉引用）
+
+见上文 **Mainline formal acceptance, freeze & Core v1.0.0** 中英对照（同一内容）。
 
 ---
 

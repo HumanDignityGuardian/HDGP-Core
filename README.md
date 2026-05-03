@@ -2,6 +2,8 @@
 
 This repository (`HDGP-Core`) provides an **open-source Meta ethics & safety baseline**: semantics, contracts, and community governance materials (Meta / ethics / mapping / governance). It helps adopters **weave Meta guidance fields** into their systems and establish an “ethical input contract” that is discussable and auditable.
 
+> **Release `v1.0.0` · 2026-05-03** — first stable Meta-only baseline for this repository (**Git tag [`v1.0.0`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.0)**). Formal mainline handoff acceptance & freeze are summarized in **`docs/CORE_EXTRACT_SNAPSHOT.md`** (cross-reference to mainline `docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`, not shipped in Core).
+
 ### Website & contact
 
 - **GitHub Pages**: `https://humandignityguardian.github.io/HDGP-Core/` — lightweight index for this repository (links into specs & governance on GitHub).  
@@ -65,6 +67,8 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 ## HDGP-Core（Meta-only）：Human Dignity Guardian Protocol · Open Meta Baseline (ZH-CN)
 
 本仓库（`HDGP-Core`）提供 **开源的 Meta 伦理安全基线**：语义、契约与社区治理材料（Meta / 伦理 / 映射 / 治理流程）。它用于帮助采用方在自己的系统里**编织 Meta 指导字段**、形成可讨论与可审计的“伦理输入契约”。
+
+> **正式发布 `v1.0.0` · 2026-05-03** — 本仓库首个稳定的 Meta-only 公开基线（**Git 标签 [`v1.0.0`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.0)**）。主系统终局验收与冻结口径摘要见 **`docs/CORE_EXTRACT_SNAPSHOT.md`**（交叉引用主系统 `docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`，**未**纳入 Core）。
 
 ### 站点与联系
 
