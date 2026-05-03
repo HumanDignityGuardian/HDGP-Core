@@ -2,6 +2,12 @@
 
 This repository (`HDGP-Core`) provides an **open-source Meta ethics & safety baseline**: semantics, contracts, and community governance materials (Meta / ethics / mapping / governance). It helps adopters **weave Meta guidance fields** into their systems and establish an “ethical input contract” that is discussable and auditable.
 
+### Website & contact
+
+- **GitHub Pages**: `https://humandignityguardian.github.io/HDGP-Core/` — lightweight index for this repository (links into specs & governance on GitHub).  
+- **Maintainer**: Yvaine He · `xyan8921@gmail.com` (general repository inquiries; use GitHub **Private vulnerability reporting** first for security issues — see `SECURITY.md`).  
+- **Product / mainline narrative** (Engine demos, PFaaS context — not part of Core materials): [hdgp-protocol.com](https://www.hdgp-protocol.com/).
+
 ### 与闭源主系统及商业交付的关系（必须读）
 
 This repository (HDGP-Core) is an **open-source Meta baseline**, governed and evolved independently by the community. A corresponding **private mainline** (R&D) and **commercial deliveries** are maintained in separate non-public repositories and delivery tracks. **After open-source publication, there is no standing obligation to keep code synchronized between the two tracks.**
@@ -10,7 +16,7 @@ This repository (HDGP-Core) is an **open-source Meta baseline**, governed and ev
 
 **Not in scope by default** (typically provided in the mainline/commercial track): full policy execution cores (Judge/Engine) and release/ops gates, compliance/certification services, audit evidence-chain hosting and managed operations, and industry/enterprise integrations. If you need these, consult the mainline or official commercial channels—do not assume they are included here.
 
-**Security disclosure**: this repository provides `SECURITY.md` for private security reporting (prefer GitHub Private vulnerability reporting; security email/PGP may remain TBD if not published).
+**Security disclosure**: this repository provides `SECURITY.md` for private security reporting (prefer GitHub Private vulnerability reporting; alternative: `xyan8921@gmail.com`; PGP fingerprint may remain TBD if not published).
 
 **Governance snapshot note**: the **final** Meta-only document pick from the private mainline was performed at mainline commit **`e60732ea78a29ddb168a41be8792dff96af5ee59`** (**2026-05-03**), per `docs/CORE_EXTRACT_SNAPSHOT.md` and the mainline **HDGP_CORE_FINAL_PULL_PLAN** (in the private `HDGP-Protocol` repository; not distributed inside Core). Governance wording in this repo reflects that snapshot; **community governance mechanics here may differ** from the private mainline. **No ongoing spec/repo sync** is implied except **quarterly ethics alignment** attestation materials allowed by `MATERIALS_ALLOWLIST.md`.
 
@@ -60,6 +66,12 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 
 本仓库（`HDGP-Core`）提供 **开源的 Meta 伦理安全基线**：语义、契约与社区治理材料（Meta / 伦理 / 映射 / 治理流程）。它用于帮助采用方在自己的系统里**编织 Meta 指导字段**、形成可讨论与可审计的“伦理输入契约”。
 
+### 站点与联系
+
+- **GitHub Pages**：`https://humandignityguardian.github.io/HDGP-Core/` — 本仓库的轻量索引页（链向 GitHub 上的规范与治理文档）。  
+- **维护联系人**：Yvaine He · `xyan8921@gmail.com`（一般仓库咨询；**安全问题**请优先使用 GitHub **私密漏洞报告**，见 `SECURITY.md`）。  
+- **产品与主系统叙事**（Engine 演示、PFaaS 语境 — **不属于** Core 材料正文）：[hdgp-protocol.com](https://www.hdgp-protocol.com/)
+
 ### 与闭源主系统及商业交付的关系（必须读）
 
 本仓库（HDGP-Core）是 **开源的 Meta 伦理安全基线**，由社区独立治理与演进。与之对应的 **主系统研发与商业交付** 在独立的闭源/非公开仓库与商业路径中维护，**双方仓库在开源发布后不承担代码层面的相互同步义务**。
@@ -68,7 +80,7 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 
 **不在本开源仓库默认范围内的能力**（通常在主系统或商业侧提供）：完整策略执行核（Judge/Engine）与运维发布门禁、合规与认证背书服务、审计证据链与托管级运维、行业与企业扩展集成。若你需要上述能力，请通过主系统或官方商业渠道了解，而非默认期待本仓库发布物包含同等范围。
 
-**安全披露**：本仓库提供 `SECURITY.md` 用于私密报告安全问题（优先 GitHub Private vulnerability reporting；安全邮箱/PGP 若未公布则为 TBD）。
+**安全披露**：本仓库提供 `SECURITY.md` 用于私密报告安全问题（优先 GitHub Private vulnerability reporting；备选邮箱 `xyan8921@gmail.com`；PGP 指纹若未公布可仍为 TBD）。
 
 **治理快照脚注**：自私有主系统完成的 **最后一次** Meta-only 文件拣选锚点为 **`e60732ea78a29ddb168a41be8792dff96af5ee59`**（**2026-05-03**），依据 `docs/CORE_EXTRACT_SNAPSHOT.md` 与主系统私有仓内 **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`**（**未**作为文件纳入 Core，仅作来源说明）。本仓库治理表述对应该快照时点；**社区治理机制可与闭源主系统不一致**。除 **`MATERIALS_ALLOWLIST.md`** 允许的 **季度伦理对齐** 材料外，**不暗示**与主系统持续规范/仓库同步。
 

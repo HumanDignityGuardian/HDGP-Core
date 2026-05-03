@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HDGP-Core · Open Meta Baseline — Human Dignity Guardian Protocol</title>
+  <meta name="description" content="HDGP-Core: Apache-2.0 Meta ethics &amp; safety baseline. Semantics, governance, and integration contracts — community-governed, independent from the private mainline." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a30;
+      --text: #e8ecf5;
+      --muted: #9aa4bc;
+      --accent: #c9a227;
+      --link: #7eb8ff;
+      --border: rgba(255,255,255,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(1200px 600px at 20% -10%, #1a2744 0%, var(--bg) 55%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .badge {
+      display: inline-block;
+      font-size: .75rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(201,162,39,.35);
+      padding: .2rem .55rem;
+      border-radius: 999px;
+      margin-bottom: .75rem;
+    }
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      font-weight: 650;
+      margin: 0 0 .5rem;
+      letter-spacing: -.02em;
+    }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 52ch; margin: 0; }
+    .zh-lead { margin-top: 1rem; color: var(--muted); font-size: .98rem; }
+    section { margin: 2rem 0; }
+    h2 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0 0 1rem;
+      color: var(--text);
+      padding-bottom: .35rem;
+      border-bottom: 1px solid var(--border);
+    }
+    ul.links { list-style: none; padding: 0; margin: 0; }
+    ul.links li {
+      margin: .35rem 0;
+      padding: .65rem .85rem;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    ul.links li span.desc { display: block; font-size: .85rem; color: var(--muted); margin-top: .2rem; }
+    .note {
+      font-size: .9rem;
+      color: var(--muted);
+      padding: .85rem 1rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(201,162,39,.06);
+      border-radius: 0 8px 8px 0;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+      font-size: .88rem;
+      color: var(--muted);
+    }
+    .contact {
+      margin-top: .75rem;
+      padding: 1rem;
+      background: var(--panel);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    code { font-size: .9em; background: rgba(0,0,0,.25); padding: .1rem .35rem; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">HDGP-Core · Meta-only · Apache-2.0</div>
+      <h1>Open Meta ethics &amp; safety baseline</h1>
+      <p class="lead">
+        This site summarizes the <strong>HDGP-Core</strong> repository: semantics, contracts, and governance materials for weaving Meta guidance into systems — without bundling a runnable Engine or commercial PFaaS commitments.
+      </p>
+      <p class="zh-lead">
+        本站概述开源仓库 <strong>HDGP-Core</strong>：面向「伦理 Meta 层」的语义、契约与治理材料；不包含可运行的 Engine 内核或商业 PFaaS 承诺面。风格与定位可参考主站 <a href="https://www.hdgp-protocol.com/">hdgp-protocol.com</a>，但 Core 仅保留 Meta-only 规范基线。
+      </p>
+    </header>
+
+    <section>
+      <h2>Repository · 仓库</h2>
+      <ul class="links">
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core">GitHub — HumanDignityGuardian/HDGP-Core</a>
+          <span class="desc">Source of truth, Issues &amp; PRs · 源码与协作入口</span>
+        </li>
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/README.md">README.md</a>
+          <span class="desc">Scope, relationship to private mainline, governance snapshot · 范围与主系统关系</span>
+        </li>
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/MATERIALS_ALLOWLIST.md">MATERIALS_ALLOWLIST.md</a>
+          <span class="desc">File-level allowlist for Meta-only materials · 文件级材料白名单</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Core specifications · 核心规范</h2>
+      <ul class="links">
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/spec/HDGP_META_VS_JUDGE_SCOPE.md">spec/HDGP_META_VS_JUDGE_SCOPE.md</a>
+          <span class="desc">Meta vs Judge / Audit semantic boundary · Meta 与 Judge/Audit 边界</span>
+        </li>
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/spec/HDGP_ETHICS_BASELINE.md">spec/HDGP_ETHICS_BASELINE.md</a>
+          <span class="desc">Ethics baseline for HDGP itself · HDGP 自身伦理基线</span>
+        </li>
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/spec/HDGP_CORE_MAPPING_SPEC.md">spec/HDGP_CORE_MAPPING_SPEC.md</a>
+          <span class="desc">Kernel–rules–execution mapping · 内核–规则–执行映射</span>
+        </li>
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/spec/HDGP_INTEGRATION_SPEC.md">spec/HDGP_INTEGRATION_SPEC.md</a>
+          <span class="desc">Integration semantics (Meta-focused) · 集成语义（Meta 向）</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Governance &amp; process · 治理与流程</h2>
+      <ul class="links">
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/GOVERNANCE.md">GOVERNANCE.md</a>
+          <span class="desc">Roles, CHIP, multi-layer ethics governance · 角色与 CHIP、多层伦理治理</span>
+        </li>
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/docs/CHIP_PROCESS.md">docs/CHIP_PROCESS.md</a>
+          <span class="desc">Baseline Improvement Proposal process · 基线修订提案流程</span>
+        </li>
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/docs/CORE_EXTRACT_SNAPSHOT.md">docs/CORE_EXTRACT_SNAPSHOT.md</a>
+          <span class="desc">Mainline anchor &amp; isolation posture vs quarterly ethics alignment · 主系统锚点与隔离/季度伦理口径</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Quarterly ethics alignment · 季度伦理对齐</h2>
+      <p class="note">
+        <strong>EN:</strong> HDGP-Core and the private mainline publish a quarterly, verifiable attestation of top-level ethics anchor texts — not ongoing code sync.<br />
+        <strong>中文：</strong>Core 与私有主系统按季度发布最高伦理锚点文本的可验证对齐声明，不构成代码层面的持续同步义务。
+      </p>
+      <ul class="links">
+        <li>
+          <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_2026Q2.md">docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_2026Q2.md</a>
+          <span class="desc">Example quarter attestation (update path per quarter) · 季度声明示例</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2 style="border:none; margin-bottom:.5rem; padding:0;">Contact · 联系</h2>
+      <p style="margin:.25rem 0;"><strong>Yvaine He</strong></p>
+      <p style="margin:.25rem 0;"><a href="mailto:xyan8921@gmail.com">xyan8921@gmail.com</a></p>
+      <p style="margin:.75rem 0 0; font-size:.9rem; color:var(--muted);">
+        For security vulnerabilities, prefer <strong>GitHub Private vulnerability reporting</strong> on the repository; see <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/SECURITY.md">SECURITY.md</a>.
+      </p>
+    </section>
+
+    <footer>
+      <p>
+        Public site mirror (this page): <strong><a href="https://humandignityguardian.github.io/HDGP-Core/">humandignityguardian.github.io/HDGP-Core</a></strong><br />
+        Full product narrative, Engine demos, and PFaaS references: <a href="https://www.hdgp-protocol.com/">www.hdgp-protocol.com</a>
+      </p>
+      <p style="margin-top:.75rem;">
+        © HDGP-Core contributors · Content licensed per repository <code>LICENSE</code> (Apache-2.0).
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

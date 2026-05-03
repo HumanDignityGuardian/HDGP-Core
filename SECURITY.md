@@ -8,10 +8,10 @@ This repository hosts the open-source **Meta** baseline materials (semantics, co
 
 ### Alternative channels
 
-- **Security email**: TBD  
+- **Security email**: `xyan8921@gmail.com`  
 - **PGP key / fingerprint**: TBD  
 
-> Until a security email/PGP is published, please use GitHub private reporting. Do not disclose exploitable details in public Issues.
+> Prefer GitHub private reporting when available. If you use email, avoid exploitable details in the subject line; do not disclose exploitable details in public Issues.
 
 ### Support scope
 
@@ -39,10 +39,10 @@ This repository hosts the open-source **Meta** baseline materials (semantics, co
 
 ### 备选渠道
 
-- **安全邮箱**：TBD  
+- **安全邮箱**：`xyan8921@gmail.com`  
 - **PGP 公钥/指纹**：TBD  
 
-> 注意：在安全邮箱/PGP 尚未公布前，请优先使用 GitHub 私密报告渠道；不得向 Issue 公开披露可被立即利用的细节。
+> 注意：仍首选 GitHub 私密报告；使用邮件时请勿在主题行泄露可利用细节；不得向 Issue 公开披露可被立即利用的细节。
 
 ### 支持范围
 

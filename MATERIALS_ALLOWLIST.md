@@ -25,6 +25,8 @@
 | `spec/HDGP_CORE_MAPPING_SPEC.md` | Mapping from principles to executable constraints |
 | `spec/HDGP_INTEGRATION_SPEC.md` | Integration semantics (**excerpt** Meta-related sections) |
 | `GOVERNANCE.md` | Governance |
+| `docs/index.html` | GitHub Pages landing page (static index linking to repo specs & governance) |
+| `docs/.nojekyll` | Disables Jekyll processing for GitHub Pages (`docs/` publishing) |
 | `docs/CORE_EXTRACT_SNAPSHOT.md` | Post–Gate G extract snapshot (mainline SHA + §6 copy-paste block) |
 | `docs/CHIP_PROCESS.md` | CHIP process |
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | Quarterly ethics alignment attestation (traceable link required; used by external review) |
@@ -32,7 +34,7 @@
 | `CODE_OF_CONDUCT.md` | Code of conduct |
 | `HDGP_OPEN_FRAMEWORK.md` | Framework overview (**excerpt** Meta-related sections) |
 | `README.md` | Mandatory statements and scope boundaries |
-| `SECURITY.md` | Security disclosure policy (prefer GitHub private reporting; email/PGP may be TBD, must not be fabricated) |
+| `SECURITY.md` | Security disclosure policy (prefer GitHub private reporting; optional email published there — must not be fabricated) |
 
 ---
 
@@ -73,6 +75,8 @@
 | `spec/HDGP_CORE_MAPPING_SPEC.md` | 原则到可执行映射 |
 | `spec/HDGP_INTEGRATION_SPEC.md` | 集成语义（**节选** Meta 相关章节） |
 | `GOVERNANCE.md` | 治理 |
+| `docs/index.html` | GitHub Pages 首页（静态索引，链至仓库内规范与治理文档） |
+| `docs/.nojekyll` | GitHub Pages 禁用 Jekyll（从 `docs/` 发布时） |
 | `docs/CORE_EXTRACT_SNAPSHOT.md` | 门槛 G 之后提取快照（主系统 SHA + §6 可复制块） |
 | `docs/CHIP_PROCESS.md` | CHIP 流程 |
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | 伦理对齐季度声明（需可追溯链接；供外部复核） |
@@ -80,7 +84,7 @@
 | `CODE_OF_CONDUCT.md` | 行为准则 |
 | `HDGP_OPEN_FRAMEWORK.md` | 框架总览（Core 侧 **节选** Meta 相关章节） |
 | `README.md` | 必备声明与边界（见仓库根目录 README） |
-| `SECURITY.md` | 安全披露渠道（首选 GitHub Private vulnerability reporting；邮箱/PGP 可 TBD，不得编造） |
+| `SECURITY.md` | 安全披露渠道（首选 GitHub Private vulnerability reporting；备选邮箱见该文件 — 不得编造） |
 
 ---
 
