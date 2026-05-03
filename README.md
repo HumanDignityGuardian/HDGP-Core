@@ -12,6 +12,8 @@ This repository (HDGP-Core) is an **open-source Meta baseline**, governed and ev
 
 **Security disclosure**: this repository provides `SECURITY.md` for private security reporting (prefer GitHub Private vulnerability reporting; security email/PGP may remain TBD if not published).
 
+**Governance snapshot note**: the **final** Meta-only document pick from the private mainline was performed at mainline commit **`e60732ea78a29ddb168a41be8792dff96af5ee59`** (**2026-05-03**), per `docs/CORE_EXTRACT_SNAPSHOT.md` and the mainline **HDGP_CORE_FINAL_PULL_PLAN** (in the private `HDGP-Protocol` repository; not distributed inside Core). Governance wording in this repo reflects that snapshot; **community governance mechanics here may differ** from the private mainline. **No ongoing spec/repo sync** is implied except **quarterly ethics alignment** attestation materials allowed by `MATERIALS_ALLOWLIST.md`.
+
 ---
 
 ## 仓库范围与能力边界
@@ -67,6 +69,8 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 **不在本开源仓库默认范围内的能力**（通常在主系统或商业侧提供）：完整策略执行核（Judge/Engine）与运维发布门禁、合规与认证背书服务、审计证据链与托管级运维、行业与企业扩展集成。若你需要上述能力，请通过主系统或官方商业渠道了解，而非默认期待本仓库发布物包含同等范围。
 
 **安全披露**：本仓库提供 `SECURITY.md` 用于私密报告安全问题（优先 GitHub Private vulnerability reporting；安全邮箱/PGP 若未公布则为 TBD）。
+
+**治理快照脚注**：自私有主系统完成的 **最后一次** Meta-only 文件拣选锚点为 **`e60732ea78a29ddb168a41be8792dff96af5ee59`**（**2026-05-03**），依据 `docs/CORE_EXTRACT_SNAPSHOT.md` 与主系统私有仓内 **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`**（**未**作为文件纳入 Core，仅作来源说明）。本仓库治理表述对应该快照时点；**社区治理机制可与闭源主系统不一致**。除 **`MATERIALS_ALLOWLIST.md`** 允许的 **季度伦理对齐** 材料外，**不暗示**与主系统持续规范/仓库同步。
 
 ---
 

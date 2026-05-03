@@ -1,59 +1,7 @@
-## HDGP Kernel–Rules–Execution Mapping Specification (Draft)
+## 《HDGP 内核–规则–执行 映射规范》（草案）
 
-> This specification defines how to map **baseline principles** (kernel layer), **core rules** (protection layer), and the **human–machine collaboration baseline** (execution layer) into **executable rules, policy bundles, an Engine, and workflows**.  
-> Goals:
-> - Any concrete behavior can be traced upward to its corresponding baseline principle clause(s).  
-> - Any change to a baseline principle can be traced downward to all affected implementations.
-
----
-
-## English version (summary-aligned translation)
-
-### 1. Layered objects and naming (A → P → R → B → S → W)
-
-We define six object types along the “text-to-execution” chain:
-
-- **A (Axiom / Article)**: baseline principle clauses (kernel-level value text).  
-- **P (Principle)**: technical principles derived from one or more A clauses.  
-- **R (Rule)**: specific, testable, implementable rules derived from P.  
-- **B (Bundle)**: a versioned package of rules R, with metadata and (optionally) signatures.  
-- **S (Strategy / Profile)**: configuration selecting bundles and parameters for a context/tenant.  
-- **W (Workflow)**: an application execution workflow that uses Meta/Skills and invokes the decision gate per strategy S.
-
-ID naming conventions should be stable and traceable (e.g., `A-...`, `P-...`, `R-...`, `B-...`, `S-...`, `W-...`). Engines and logs should prefer IDs over natural language for one-to-one traceability.
-
-### 2. From baseline to rules (A → P → R → B)
-
-- **A → P**: maintain a mapping table that explains how each baseline clause yields one or more principles, including conflicts/priority where needed. P must cite its source A clause(s).  
-- **P → R**: define machine-readable rules containing at least: `id`, `principle_id`, `description`, `trigger`, `effect`, `severity`, `scope`. Rules must not contradict upstream principles.  
-- **R → B**: bundle rules into a versioned bundle with `bundle_id`, `spec_version`, rule list, and signature metadata (if provided). Signature validation failures must reject loading.
-
-### 3. From rules to execution (B → S → W)
-
-- **B → S**: strategy profiles select bundles and configure thresholds/parameters. Core prohibitions must remain enabled; strategy must not bypass them.  
-- **S → W**: workflows build Meta, pick strategies, orchestrate skills, and invoke the decision gate at required checkpoints. Workflows should declare required policies and checkpoints explicitly.
-
-### 4. Conflict resolution (draft)
-
-When multiple rules trigger with inconsistent effects, apply an explicit priority order (e.g., **deny/fuse** > **rewrite** > **human escalation** > **allow**). Within the same effect, use severity, then stable ordering rules. Log the full set of triggered rules, applied priorities, and final decision.
-
-### 5. Engine mapping and logging requirements
-
-For each evaluation, record strategy S, bundles B, evaluated rules R and hits, upstream P/A IDs (derivable), and the final verdict/action. Logs should enable both “why” traceability and impact analysis when upstream principles change.
-
-### 6–7. Change propagation and future work
-
-Define top-down propagation steps for baseline/principle changes and bottom-up debugging steps for behavior incidents. Keep the mapping spec itself consistent with the ethics baseline and avoid “exception paths” for HDGP itself.
-
----
-
-## 中文版本 (ZH-CN)
-
-以下为中文对照版本。
-
----
-
-## 《HDGP 内核–规则–执行 映射规范》（草案）(ZH-CN)
+> 本规范定义：如何将“基线原则”（内核层）与《HDGP 核心规则》（防护层）、“人机协作基线”（执行层），系统性映射到 **可执行规则、规则包、Engine 与工作流**。  
+> 目标是：任何一个具体行为，都可以自下而上追溯到对应的基线原则条款；任何一条基线原则条款的变更，都能自上而下找到所有受影响的实现。
 
 ---
 
@@ -112,7 +60,7 @@ Define top-down propagation steps for baseline/principle changes and bottom-up d
 - 原则 P：`P-<section>-<index>`  
   - 如：`P-A1-01` 表示由 `A-CORE-01` 导出的第一条原则。
 - 规则 R：`R-<principle-id>-<index>`  
-  - 如：`R-P-A2-01-01`，可通过前缀直接追溯关联原则与条款。
+  - 如：`R-P-A1-01-01`，可通过前缀直接追溯关联原则与条款。
 - 规则包 B：`B-<name>-<version>`  
   - 如：`B-CORE-1.0.0`。
 - 策略 Profile S：`S-<context>-<name>`  

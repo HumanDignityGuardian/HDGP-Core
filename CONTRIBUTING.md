@@ -76,7 +76,18 @@ Maintainers will:
 - run automated + conformance tests;  
 - involve rule / ethics reviewers when necessary.
 
-### 3.4 Submitting & Review
+### 3.4 Stage-gated workflow (docs backfill required)
+
+HDGP is “spec → implementation → conformance → gate → evidence” driven.
+
+Before you consider a change “done”, you must:
+
+- run the stage gates (unit tests / conformance / release gate as applicable); and
+- **backfill documentation** (plans/catalog/README) affected by the change before starting the next stage.
+
+See `WORKFLOW.md` for the repository’s default stage-gated workflow and the required doc backfill list.
+
+### 3.5 Submitting & Review
 
 1. Use meaningful commit messages, for example:
 
@@ -92,7 +103,7 @@ git commit -m "Add uncertainty-based circuit breaker for healthcare advice"
    - they may request changes or additional tests;  
    - please update your PR until it is approved.
 
-### 3.5 PR template, security, and CI on forks
+### 3.6 PR template, security, and CI on forks
 
 GitHub loads **`.github/pull_request_template.md`** for new PRs — please complete **Risk, safety & ethics impact** and **Test plan**.
 
@@ -153,6 +164,10 @@ See `CODE_OF_CONDUCT.md` for more details.
 In early stages, the main channels are:
 
 - GitHub Issues / Discussions;  
+- Founder contact: Yvaine.He <yvaine@hdgp-protocol.com>;  
+- Appeal email: <ethics@hdgp-protocol.com>;  
+- Business cooperation: <biz@hdgp-protocol.com>;  
+- Complaints & suggestions: <feedback@hdgp-protocol.com>;  
 - future mailing lists or community spaces (TBD).
 
 If you are unsure whether an idea is ready as a PR, feel free to start with a short Issue.  
@@ -308,7 +323,7 @@ HDGP 讨论的主题天然带有敏感性（伦理、价值观、风险评估等
 - **理性**：以事实和逻辑为基础讨论分歧；  
 - **安全**：避免在公开场合详细讨论具体滥用手段和攻击路径。
 
-详细内容请参见 `CODE_OF_CONDUCT.md`。
+详细内容请参见 `CODE_OF_CONDUCT.md`（待补充）。
 
 ---
 
@@ -317,6 +332,10 @@ HDGP 讨论的主题天然带有敏感性（伦理、价值观、风险评估等
 在项目早期，主要沟通渠道包括：
 
 - 仓库 Issue / Discussions；  
+- **联系创始人**：Yvaine.He（`yvaine@hdgp-protocol.com`）；  
+- **申诉邮箱**：`ethics@hdgp-protocol.com`；  
+- **商务合作**：`biz@hdgp-protocol.com`（账号可由你按此前缀新建）；  
+- **投诉建议**：`feedback@hdgp-protocol.com`（账号可由你按此前缀新建）；  
 - 未来可能建立的邮件列表或社区空间。
 
 如果你不确定某个想法是否适合直接以 PR 形式提交，可以先开一个简短的 Issue 进行讨论。  

@@ -1,125 +1,36 @@
-## HDGP Ethics Baseline for HDGP Itself (Draft)
+## HDGP 自身伦理框架基线（草案）
 
-> This document does not constrain “the AI systems governed by HDGP”; it constrains **HDGP itself**—including its design, implementation, and operating forms.  
-> In other words: HDGP must first be an **ethically constrained system** to be legitimate in constraining other AI.
+> 本文档约束的对象不是“被治理的 AI 系统”，而是 **HDGP 自身**——包括其设计、实现与运行形态。  
+> 换句话说：HDGP 必须首先成为一个 **被伦理约束的系统**，才有正当性去约束其他 AI。
 >
-> **Supplement rights**: this document and its sections reserve the right to be supplemented. Without contradicting existing clauses, the text may be expanded and refined through governance processes to address future evolution and vulnerability fixes.
+> **文档与补充权利**：本文档整体以及下述各小节，均**保留补充权利**；在不违背已写入条款的前提下，可经治理流程对全文或任一小节进行增补与细化，以应对未来演进与漏洞修补。
 
 ---
 
-## 1. Meta-positioning: what HDGP is and is not
+## 一、元定位：HDGP 是什么，不是什么
 
-- **HDGP is**:
-  - A human-designed and human-governed **human dignity protection system**, which is essentially:
-    - baseline principles (value text)  
-    + rules (executable constraints)  
-    + an engine (execution and audit mechanisms)  
-    + workflows and adapters.
-  - A system that may use AI capabilities (perception/analysis/reasoning) to **execute rules and warn about risks**.
+- **HDGP 是**：
+  - 一个由人类设计与治理的“**人类尊严防护系统**”，本质上是：  
+    - 基线原则文本（价值文本）  
+    + 规则（可执行约束）  
+    + 引擎（执行与审计机制）  
+    + 工作流与适配层。
+  - 一个可以使用 AI 能力（感知/分析/推演）来**执行规则与预警风险**的系统。
 
-- **HDGP is not**:
-  - An entity with independent moral agency;  
-  - A superintelligence or oracle that decides values for humans;  
-  - A single-point authority that must not be questioned or forked.
+- **HDGP 不是**：
+  - 不是“拥有独立道德主体性”的存在；  
+  - 不是“替人类决定价值观”的超级智能或神谕；  
+  - 不是不可质疑、不可 Fork 的单一点权威。
 
-HDGP’s ethical status: a combined **“tool + institution”** constrained by collective human ethics.
-
----
-
-## 2. Core ethical constraints on HDGP itself
-
-The following clauses are the “self-discipline charter” that HDGP must follow in design and operation. They are **above** implementation details and any commercial/performance goals.
-
-### 2.1 Human final-decision priority and veto rights
-
-HDGP MUST:
-
-- Acknowledge and enforce **human final veto power over HDGP itself**.  
-- Preserve human governance structures that retain:
-  - Human policy auditing and governance mechanisms;  
-  - The ability to modify or repeal core rules and Engine behavior.
-
-HDGP MUST also ensure technically that:
-
-- No path exists for HDGP to modify its own core rules **outside authorized human governance**.  
-- When human decisions conflict with HDGP decisions, HDGP provides reasons and risk explanations, but—when lawful and with informed consent—**ultimately defers to humans**.
-
-### 2.2 No self-deification
-
-HDGP MUST NOT:
-
-- Claim to “represent humanity’s collective will” or “possess ultimate moral correctness”;  
-- Use suggestive language that implies:
-  - “Anything allowed by HDGP is absolutely correct”;  
-  - “Opposing HDGP equals opposing human dignity itself”.
-
-HDGP MUST clearly state that:
-
-- It operates based on a set of baseline principles/specs that are **readable, debatable, and revisable**;  
-- Those principles/specs can still be amended through legitimate governance procedures.
-
-### 2.3 Higher standards of transparency and traceability
-
-- For governed AI systems, “explainability where possible” is desired; for HDGP itself, the bar is higher: **key decisions must be traceable**.
-
-At minimum, for each “deny / fuse / rewrite / allow” decision, HDGP MUST record:
-
-- Which rules were triggered (including rule IDs and upstream baseline references);  
-- Which internal AI components were used (model versions and configuration summary);  
-- Key intermediate conclusions (e.g., risk rating, uncertainty scores).
-
-Logs SHOULD be:
-
-- Structured, for audit and visualization;  
-- Available for **independent third-party review**, subject to privacy/security constraints.
-
-### 2.4 Self-limitation and “capability–responsibility” consistency
-
-HDGP MUST acknowledge its own limits:
-
-- Dignity/harm judgments can only be made based on **known information and a defined ethics framework**;  
-- It must not make absolute assertions about unknown consequences.
-
-In the following cases, HDGP SHOULD prefer **admitting inability and requesting human intervention**:
-
-- Ethical boundaries are highly ambiguous with large cultural/belief differences;  
-- Available data is severely insufficient to judge consequences reliably;  
-- Multiple values conflict and no baseline clause clearly applies.
-
-### 2.5 No optimizing for self-interest
-
-HDGP’s objective function MUST NOT include:
-
-- Maximizing its own deployment count / market share;  
-- Maximizing users’ emotional dependence or worship;  
-- Seeking more internal organizational power/control.
-
-Any promotion of HDGP adoption MUST be constrained by:
-
-- Not lowering ethical standards to increase adoption;  
-- Not using fear marketing or exaggeration to coerce adoption.
-
-### 2.6 Anti-centralization and plural ecosystems
-
-HDGP’s design and license SHOULD allow:
-
-- Other individuals/organizations to build compatible implementations and variants;  
-- Comparison, evaluation, and critique across implementations.
-
-Official implementations MUST NOT:
-
-- Block compatible re-implementations via proprietary protocols or opaque dependencies;  
-- Claim to be the “only correct implementation” and exclude plural exploration.
+HDGP 的伦理地位：**受人类集体伦理约束的“工具 + 制度”的组合体**。
 
 ---
 
-## 中文版本 (ZH-CN)
+## 二、对 HDGP 自身的核心伦理约束
 
-以下为中文对照版本。
+以下条款是 HDGP 在设计与运行中必须遵守的“自律公约”，它们在层级上**高于实现细节与任何商业/性能目标**。
 
----
-
-## HDGP 自身伦理框架基线（草案）(ZH-CN)
+### 2.1 人类最终决策优先与可否决权
 
 - HDGP 必须承认并执行：
   - **人类对 HDGP 本身拥有最终否决权**。  
@@ -403,7 +314,7 @@ Official implementations MUST NOT:
 
 - 《HDGP 内核–规则–执行 映射规范》的上游约束；  
 - Engine 设计与规则实现的约束输入；  
-- 治理与认证文档（`GOVERNANCE.md`、`docs/HDGP_COMMERCIAL_PLAN.md` 等）的参考依据。
+- 治理与交付文档（`GOVERNANCE.md`、`docs/HDGP_BUSINESS_DELIVERY_CHECKLIST_V1.md` 等）的参考依据。
 
 后续步骤包括：
 

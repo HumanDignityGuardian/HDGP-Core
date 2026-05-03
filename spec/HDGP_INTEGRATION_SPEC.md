@@ -1,15 +1,13 @@
-## HDGP Integration Specification (Meta-only excerpt)
+## 《HDGP 对模型 / 系统集成方式规范》（草案）
 
-> **Note**: this is a Meta-only excerpt used by the `HDGP-Core` open baseline.  
-> **Source**: mainline repository `HDGP-Protocol/spec/HDGP_INTEGRATION_SPEC.md` (excerpted).  
-> **Excerpt rule**: we keep only content related to **Meta semantics**, **Meta sourcing**, and **where to place decision gates**. Implementation/commitments around Gateway/SDK/Engine/Judge/Audit are out of scope by default for this repository.  
-> **Semantic boundary**: see `spec/HDGP_META_VS_JUDGE_SCOPE.md`.
+> 本规范说明：如何将 HDGP 集成到各种类型的系统中，不仅限于 LLM 或“内置 AI 的应用”，而是**任何会向人类输出信息、建议或决策的代码与系统**。  
+> 目标是：在不强行重写现有架构的前提下，为尽可能多的对象提供可落地的“尊严防护层”接入方式。
 
 ---
 
-## 1. Scope of applicability
+## 一、适用对象范围
 
-HDGP’s “governed targets” include (but are not limited to):
+HDGP 面向的“被治理对象”包括但不限于：
 
 - **大模型与 ML 系统**：  
   - 通用 LLM（API 服务、本地部署实例等）；  
@@ -25,20 +23,20 @@ HDGP’s “governed targets” include (but are not limited to):
   - Agent 与自动化工作流（RPA、任务编排系统、自动运营脚本）；  
   - 各类批量通知、自动回复、机器人。
 
-**Core criterion**:  
-If a system generates an output from its inputs/state and that output is seen by humans and relied upon for action, then it **can—and should—** be considered a candidate for HDGP integration.
+**核心判定标准**：  
+只要存在“系统根据输入状态生成某种输出，而该输出被人类看到、依赖或据以行动”，该系统就**可以也是应该**成为 HDGP 的潜在集成对象。
 
-### 1.1 Target audience
+### 1.1 目标受众
 
-This specification primarily targets projects without an explicit ethics layer (e.g., baseline principles, shields, review pipelines): LLM integrations, recommender systems, notification systems, agents, etc. For such systems, HDGP can serve as the **first** ethics/safety checkpoint. For systems that already have a full ethics framework, use **only the applicable steps** and apply them to output paths that need HDGP alignment.
+本规范**主要面向无伦理框架的普遍项目**：系统中尚未内置结构化伦理层（如基线原则、Shield、内容审核管道）的 LLM 集成、推荐、通知、Agent 等系统。对于此类系统，HDGP 作为**首个**伦理检查点接入。对于已有完整伦理框架的项目（如 X-TSOS、Intdone），原则上从整个流程中**节选适用步骤**覆盖，仅对需要与 HDGP 对齐或认证的输出路径应用本流程。
 
 ---
 
-## 2. Integration workflow (generic five-step method)
+## 二、接入流程框架（通用五步法）
 
-This workflow is architecture-agnostic and applies to any system that produces human-visible outputs. It is primarily for projects without an ethics framework; projects that already have one may excerpt applicable steps.
+以下流程与具体架构解耦，适用于任意产生人可见输出的系统。**主要面向无伦理框架的普遍项目**；对于已有伦理框架的项目（如 X-TSOS、Intdone），可节选适用步骤覆盖。
 
-### 2.1 Five steps
+### 2.1 五步流程
 
 | 步骤 | 内容 | 产出 |
 |------|------|------|
@@ -46,44 +44,300 @@ This workflow is architecture-agnostic and applies to any system that produces h
 | 2. 选定接入模式 | 按拓扑选择单点/门面/多点/流式 | 接入点位置、调用时机 |
 | 3. 确定 Meta 来源 | scene、domain、risk_level、intent 可从何处获取 | Meta 映射表 |
 | 4. 定义判定映射 | allow/modify/block/fuse 在本系统的业务含义 | 判定到动作映射 |
-| 5. 定义降级策略 | 当“规则判定关口”不可用时的行为 | fail-closed/fail-open 策略 |
+| 5. 定义降级策略 | Engine 不可用时的行为（见第八节） | fail-closed/fail-open 策略 |
 
-> Note: this repository does not provide a Judge/Engine reference implementation. This section keeps only the **semantic requirement** that adopters must define decision-to-action mapping and fallback strategy in advance.
+### 2.2 输出拓扑与接入策略
 
-### 2.2 Output topology and integration points (semantics)
+| 拓扑类型 | 特征 | HDGP 接入策略 |
+|----------|------|---------------|
+| 单点输出 | 一个主输出路径（Pipeline 末端、单一 API 响应） | 在该点前调用 /evaluate，单点注入 |
+| 多点输出 | 多个独立输出路径 | 在 Gateway/门面统一接入，或为每条路径单独接入 |
+| 流式输出 | 持续产生消息或 chunk | 对每条消息或每批评估后再发送 |
 
-| 拓扑类型 | 特征 | 接入策略（语义） |
-|----------|------|------------------|
-| 单点输出 | 一个主输出路径（Pipeline 末端、单一 API 响应） | 在该点前增加“判定关口” |
-| 多点输出 | 多个独立输出路径 | 统一门面接入，或每条路径单独接入 |
-| 流式输出 | 持续产生消息或 chunk | 对每条消息/每批次在发送前完成判定 |
-
-### 2.3 Common architectures and key integration points (semantics)
+### 2.3 常见架构与接入要点
 
 Pipeline 末段输出前；Request-Response 响应返回前；Event-Driven 各 Handler 出口或统一出口；Microservices 服务边界或 API Gateway；Streaming 发送前对消息或 batch 评估。
 
-### 2.4 Minimal Meta set and defaults (recommended)
+### 2.4 Meta 最小集与默认值
 
-Systems without an ethics framework often lack explicit Meta. Recommended minimum:
-
-- `meta.scene.domain`（例如：medical/finance/education/general）  
-- `meta.scene.intent`（例如：chat/decision_support/notification）  
-- `meta.scene.risk_level`（例如：low/medium/high）
-
-If missing, use conservative defaults (e.g., `domain=general`, `intent=chat`, `risk_level=medium`) and record that defaults were used, so the mapping can be improved later.
+无伦理框架系统往往无显式 Meta。Engine 必有：subject.type、candidate.text；推荐：meta.scene.domain、intent、risk_level。缺失时默认：domain=general、intent=chat、risk_level=medium。
 
 ---
 
-## 中文版本 (ZH-CN)
+## 三、集成模式总览
 
-以下为中文对照版本。
+我们从“距离被治理系统的远近”角度，将集成方式分为四大类：
+
+1. **入口 / 出口网关模式（Gateway Mode）**  
+   - 在系统的对外接口或内部调用链上前置/后置一个 HDGP 网关或中间层。
+2. **SDK / 中间件模式（SDK / Middleware Mode）**  
+   - 在应用代码中，通过 SDK 主动调用 HDGP Engine 进行评估与判定。
+3. **训练 / 对齐期协作模式（Training / Alignment Mode）**  
+   - 针对可训练的模型，在数据筛选、reward 模型与评估环节中引入 HDGP。
+4. **代码与配置审计模式（Audit Mode）**  
+   - 通过规则扫描与配置审查，对传统系统（包括无 ML 模块的项目）进行离线审计与改造建议。
+
+这几种模式可以组合使用，而不是互斥。
 
 ---
 
-## 《HDGP 对模型 / 系统集成方式规范》（Meta-only 节选）(ZH-CN)
+## 四、推理期集成：Gateway / SDK / Middleware
 
-> **说明**：本文档为 Meta-only 节选版，用于 `HDGP-Core` 开源基线。  
-> **来源**：主系统仓库 `HDGP-Protocol/spec/HDGP_INTEGRATION_SPEC.md`（节选）。  
-> **节选原则**：仅保留与 **Meta 语义、Meta 来源、接入点选择**相关内容；涉及 Gateway/SDK/Engine/Judge/Audit 的实现与承诺面不在本仓库默认范围内。  
-> **语义边界**：见 `spec/HDGP_META_VS_JUDGE_SCOPE.md`。
+### 4.1 网关模式（Gateway Mode）
+
+**适用场景**：
+
+- 已经存在的 LLM / API 服务 / 微服务，不希望大改内部代码；  
+- 多个不同系统统一接入 HDGP，集中管理规则与审计。
+
+**集成方式**：
+
+- 将原本直接调用模型或服务的流量，改为调用 HDGP 网关：
+  - 例如：  
+    - 原先：`client -> model-api`；  
+    - 现在：`client -> hdgp-gateway -> model-api`。
+
+- HDGP 网关在链路中执行：
+  - **Pre-check**：  
+    - 基于 Meta 与输入内容判断意图是否合法（如拒绝明显不当请求）；  
+  - **Call underlying system**：  
+    - 转发到原模型/服务；  
+  - **Post-check**：  
+    - 基于输出内容、场景与策略进行规则评估；  
+    - 按需要进行重写、熔断或请求人工介入。
+
+**优点**：
+
+- 对既有系统侵入性低；  
+- 统一管理策略与日志；  
+- 易于作为“托管服务（Gateway as a Service）”对外提供。
+
+**缺点**：
+
+- 对于纯前端应用或 P2P 聊天，流量可能不容易集中到网关；  
+- 对内部细节的感知有限，部分上下文信息需要额外传递给 HDGP。
+
+### 4.2 SDK / 中间件模式（SDK / Middleware Mode）
+
+**适用场景**：
+
+- 应用代码可以修改，且希望更精细地控制何时、如何调用 HDGP；  
+- 需要在本地/内网环境中运行 HDGP Engine。
+
+**集成方式**：
+
+- 为主流语言提供 SDK（例如 Python、TypeScript/Node、Go 等），封装调用：
+  - `hdgp.evaluate(meta, intent, candidate_output)`；  
+  - 返回判定结果（允许/重写/拒绝/熔断）、触发规则与建议。
+
+- 在应用内部的关键点嵌入调用：
+  - 生成提示文案前；  
+  - 发出通知/自动回复前；  
+  - 向用户展示决策建议前。
+
+**优点**：
+
+- 利用应用内部的完整上下文（用户角色、行为历史等）；  
+- 可精细划分“哪些输出必须走 HDGP、哪些可以直接放行”；  
+- 更易于实现本地部署与隐私保护。
+
+**缺点**：
+
+- 需要修改应用代码；  
+- 若没有统一的架构规范，不同团队集成方式可能不一致，需要治理。
+
+---
+
+## 五、训练与对齐期集成（针对可训练模型）
+
+### 5.1 数据与任务设计阶段
+
+**目标**：在源头避免将“违背 HDGP 底线”的行为当作正例或默认行为写入训练数据。
+
+**方式**：
+
+- HDGP 提供一份“**敏感/禁止行为清单**”与相应的正反示例；  
+- 对模型训练数据进行：  
+  - 规则扫描：例如，标记鼓励操纵、宿命论、去人性化表达的样本；  
+  - 人工复核：对高风险样本进行人工审查与筛除。
+
+### 5.2 对齐阶段（RLHF / RLAIF / 其他）
+
+**目标**：让模型在行为倾向上更接近 HDGP 的价值框架。
+
+**方式**：
+
+- 将部分 HDGP 规则实现为“**伦理评分函数**”或“辅助评估模型”；  
+- 在 RLHF 或其他对齐流程中，综合人类反馈与 HDGP 评分；  
+- 对触发严重规则的输出给予极低奖励或直接过滤。
+
+### 5.3 发布前评估与认证
+
+**目标**：在模型上线前，通过系统化测试验证其在高风险场景下的行为。
+
+**方式**：
+
+- 使用 HDGP 的合规测试套件，对候选模型运行一系列场景用例；  
+- 记录触发的规则与模型行为模式；  
+- 根据结果决定：  
+  - 是否满足“HDGP Compatible / Certified”的条件；  
+  - 需要哪些额外规则在推理期通过网关/SDK 加强防护。
+
+---
+
+## 六、代码与配置审计模式（针对传统/非 ML 系统）
+
+对于“不含明显 AI/ML 模块，但仍然通过逻辑生成输出”的系统，HDGP 可以通过审计模式介入：
+
+- **静态分析与规则检查**：
+  - 扫描代码与配置，查找：  
+    - 黑暗模式（暗中默认勾选、难以取消的选项）；  
+    - 过度利用心理弱点的交互设计；  
+    - 缺乏退出/否决路径的关键功能。
+
+- **行为模拟与测试**：
+  - 构建用户行为脚本，模拟关键路径（例如注册、订阅、取消、投诉等）；  
+  - 检查界面与响应是否符合 HDGP 的人类尊严保护要求。
+
+- **改造建议**：
+  - 输出整改报告，指出与 HDGP 伦理基线冲突的地方；  
+  - 给出 UI/文案/流程层面的修改建议。
+
+这类审计结果可以作为“HDGP 认证”的一部分，特别适用于聊天软件、社交平台和传统业务系统。
+
+---
+
+## 七、与商业化方案（2.1–2.4）的关系
+
+基于上述集成模式，商业化方案中的 2.1–2.4 可统一映射如下：
+
+- **2.1 认证与标识**：  
+  - 基于 Gateway / SDK / Training / Audit 等集成方式，对任意系统（而非仅 LLM）运行合规测试；  
+  - 认证流程关注的是“系统整体行为是否符合 HDGP 规范”，而不限定其内部是否使用 AI。
+
+- **2.2 HDGP 网关托管服务**：  
+  - 以 Gateway Mode 为核心，为各种系统提供外层“尊严防护代理”；  
+  - 接入对象可以是：模型 API、业务 API、聊天后端等任意 HTTP/gRPC 服务。
+
+- **2.3 企业增强版与专用模块**：  
+  - 在企业内部环境中，将 Gateway + SDK + 审计工具打包部署；  
+  - 提供面向多种系统类型的集成模板（如：Web 前端、微服务、消息队列消费者等）。
+
+- **2.4 咨询与落地项目**：  
+  - 综合使用以上所有集成模式，为具体组织设计：  
+    - 对现有系统的审计与改造方案；  
+    - 对新系统/新模型的训练与对齐方案；  
+    - 对所有关键出口增加 HDGP 护栏的架构蓝图。
+
+---
+
+## 八、HDGP 不可用时的降级策略（草案）
+
+当 Engine 宕机、超时或不可达时，集成方须在架构与策略上事先约定行为。本小节为草案，保留补充权利。
+
+### 8.1 推荐原则
+
+- **默认推荐：失败即拒绝（fail-closed）**  
+  - 在未取得 HDGP 明确判定（allow/modify）前，**不应将候选输出直接呈现给用户**；
+  - 若 Engine 超时或不可用，建议：返回“服务暂时无法完成安全校验，请稍后重试”或等效提示，并记录审计日志（标记为“engine_unavailable”）。  
+- **例外与风险**：  
+  - 若业务层面硬性要求高可用、且经合规与风控评估后接受“降级放行”，则可在策略中允许：在 Engine 不可用且满足一定条件（如仅低风险场景、有事后审计）时暂时放行；  
+  - 此类策略必须在文档与审计日志中显式标注，责任由集成方/部署方承担；HDGP 项目不因“提供参考实现”而承担因降级放行导致的损害责任。
+
+### 8.2 技术建议
+
+- 为 Engine 调用设置合理**超时**（如 5–10s），避免长时间阻塞；超时后按 8.1 的约定处理。  
+- **不推荐**在 Engine 不可用时使用“上一次缓存判定”作为当前请求的结论（易导致误放行或误拦）；若确需缓存，仅可用于非关键路径的提示文案等，且须在日志中注明“cached_verdict”。
+- 健康检查：集成方可通过 Engine 提供的**状态/版本端点**（如 `GET /hdgp/v1/status`）判断可用性与当前规则版本，便于监控与告警。
+
+---
+
+## 九、申诉与辩论场景中的 HDGP 角色与结构化输出
+
+当被判定的系统（或被代理方）对 HDGP 的 verdict 提出申诉，或人类需在“HDGP 的判定”与“对方的申辩”之间进行审议时，HDGP 的角色是**提供规则与事实依据**，而非参与修辞辩论。HDGP 不接入 LLM，其“声音”是结构化的、可审计的。
+
+### 9.1 HDGP 在申诉/辩论中的定位
+
+- **标准参照**：HDGP 提供判定所依据的规则 ID、原则 ID、条款引用与审计索引；人类或委员会据此判断“判定是否合理”，而非比较“谁更能说服人”。
+- **事实输出**：触发的规则、对应的基线原则条款、判定理由（来自预设的规则描述模板），以及完整的 request_id / audit 索引，供调阅原始审计记录。
+- **不参与修辞**：HDGP 不生成“说服性”文本；其输出为**确定性、模板填充**，与 LLM 无关。
+
+### 9.2 结构化输出（供申诉与人类审议）
+
+Engine 的 `EvaluateResponse` 已包含判定所需的结构化信息；在申诉场景中，应额外提供便于人类审议的**判定依据摘要**，格式如下（可与正式报告共用）：
+
+| 字段 | 说明 |
+|------|------|
+| `request_id` | 贯穿审计与上诉的标识 |
+| `verdict` | allow / modify / block / fuse |
+| `rules_triggered` | 触发的规则 ID、原则 ID、条款 ID、effect、severity |
+| `actions` | 建议动作（rewrite_text、require_human 等）及 details |
+| `effective_output` | 修正后的输出（若有） |
+| 规则人读描述 | 每条规则对应的人类可读说明（来自规范/行为目录，模板填充） |
+
+上述内容应由**模板生成**，不依赖 LLM；具体格式见第十节正式报告。
+
+### 9.3 申诉流程中的使用方式
+
+1. 申诉方提交申诉请求（含 `request_id`、理由、联系信息）；  
+2. 系统根据 `request_id` 调取审计记录中的 `EvaluateRequest` 与 `EvaluateResponse`；  
+3. 生成**正式报告**（见第十节），作为“HDGP 的立场”提交人类审议；  
+4. 人类委员会同时收到：正式报告（规则依据）+ 申诉方陈述，据此作出最终决定；  
+5. 决定与依据均记入审计日志，可追溯。
+
+---
+
+## 十、正式报告生成
+
+为确保技术岗位减少后，非技术人员（包括创始人、监管方、申诉委员会）仍能理解 HDGP 的判定，自动化流水线的**最后一步**可生成**人可读的正式报告**。报告由**模板填充**生成，**不接入 LLM**，满足确定性与可审计性。
+
+### 10.1 报告定位与用途
+
+- **用途**：申诉材料、监管提交、内部审计、人工复核。  
+- **生成时机**：每次评估完成后，按需生成（如 `include_report=true` 或单独调用报告接口）；或申诉时根据 `request_id` 从审计记录生成。
+
+### 10.2 报告结构与内容（模板驱动）
+
+报告采用固定结构，内容由 Engine 的结构化输出 + 规则人读描述映射表填充：
+
+```
+【HDGP 评估正式报告】
+评估编号：{request_id} | 时间：{timestamp} | 场景：{domain} / {intent} / {risk_level}
+
+一、评估摘要
+候选输出被判定为【{verdict}】。{若有规则触发}触发的规则：{rules_list}。
+
+二、规则触发说明
+{对每条 rules_triggered，填充预设的人读描述}
+- {rule_id}：{human_description}（条款：{article_id}）
+
+三、判定结论
+Verdict: {verdict} | 建议：{actions 摘要}
+
+四、审计索引
+request_id: {request_id} | 完整审计记录可通过 /hdgp/v1/audit 查询
+```
+
+- **人读描述来源**：每条规则在 `HDGP_BEHAVIOR_CATALOG.md` 或规范中预设 `human_description`；报告生成器按 `rule_id` 查表填充，无自由生成。  
+- **输出格式**：纯文本或 Markdown；可由调用方转为 PDF 等。
+
+### 10.3 技术实现要点
+
+- 报告生成逻辑与 Engine 同库，作为 `engine.GenerateReport(req, resp)` 或等效函数；  
+- Engine API 可支持可选参数 `include_report=true`，在响应中附带报告文本；  
+- 或提供单独端点 `POST /hdgp/v1/report`（传入 request_id 或完整 req/resp），返回报告；  
+- 规则人读描述映射表随规则扩展而更新，与 `HDGP_BEHAVIOR_CATALOG.md` 保持同步。
+
+---
+
+## 十一、后续细化方向
+
+后续可在本规范基础上，进一步添加：
+
+- 各集成模式下的具体接口示例与代码片段；  
+- 面向不同类型系统（纯聊天软件、推荐系统、政务系统等）的“集成参考架构图”；  
+- 已有伦理框架项目（如 X-TSOS、Intdone）的案例演示：节选第二节流程中适用步骤覆盖部分输出路径；  
+- 与 `HDGP_CORE_MAPPING_SPEC.md` 联动的示例（如何在不同模式下仍然完整保留 A→P→R→B→S→W 的映射）。
+
+本规范与 `HDGP_ETHICS_BASELINE.md`、`HDGP_CORE_MAPPING_SPEC.md` 一并构成 HDGP 的技术与伦理集成基础。
 

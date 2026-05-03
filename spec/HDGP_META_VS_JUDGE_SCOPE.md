@@ -1,50 +1,4 @@
-# Semantic Boundary: Meta vs Judge/Audit (normative anchor)
-
-> **Purpose**: fix the semantic layering in the mainline (`HDGP-Protocol`) to avoid conflating “Meta guidance fields” with “hard rule execution / audit persistence”, and to provide a single normative anchor for **`HDGP-Core` (Meta-only)** materials selection.  
-> **Related**: the Open Framework overview is in `HDGP_OPEN_FRAMEWORK.md`; HTTP/field details are in `HDGP_ENGINE_API_SPEC.md` (mainline).
-
----
-
-## 1. Definitions
-
-| Term | Responsibility | Typical artifact (mainline) |
-|------|------|----------------------|
-| **Meta (guidance layer)** | Semantics and contracts such as scene, risk, accountable roles, escalation and human-review suggestions; **not** equivalent to automated enforcement | `meta` field family; “input-side” descriptions in ethics baseline and mapping specs |
-| **Judge (real-time rule evaluation)** | Executes hard verdicts on candidate outputs, such as **allow / modify / block / fuse** | Engine `/hdgp/v1/evaluate`, `/hdgp/v1/chat`, policy bundles |
-| **Audit (evidence)** | Operational semantics for structured records, hash chains, retention policies, and forensics | `/hdgp/v1/audit`, audit persistence, G3 evidence streams |
-
-**Boundary sentence**: Meta **describes risk and context**; Judge **executes policy**; Audit **preserves traceability and verifiability**. Adopters may implement **Meta only** (field weaving) without deploying any Engine from this repository; if Judge/Audit is enabled, corresponding specs/runbooks apply.
-
----
-
-## 2. Spec document ownership (read-only index)
-
-| Topic | Primary spec | Meta-related | Judge/Audit-related |
-|------|------------|-----------|------------------|
-| Ethics & principles | `spec/HDGP_ETHICS_BASELINE.md` | Baseline clauses, disclaimers | Anti-hijacking and change-governance sections |
-| Principles → executable mapping | `spec/HDGP_CORE_MAPPING_SPEC.md` | Mapping relations and semantics | Rule tiers and implementation constraints |
-| Integration semantics | `spec/HDGP_INTEGRATION_SPEC.md` | Meta, scenes, routing semantics | Engine-facing API surface, errors, circuit breaking |
-| Engine API | `spec/HDGP_ENGINE_API_SPEC.md` | `meta` structure and recommended fields | Verdicts, audit fields, integrity |
-| Kernel checklist | `spec/HDGP_KERNEL_CHECKLIST.md` | Governance and test traceability | Release and audit gates |
-
-**Selection note**: for **Meta-only** Core extraction, prefer **excerpts** from the “Meta-related” column; do not bulk-sync full Judge-heavy specs by default.
-
----
-
-## 3. Relationship to HDGP-Core open-source
-
-- The **mainline** maintains this file and the index above; the existence of the open-source Core repository does **not** create an automatic bi-directional code sync obligation.  
-- After gate **G** is satisfied, finalize the allowlist and extraction snapshot per the mainline process.
-
----
-
-## 4. Revisions
-
-Semantic changes should follow **`docs/CHIP_PROCESS.md`**. For typos or link fixes, a normal documentation PR is sufficient.
-
----
-
-# Meta 指导层与 Judge / Audit 职责边界（主系统规范锚点）(ZH-CN)
+# Meta 指导层与 Judge / Audit 职责边界（主系统规范锚点）
 
 > **目的**：在 `HDGP-Protocol` 内固定 **语义分层**，避免将「伦理指导字段」与「硬规则执行 / 审计落盘」混为一谈；并为日后 **`HDGP-Core`（Meta-only）** 拣选材料提供 **规范层单一事实源**。  
 > **关系**：Open Framework 总览见根目录 **`HDGP_OPEN_FRAMEWORK.md`**；HTTP 与字段细节见 **`HDGP_ENGINE_API_SPEC.md`**。
@@ -87,4 +41,3 @@ Semantic changes should follow **`docs/CHIP_PROCESS.md`**. For typos or link fix
 ## 4. 修订
 
 语义变更应走 **`docs/CHIP_PROCESS.md`**；若仅修正笔误或链接，可通过文档 PR 说明。
-
