@@ -4,7 +4,7 @@
 > **Final batch**: per mainline **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`** §7–§9, Core performed the **last Meta-only file-level pick** from private `HDGP-Protocol` on **2026-05-03**. After that pick, the two repositories are **operationally isolated** except **quarterly ethics alignment** (see **Repository isolation** below).  
 > **Mainline acceptance & freeze**: recorded in mainline **`docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`** (private `HDGP-Protocol`; not distributed in Core). Default: no further iteration of mainline→Core **batch pick** checklists; exceptions per that document (CHIP, security disclosure, written emergency alignment).  
 > **Core v1.0.0**: open Meta-only baseline **released** on **2026-05-03** with Git tag **`v1.0.0`** (first stable publication state after acceptance).  
-> **Core v1.0.1** (2026-05-04): patch tag **`v1.0.1`** — adoption ergonomics only (JSON Schema, `snippets/`, `docs/ADOPTION_STATEMENT_TEMPLATE.md`, `.gitignore`); **does not** alter this Gate G snapshot or the mainline pick.  
+> **Core v1.0.1** (2026-05-04): patch tag **`v1.0.1`** — adoption ergonomics (JSON Schema, `snippets/`, `docs/ADOPTION_STATEMENT_TEMPLATE.md`, `docs/ADOPTION_BUNDLE.md`, `.gitignore`) plus release documentation alignment (`README.md`, `docs/index.html`, `MATERIALS_ALLOWLIST.md`, this file); **does not** alter this Gate G snapshot or the mainline pick.  
 > **Related**: mainline policy `docs/HDGP_MAINLINE_BASELINE_FOR_CORE_EXTRACTION.md`; allowlist **Final** in **`MATERIALS_ALLOWLIST.md`** (from PRE-GATE review of `docs/HDGP_CORE_MATERIALS_ALLOWLIST_DRAFT.md`).
 
 ---
@@ -71,14 +71,14 @@ Per **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`** §7:
 - The private mainline records formal **handoff acceptance** in **`docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`** (`HDGP-Protocol`; **not** copied into Core): acceptance checklist, hash verification, Core `HEAD` at acceptance, and **§3** — **freeze** of further **batch “mainline → Core pick” work items**. **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`** and **`docs/HDGP_CORE_MATERIALS_PULL_GUIDE.md`** on mainline cross-reference this acceptance file.  
 - **Default thereafter (mainline)**: do **not** iterate standing “batch pull to Core” lists. **Exceptions**: CHIP-related coordination, **security disclosure**, or **written emergency alignment** with Core — as written in that acceptance document.  
 - **HDGP-Core `v1.0.0`**: this repository’s Meta-only baseline is **released as version 1.0.0** on **2026-05-03** (annotated tag **`v1.0.0`** on `main`), marking the first stable public baseline **after** mainline acceptance.  
-- **HDGP-Core `v1.0.1`** (2026-05-04): patch tag **`v1.0.1`** — adoption ergonomics only; **does not** change the pick or this snapshot.
+- **HDGP-Core `v1.0.1`** (2026-05-04): patch tag **`v1.0.1`** — adoption ergonomics and release-facing docs; **does not** change the pick or this snapshot.
 
 **简体中文**
 
 - 私有主系统在 **`docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`**（**未**纳入本 Core 仓）记录终局 **验收**：清单、哈希核验、验收时 Core `HEAD`、**§3** 对主系统→Core **批量拣选议题的冻结**。主系统 **`docs/HDGP_CORE_FINAL_PULL_PLAN.md`**、**`docs/HDGP_CORE_MATERIALS_PULL_GUIDE.md`** 已交叉引用该验收文。  
 - **此后默认（主系统）**：**不**再持续迭代「向 Core 批量拉取」类清单；**例外**：CHIP 相关协调、**安全披露**、或与 Core 的 **书面应急对齐**（见验收文）。  
 - **HDGP-Core `v1.0.0`**：本仓库 Meta-only 基线于 **2026-05-03** 以 **`v1.0.0`**（在 `main` 上打附注标签 **`v1.0.0`**）**正式发布**，作为通过主系统验收后的首个稳定公开状态。  
-- **HDGP-Core `v1.0.1`**（2026-05-04）：补丁标签 **`v1.0.1`** —— 仅采用侧配套；**不**改变拣选与本快照。
+- **HDGP-Core `v1.0.1`**（2026-05-04）：补丁标签 **`v1.0.1`** —— 采用侧配套与面向发布的文档对齐；**不**改变拣选与本快照。
 
 ---
 
@@ -141,7 +141,7 @@ If mainline has **not** finished stage C snapshot and finalized allowlist, compl
 > **用途**：记录 Gate G 闭合后的可拣选状态；并于 **`HDGP_CORE_FINAL_PULL_PLAN.md` §7–§9** 指导下完成 **最后一次** 主系统 → Core 的 **Meta-only 文件级拣选**（2026-05-03）。此后 **双仓完全隔离运作**，仅保留 **季度伦理对齐** 例外（见上文 **Repository isolation**）。  
 > **主系统验收与冻结**：见主系统 **`docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`**（**未**纳入 Core）；默认不再迭代「向 Core 批量拉取」清单，例外见该文（CHIP / 安全披露 / 书面应急对齐）。  
 > **Core v1.0.0**：**2026-05-03** 以 Git 标签 **`v1.0.0`** 正式发布首个稳定 Meta-only 公开基线。  
-> **Core v1.0.1**（2026-05-04）：补丁标签 **`v1.0.1`** —— 仅采用侧配套；**不**改变 Gate G 快照与主系统拣选。  
+> **Core v1.0.1**（2026-05-04）：补丁标签 **`v1.0.1`** —— 采用侧配套与面向发布的文档对齐；**不**改变 Gate G 快照与主系统拣选。  
 > **关联**：主系统策略见 `docs/HDGP_MAINLINE_BASELINE_FOR_CORE_EXTRACTION.md`；白名单见根目录 **`MATERIALS_ALLOWLIST.md`**。
 
 ---
