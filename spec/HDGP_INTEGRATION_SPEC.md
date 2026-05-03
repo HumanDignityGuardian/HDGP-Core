@@ -1,3 +1,161 @@
+﻿## HDGP Integration Spec for Models / Systems (Draft)
+
+> This spec explains integrating HDGP into **any system that produces human‑visible information, advice, or decisions** — not only LLM apps.  
+> **Goal**: provide a practical “dignity protection layer” without mandating a full architecture rewrite.
+
+---
+
+## 1. Scope of governed objects
+
+Targets include but are not limited to:
+
+- **LLM & ML stacks** — general LLM APIs, domain models (recommendation, scoring, risk), custom ML subsystems.  
+- **Traditional apps** — web/mobile/desktop, IM/social, internal CRM/ERP, etc.  
+- **Automation** — agents, RPA, orchestrators, batch bots, auto replies.
+
+**Core test**: if the system generates outputs humans read, rely on, or act on, it **should** be integratable with HDGP.
+
+### 1.1 Audience focus
+
+Primarily systems **without** an embedded ethics framework — HDGP becomes the first structured checkpoint. Systems with mature ethics stacks (named examples in Chinese mirror) should **adopt applicable subset steps** only where alignment/certification needs HDGP coverage.
+
+---
+
+## 2. Five-step integration framework
+
+Generic flow applicable to any human-visible output pipeline (also adaptable when ethics frameworks already exist — subset adoption).
+
+### 2.1 Steps
+
+| Step | Activity | Output |
+|------|----------|--------|
+| 1 | Map output topology | Inventory & topology type |
+| 2 | Choose integration pattern | Injection points & timing |
+| 3 | Define Meta sourcing | Meta mapping table |
+| 4 | Map verdict semantics | Business mapping for allow/modify/block/fuse |
+| 5 | Degrade when HDGP unavailable | fail-closed vs controlled fail-open policy |
+
+### 2.2 Topology vs strategy
+
+| Topology | Traits | HDGP strategy |
+|----------|--------|---------------|
+| Single exit | One main output path | Evaluate before exit |
+| Multi exit | Independent outputs | Gateway unify or per-path hooks |
+| Streaming | Continuous chunks/messages | Per-message or batched evaluation |
+
+Additional placement guidance summarized in Chinese mirror (pipeline end, request/response, events, gateway, streaming batches).
+
+### 2.4 Minimal Meta & defaults
+
+Systems lacking explicit Meta still supply Engine minimums (`subject.type`, `candidate.text`). Recommended: `meta.scene.domain`, `intent`, `risk_level`. Defaults when missing: `general` / `chat` / `medium`.
+
+---
+
+## 3. Integration pattern overview
+
+1. **Gateway mode** — HDGP sits on external/internal interfaces.  
+2. **SDK / middleware** — applications call Engine explicitly.  
+3. **Training / alignment** — inject HDGP into data & reward loops for trainable models.  
+4. **Audit mode** — offline scans & redesign guidance for non‑ML systems.
+
+Patterns may combine.
+
+---
+
+## 4. Inference-time integration (Gateway / SDK)
+
+### 4.1 Gateway
+
+Best when retrofitting existing services or centralizing multi-tenant rules.
+
+Traffic becomes `client → hdgp-gateway → backend`. Gateway performs pre-check, forwards call, post-check with rewrite/halt/human escalation.
+
+**Pros**: low intrusion, unified policy/logging, SaaS-friendly.  
+**Cons**: harder for P2P/front-end-only stacks; may need extra context piping.
+
+### 4.2 SDK / middleware
+
+Best when code can change and fine-grained hooks matter.
+
+SDK exposes `evaluate(meta, intent, candidate)` returning verdict + triggered rules.
+
+Embed before notifications, auto replies, recommendations.
+
+**Pros**: rich context, selective enforcement, local deployment/privacy.  
+**Cons**: requires engineering discipline per team.
+
+---
+
+## 5. Training & alignment integration
+
+### 5.1 Data & task design
+
+Provide banned/sensitive behavior catalogs; scan datasets for manipulation/dehumanization patterns; manual review for high-risk corpora.
+
+### 5.2 Alignment stages (RLHF/RLAIF/…)
+
+Encode HDGP rules as scoring/auxiliary evaluators; penalize severe violations.
+
+### 5.3 Pre-release evaluation
+
+Run conformance suites; decide certification needs & inference-stage reinforcements.
+
+---
+
+## 6. Audit mode for traditional systems
+
+Static analysis & behavioral simulation for UX patterns (dark patterns, coercive flows, missing exit paths). Outputs remediation guidance and may feed certification for IM/social/legacy stacks.
+
+---
+
+## 7. Mapping to commercial offerings (reference)
+
+Sections 2.1–2.4 in the Chinese mirror tie Gateway/SDK/Training/Audit modes to certification, hosted gateway, enterprise bundles, and consulting tracks — **conceptual mapping**; commercial execution remains mainline/commercial scope.
+
+---
+
+## 8. Degradation when Engine unavailable (draft)
+
+### 8.1 Principles
+
+- **Default fail-closed**: without an HDGP verdict (`allow`/`modify`), **do not** surface candidate outputs; show “safety check unavailable” messaging and log `engine_unavailable`.  
+- **Exceptions** require explicit risk acceptance, documentation, and tenant accountability — HDGP reference materials do not assume liability for ad‑hoc fail-open choices.
+
+### 8.2 Technical guidance
+
+Set timeouts (e.g. 5–10s); avoid recycling cached verdicts for new requests unless explicitly scoped & logged as `cached_verdict`. Use Engine status/version endpoints for monitoring.
+
+---
+
+## 9. Appeals & structured outputs
+
+HDGP supplies **deterministic, template-filled references** to rule & principle IDs — not rhetorical debate agents. LLMs are out of scope for HDGP’s voice.
+
+Structured appeal payloads remain as summarized in Chinese mirror (fields like `request_id`, `verdict`, `rules_triggered`, `actions`, `effective_output`).
+
+---
+
+## 10. Formal report generation
+
+Human-readable reports for regulators & committees must be **template-driven**, **LLM-free**, built from Engine structured outputs + cataloged human descriptions.
+
+Structure outline retained in Chinese mirror.
+
+---
+
+## 11. Further work
+
+Add interface samples, reference architectures per domain, cross-links with `HDGP_CORE_MAPPING_SPEC.md` for consistent A→P→R→B→S→W coverage across modes.
+
+This spec, with `HDGP_ETHICS_BASELINE.md` & mapping spec, forms HDGP’s technical + ethical integration baseline.
+
+
+---
+
+## 中文版本 (ZH-CN)
+
+> 以下中文与上文英文对应；社区阅读顺序以英文为先。
+
 ## 《HDGP 对模型 / 系统集成方式规范》（草案）
 
 > 本规范说明：如何将 HDGP 集成到各种类型的系统中，不仅限于 LLM 或“内置 AI 的应用”，而是**任何会向人类输出信息、建议或决策的代码与系统**。  
@@ -340,4 +498,5 @@ request_id: {request_id} | 完整审计记录可通过 /hdgp/v1/audit 查询
 - 与 `HDGP_CORE_MAPPING_SPEC.md` 联动的示例（如何在不同模式下仍然完整保留 A→P→R→B→S→W 的映射）。
 
 本规范与 `HDGP_ETHICS_BASELINE.md`、`HDGP_CORE_MAPPING_SPEC.md` 一并构成 HDGP 的技术与伦理集成基础。
+
 

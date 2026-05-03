@@ -1,3 +1,120 @@
+﻿## HDGP Community Baseline Framework Overview (Meta + Skill + Workflow + Engine)
+
+> **Scope**: This document describes the **full Open Framework narrative** (including Engine). In **`HDGP-Core` (Meta-only)**, adopt only chapters related to **`meta`** / ethics semantics; Judge/Audit/signing gates ship with the **private mainline** reference implementation and **have no obligation** to merge code into Core (see `docs/HDGP_MAINLINE_BASELINE_FOR_CORE_EXTRACTION.md`). **Semantic layering index**: `spec/HDGP_META_VS_JUDGE_SCOPE.md`.
+
+This document summarizes HDGP’s technical baseline stack and answers:
+
+- Does HDGP need an independent ethics framework?  
+- Is “Meta + Skill + Workflow” enough? Do we still need an Engine?  
+- Under “most comprehensive & safest” goals, what overall architecture do we target?
+
+---
+
+## 1. Does HDGP need an independent ethics framework?
+
+**Engineering conclusion**: **Yes** — and it must be **explicit, auditable, versioned**.
+
+Reasons:
+
+- HDGP optimizes for **human dignity & human final decision priority**, not raw efficiency — that is a strong value choice;
+- Without an explicit ethics baseline, implementations drift under UX / conversion / business KPI pressure;
+- A versioned ethics layer can:
+  - Separate value assumptions from code for debate/comparison;
+  - Localize to cultures/scenarios;
+  - Anchor conformance, certification, and audit criteria.
+
+Therefore specs & implementations should:
+
+- Maintain an ethics baseline under `spec/` (examples: human consciousness is non‑quantifiable; human final decision priority; diversity beats single‑metric efficiency; uncertainty prefers halt vs guessing; no exploiting psychological weaknesses for platform gain);  
+- Require every policy to declare its ethical premises and bump versions on change.
+
+In short: **HDGP cannot pretend to be “just code”.** We write the ethics explicitly and treat it as part of the **read‑only kernel + signed rules**.
+
+---
+
+## 2. Is Meta + Skill + Workflow enough? Why still an Engine?
+
+### 2.1 Strengths of Meta + Skill + Workflow
+
+Natural fit for HDGP:
+
+- **Meta**: shared context — user type, scenario (medical/finance/education/…), risk tier, preference profiles, active HDGP spec versions — shaping downstream decisions.
+
+- **Skills**: capabilities as governed units — LLM calls, retrieval, codegen, image gen, external APIs — each with description, risk labels, allowed/forbidden contexts.
+
+- **Workflows**: compose Meta + Skills per scenario — medical advice / tutoring / creative flows — inserting uncertainty checks, circuit breaks, human hand‑offs, audit hooks.
+
+Many projects stop here without a separate Engine.
+
+### 2.2 Why HDGP still adds an Engine layer
+
+Given HDGP’s goals we still add a unified **HDGP Engine** because:
+
+1. **Safety & consistency** — ad‑hoc workflows may interpret rules differently or omit critical checks.  
+2. **Read‑only kernel & signed rules** — kernel ethics/rules must load as signed bundles, not arbitrary workflow scripts.  
+3. **Unified circuit breaking & audit** — halt logic and structured audit collection must be cross‑workflow.  
+4. **Prevent bypass** — without a mandatory Engine, a new workflow could skip every guard while claiming “uses HDGP components”.
+
+Recommended safest architecture:
+
+- **Meta + Skill + Workflow** express intent;  
+- **Engine + Policy** decide whether intent/output complies and may halt.
+
+**Workflows propose; Engine adjudicates.**
+
+For weaker threat models with fully trusted stacks, you might omit a standalone Engine — HDGP targets **civilizational‑scale** risk and therefore keeps a **small, hard Engine** as the final gate.
+
+---
+
+## 3. Safest overall structure (summary)
+
+### 3.1 Logical layers
+
+- **Ethics & spec layer** (`docs/`, `spec/`) — baseline principles, ethics baseline, interfaces & behavioral norms; docs + machine‑readable rules.
+
+- **Engine layer** — load read‑only kernel & signed bundles; expose uniform evaluation (`evaluate(context, action, result)`); implement uncertainty halts, ethics risk scoring, human escalation; central audit logs; mandatory checkpoint for Meta/Skill/Workflow stacks.
+
+- **Meta layer** — users/scenarios/risk/preferences/spec versions fed into Engine.
+
+- **Skills** — wrap models/tools; calls pass through Engine authorization.
+
+- **Workflows** — compose flows; explicitly mark human‑confirm nodes, risk branches, recovery after faults.
+
+### 3.2 Safety mechanisms
+
+- **Read‑only kernel & signed rules** — verify signatures at load; reject unsigned/invalid bundles.
+
+- **Engine as mandatory gate** — external logic only proposes intents/candidates; Engine returns allow/modify/block/fuse; bypass paths must be impossible or explicitly “non‑HDGP mode”.
+
+- **Unified audit & observability** — structured logs, anonymization policies, external audit APIs.
+
+- **Composable Meta/Skill/Workflow** — customize Meta schemas, add Skills, author Workflows **only** if Engine cannot be bypassed.
+
+---
+
+## 4. Conclusion & next steps
+
+We adopt:
+
+- **Explicit ethics baseline specs**;  
+- **Meta + Skill + Workflow** orchestration with **Engine** as final gate;  
+- **Signed bundles + unified audit** to prevent silent erosion.
+
+Next steps (reference mainline deliverables where absent in Core):
+
+- Expand `spec/` with conflict‑resolution detail & minimal Engine API surfaces;  
+- Draft gateway/reference structures for Meta/Skill/Workflow/Engine interactions;  
+- Ship minimal demos validating halt & audit chains.
+
+This overview evolves with architecture.
+
+
+---
+
+## 中文版本 (ZH-CN)
+
+> 以下中文与上文英文对应；社区阅读顺序以英文为先。
+
 ## HDGP 社区基线框架总览（Meta + Skill + Workflow + Engine）
 
 > **文档范围**：本文件覆盖 **Open Framework 全栈叙事**（含 Engine）。对外开源仓库 **`HDGP-Core`** 以 **Meta-only** 为主时，仅拣选与 `meta`/伦理语义相关的章节即可；Judge/Audit/签名门禁等工程能力以**本仓库主系统**为参考实现载体，且**与 Core 无代码合入义务**（见 `docs/HDGP_MAINLINE_BASELINE_FOR_CORE_EXTRACTION.md`）。**语义分层索引**见 **`spec/HDGP_META_VS_JUDGE_SCOPE.md`**。
@@ -187,4 +304,5 @@
   - 一个最小可运行的 Demo，用于验证熔断与审计链路。
 
 本文件会随架构演进持续更新。
+
 

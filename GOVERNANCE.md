@@ -1,3 +1,249 @@
+﻿## HDGP Governance Draft (Genesis)
+
+This document describes **roles, decision processes, and change-management principles** for HDGP governance.  
+The model evolves with the project; this revision is a **Genesis draft**.
+
+---
+
+## 1. Vision and scope
+
+- HDGP aims to build an **open, transparent, auditable, and evolvable** public technical baseline.
+- Governance priorities:
+  - **Prevent silent dilution or tampering** of HDGP’s core values and rules;
+  - **Enable discussion and experimentation** under transparency.
+
+Governance does not dictate downstream usage, but does own:
+
+- Official **spec** versioning;
+- Direction and quality of official reference implementations;
+- Grant and revocation of **HDGP marks/certification**.
+
+---
+
+## 2. Roles and responsibilities
+
+> Roles may be held by individuals or teams and may expand to organizations.
+
+### 2.1 Project Founder / Founding Guardian
+
+In Genesis:
+
+- Sets initial vision and value boundaries;
+- Appoints initial maintainers and policy auditors;
+- For **meta‑charter principle changes**, **brand/trademark policy**, **license changes**, and similar major matters: participates as **one required consenting party** (not a solo veto; works with §6 multi‑layer process).
+
+As the project matures, founder powers may be delegated or constrained by community consensus (see §6 and `docs/CHIP_PROCESS.md`).
+
+### 2.2 Core Maintainers
+
+- Maintain repository & CI/CD;
+- Review and merge routine PRs;
+- Manage Issues and roadmap;
+- Evolve implementation detail/architecture without weakening core clauses.
+
+Powers:
+
+- Merge PRs after CI and ≥1 maintainer review;
+- Drive minor releases (e.g. `1.1.0` → `1.2.0`).
+
+### 2.3 Policy Auditors
+
+- Review changes touching `policies/`, `spec/`, and ethics framing;
+- Assess conformance suite coverage/quality;
+- Review release/signing requests for policy bundles.
+
+Powers:
+
+- **Veto** changes that lower safety thresholds or relax protections without documented rationale.
+
+### 2.4 Certification Committee (planned)
+
+Later-stage body with diverse experts.
+
+Responsibilities:
+
+- Maintain conformance baselines and upgrade strategy;
+- Decide HDGP Certified / Compatible marks;
+- Handle naming/brand disputes.
+
+### 2.5 Contributors / Users
+
+Anyone may file Issues/PRs, discuss specs/implementation, fork under license.
+
+Changes to norms and core rules follow public discussion and formal flows above.
+
+---
+
+## 3. Decision types and flows
+
+### 3.1 Routine technical changes (implementation)
+
+Examples: refactor, performance, adapters, bugfixes.
+
+Flow: Issue/PR → automated & conformance tests → ≥1 maintainer review → merge.
+
+No policy auditor/cert committee required.
+
+### 3.2 Policy / spec changes
+
+Examples: circuit thresholds, allow/deny behaviors, ethics priorities.
+
+Flow:
+
+1. Proposal Issue with motivation & impact;
+2. Tag PR `policy-change` / `spec-change`;
+3. Automated + conformance tests;
+4. ≥1 policy auditor confirms:
+   - dignity / human-final-decision boundaries not weakened **or** weakening is explicitly documented and debated;
+5. Major changes may require extended public discussion before merge.
+
+### 3.3 Major directional shifts (values / core clauses)
+
+Examples: revising “human consciousness is non‑quantifiable”; changing “humans always above system”; license or trademark policy pivots.
+
+Suggested flow:
+
+- Label **CHIP**; full steps in **`docs/CHIP_PROCESS.md`** (self‑check, accountability, notice, high bar);
+- ≥30 days comment window;
+- Requires **explicit consent** from **all** of:
+  - Founding Guardian (or successor);
+  - Multiple policy auditors;
+  - Certification committee once formed;
+  - Plus **all** §6 layers (self‑check, accountability, notice, high bar);
+- Publish **new spec generation** (e.g. `HDGP‑1.1`); older generation marked “not recommended”.
+
+---
+
+## 4. Policy bundles & releases
+
+> Implementation details land in technical docs; here are governance constraints.
+
+### 4.0 Genesis / Single Maintainer mode (real-world constraint)
+
+Genesis may have **one accountable maintainer**. Governance explicitly supports **Single Maintainer** with **compensating controls** so outsiders can still verify/trace and multi‑sign can arrive later without rewriting history.
+
+Principles:
+
+- Single Maintainer is **temporary**; target remains multi‑party co‑sign (see §4.2, §6.4).
+- Effectiveness comes from **cryptographic evidence + auditable chain + named owner + rollback**, not verbal promises.
+- Public honesty: when claiming “signed/verified”, disclose Single Maintainer mode if applicable.
+
+**Compensating controls (required)**
+
+1. **Named accountability** — maintainer bears legal/reputational consequences for signing/releases (see §6.2).
+2. **Key transparency** — signing `key_id` registered in a publicly checkable trust anchor (see mainline `spec/HDGP_POLICY_BUNDLE_SIGNING.md` §7 where applicable).
+3. **Delayed effective window (default)** — except emergencies, releases include notice/delay (e.g. ≥72h) for external review; emergencies require post‑hoc review (§6.5).
+4. **Evidence indexing** — each release runs gates and records evidence (`EVIDENCE_INDEX.md`, hashes, covenant verify).
+5. **Revocation & rollback** — publish revocation & rollback guidance (§4.3).
+
+### 4.1 Candidate builds
+
+CI/CD produces gateways/images, policy bundles, conformance reports, change summaries.
+
+### 4.2 Audit & signing
+
+Auditors review deltas vs prior version, conformance pass/fail rationale, risk increases without compensating controls.
+
+Approved bundles/releases:
+
+- Signed keys + public fingerprints;
+- **Target**: multi‑sig (≥2‑of‑N);
+- **Genesis exception**: single signature allowed only with §4.0 controls and explicit Single Maintainer disclosure.
+
+### 4.3 Announcements & revocation
+
+Releases announce version, applicable HDGP spec version, verification instructions; templates may live in mainline `docs/HDGP_GOVERNANCE_PUBLIC_NOTICE_TEMPLATES.md`.
+
+Serious issues → revocation notices, “unsafe / not recommended”, blocklists if needed.
+
+---
+
+## 5. Conflict & appeals
+
+1. File public Issue describing the dispute;
+2. Request written responses from maintainers/auditors/cert committee;
+3. If unresolved, propose public meeting/working group;
+4. Record outcomes in public docs.
+
+Private rule changes without public record are discouraged.
+
+---
+
+## 6. Multi-layer governance for ethics/baseline changes
+
+To reduce collusion risk, **co‑signature alone is insufficient**. Changes to baseline articles (A), ethics baseline, key rules (P/R/B), and bundle signing require **layers** below. Details also in `spec/HDGP_ETHICS_BASELINE.md` §8.
+
+### 6.1 Layer 1 — System self-check
+
+Before human review, proposals must **self‑check** against the effective ethics baseline & baseline principles.
+
+If “violates HDGP’s own ethics” → **suspend**; author fixes or withdraws; record in ethics changelog.
+
+### 6.2 Layer 2 — Accountability & legal consequence
+
+Key rule changes need a **natural‑person accountable party**; risk/vuln assessment must complete before proceeding.
+
+### 6.3 Layer 3 — Baseline principles & ethics baseline: notice, window, high bar
+
+Requires:
+
+- **Notice + time window** globally reachable;
+- **Public participation + super‑majority / dual thresholds** — simple majority alone is **not** enough.
+
+### 6.4 Multi-sign (necessary, insufficient)
+
+Target ≥2 authorized signers after 6.1–6.3.
+
+**Single Maintainer exception**: allowed only with §4.0 compensating controls and documented upgrade path to multi‑sig.
+
+### 6.5 Emergency changes & post review
+
+Emergencies allow temporary measures; formal review within e.g. 7 days with full self‑check/accountability; failure → rollback + audit trail.
+
+### 6.6 Ethics changelog & personal logs
+
+Record changes, rationale, self‑check, accountable party, votes, signatures.
+
+### 6.7 No monopoly, no hidden weakness
+
+HDGP does not claim universal consent; forks are allowed. Internal governance must not embed collusion/single‑point abuse.
+
+---
+
+## 7. Misconduct & accountability
+
+Violations include bypassing process to change ethics/rules, tampering audit logs, bribery/coercion, colluding for undue exemptions.
+
+Responses: suspend privileges, investigation, removal, legal referral where warranted — **no exceptions** based on past contributions.
+
+---
+
+## 8. Quarterly ethics alignment (HDGP-Core ↔ mainline)
+
+Once per quarter, verify **top‑priority meta/ethics baseline text** consistency between private mainline and **`HDGP-Core`** — **normative anchor**, not code sync; engineering independence policies unchanged.
+
+Core risk: **undisclosed divergence**. Operational detail may reference mainline `docs/HDGP_QUARTERLY_ETHICS_ALIGNMENT_POLICY.md` when published.
+
+---
+
+## 9. Future evolution
+
+Possible directions:
+
+- Independent foundation / nonprofit;
+- Broader international auditors/cert bodies;
+- On-chain/multi‑sig records for major decisions;
+- **Commercial transition**: separate commercial entity for certification/hosting/services vs MIT‑licensed community Core — announced transparently.
+
+Suggestions via Issues/PRs welcome.
+
+
+---
+
+## 中文版本 (ZH-CN)
+
+> 以下中文与上文英文对应；社区阅读顺序以英文为先。
+
 ## HDGP 项目治理草案（GOVERNANCE）
 
 本文件描述 HDGP 治理体系的**角色分工、决策流程与变更管理原则**。  
@@ -268,4 +514,5 @@
 - **开源与商业化过渡**：项目未来可能建立独立的商业实体（如认证、托管、企业服务），与开源项目在法律与治理上**明确区隔**——开源项目（HDGP-Core）保持 MIT 与社区治理，商业化通过认证、商标授权与服务实现；具体安排将随项目演进另行公告，确保透明与可审计。
 
 任何对本治理文档的修改建议，欢迎通过 Issue / PR 提出。
+
 

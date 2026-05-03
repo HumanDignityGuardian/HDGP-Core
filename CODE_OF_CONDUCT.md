@@ -1,3 +1,82 @@
+## HDGP Community Code of Conduct
+
+HDGP aims to build a safe, respectful, and open collaboration community.  
+This Code applies to all spaces related to this project, including but not limited to: repositories, Issues, Pull Requests, discussion areas, documentation comments, and online/offline meetings.
+
+---
+
+## 1. Our shared goals
+
+- Build an **open, auditable, and trustworthy** technical and knowledge ecosystem for HDGP (*Human Dignity Guardian Protocol*);  
+- Support participants from diverse cultures, backgrounds, and disciplines to discuss and improve HDGP together;  
+- Keep discussions on ethics, values, and risks **calm, rational, and non-hostile**.
+
+---
+
+## 2. Expected behavior
+
+- **Respect others**  
+  - Respect different cultures, positions, experience, and expression;  
+  - When opinions differ, seek to understand concerns before rejecting them outright.
+
+- **Focus on the issue**  
+  - Prefer facts, logic, and technical angles;  
+  - When criticizing, pair critique with constructive suggestions.
+
+- **Safety and responsibility**  
+  - Avoid detailing abuse or attack vectors in public discussion or demos;  
+  - If a use case or implementation may seriously harm individuals or groups, contact maintainers through private channels (e.g. as described in `SECURITY.md`).
+
+- **Collaboration**  
+  - Help newcomers understand context and usage;  
+  - Welcome FAQs, tutorials, and scenario examples.
+
+---
+
+## 3. Unacceptable behavior
+
+Including but not limited to:
+
+- Attacks or discriminatory speech based on race, gender, sexual orientation, religion, political belief, age, disability, etc.;  
+- Insults, threats, personal attacks, or sustained harassment;  
+- Spreading false information, misrepresenting others, or maliciously twisting normative clauses;  
+- Publicly describing or encouraging uses of HDGP that:
+
+  - oppress, deprive, or manipulate specific people or groups;  
+  - enable mass surveillance, psychological manipulation, addictive design, or other uses contrary to HDGP’s spirit.
+
+---
+
+## 4. Reporting and enforcement
+
+If you experience or witness behavior that violates this Code:
+
+- Where appropriate and safe, politely point it out and suggest a correction;  
+- If public discussion is unsuitable, report privately using contacts listed in `README` / `SECURITY`.
+
+Maintainers may take one or more of the following actions:
+
+- Private communication and reminder;  
+- Edit or remove clearly violating content (without harming audit needs);  
+- Temporarily or permanently restrict accounts in this repository;  
+- In extreme cases, escalate to the platform or relevant authorities.
+
+---
+
+## 5. Scope and evolution
+
+- This Code applies to online/offline spaces directly tied to this project;  
+- If the project is later hosted by a foundation or other body, the Code may be updated with public notice.
+
+Issues and PRs to improve this Code are welcome.  
+By participating, you agree to follow it.
+
+---
+
+## 中文版本 (ZH-CN)
+
+> 以下中文与上文英文对应；社区阅读顺序以英文为先。
+
 ## HDGP 社区行为准则（CODE OF CONDUCT）
 
 HDGP 致力于构建一个安全、尊重、开放的协作社区。  
@@ -69,4 +148,3 @@ HDGP 致力于构建一个安全、尊重、开放的协作社区。
 
 欢迎通过 Issue / PR 对本行为准则提出改进建议。  
 在参与 HDGP 项目的同时，你即默认同意遵守本准则。
-

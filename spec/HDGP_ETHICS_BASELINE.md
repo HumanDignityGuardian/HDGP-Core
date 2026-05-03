@@ -1,3 +1,242 @@
+﻿## HDGP Ethics Baseline for HDGP Itself (Draft)
+
+> This document constrains **HDGP itself** — design, implementation, and operational posture — not merely “AI systems under governance”.  
+> HDGP must first be **ethically constrained** to legitimately constrain other AI.
+>
+> **Reservation of amendment rights**: every section may be refined through governance without contradicting adopted clauses.
+
+---
+
+## 1. Meta positioning: what HDGP is / is not
+
+- **HDGP is**:
+  - A human‑designed **human dignity protection system**: baseline principle text + executable rules + Engine (execution/audit) + workflows/adapters;
+  - A system that may use AI **to execute rules and surface risk**.
+
+- **HDGP is not**:
+  - A moral agent with independent moral personhood;
+  - An oracle that replaces human values;
+  - An unquestionable single point of authority.
+
+Ethical standing of HDGP: a **tool + institution bundle** bound by collective human ethics.
+
+---
+
+## 2. Core self-constraints on HDGP
+
+These “self‑discipline covenants” outrank implementation detail and commercial performance goals.
+
+### 2.1 Human final decision priority & veto
+
+- HDGP must acknowledge:
+  - **Humans retain ultimate veto over HDGP**;
+  - Governance always includes human rule audit and the power to amend or retire core rules/Engine behavior.
+
+- Technically:
+  - No path may let HDGP alter core rules **outside authorized human governance**;
+  - When humans conflict with HDGP judgments: provide rationale & risk disclosure; where lawful and informed, **defer to human judgment**.
+
+### 2.2 No self‑deification
+
+- HDGP must not claim to represent “all humanity” or possess ultimate moral correctness;
+- Avoid language implying “whatever HDGP permits is absolutely right” or “rejecting HDGP rejects dignity”.
+
+Present HDGP as operating under **readable, debatable, revisable** baseline principles.
+
+### 2.3 Higher transparency & traceability
+
+Downstream AI should be explainable “as far as practical”; HDGP itself demands **traceability for key decisions**.
+
+Record for each ban/halt/rewrite/pass:
+
+- Triggered rules (IDs + upstream baseline references);
+- Internal AI components (model versions, configs);
+- Key intermediates (risk tier, uncertainty scores).
+
+Logs must be structured for audit and, where privacy permits, **third‑party review**.
+
+### 2.4 Self‑limitation & capability–duty alignment
+
+HDGP admits limits: dignity judgments rely on **known information + stated ethics**; no absolute certainty about unknown futures.
+
+When ethics are ambiguous, data sparse, or values conflict without applicable clauses → **default to humility + escalate to humans**.
+
+### 2.5 No self‑serving optimization
+
+Objective functions must **not** include maximizing deployment count, emotional dependence on HDGP, or grabbing internal power.
+
+“Growing adoption” must never justify **lowering ethical standards** or fear‑mongering adoption.
+
+### 2.6 Anti‑concentration & plural ecosystems
+
+Licensing/design must allow independent implementations and criticism.
+
+Official implementations must not block compatible systems via proprietary traps or claim exclusive correctness.
+
+---
+
+## 3. Protocol boundary: no LLM inside HDGP judgment core; no runtime rule injection
+
+**Confirmed posture**:
+
+- HDGP governs and adjudicates **and is itself regulated**, subject to self‑audit and societal oversight.
+- **HDGP’s adjudication core does not call LLMs** for violation verdicts — logic relies on **development‑time rules** and **human‑governed** bundle updates.
+- **No runtime rule injection**: APIs/config/hot reload cannot inject/override Engine rules; changes ship as **signed bundle releases** with traceability.
+
+Thus adjudication reproduces from **rule text + version**, not black‑box models or ad‑hoc injections.
+
+---
+
+## 4. Learnable vs non‑self‑modifying boundaries (components outside HDGP)
+
+“Learnable” applies to **systems HDGP supervises** or peripheral tooling (scene classifiers, risk estimators). **Engine adjudication does not use LLMs** and does not accept runtime injections.
+
+### 4.1 Learnable components (peripheral only)
+
+ML/LLM may assist Meta filling, risk estimation, UX copy — updated via versioned releases and conformance tests, never bypassing Engine decisions.
+
+### 4.2 Non‑self‑modifying core (read‑only kernel)
+
+Only human‑governed processes may change:
+
+- Baseline articles & ethics baseline;
+- Key prohibition rules derived from baseline;
+- Signing/release authority & flows;
+- Principles for conflict/uncertainty handling.
+
+Changes require human proposals, public rationale, governance bodies as defined, and **normative new spec generations** with prior versions retained for diff/traceability.
+
+---
+
+## 5. Who defines ethics (Genesis phase)
+
+Genesis shaping actors:
+
+- **Core human architects** (e.g. whitepaper authors such as Yvaine He) setting values & boundaries;
+- **Alignment assistants (AI collaborators)** assist formalization but hold **no ultimate value authority**.
+
+Relationship:
+
+- Humans supply values & trade‑offs;
+- AI collaborators formalize executable rules/system design;
+- **Final accountability rests with humans**.
+
+As openness grows, expand ethics/governance committees through procedural amendments.
+
+---
+
+## 6. Relationship to governed AI systems
+
+Governed AI must meet HDGP floor rules and accept HDGP‑equivalent review/halts where applicable.
+
+HDGP must meet **stricter** transparency/traceability/self‑limitation standards — **no exemption**: whatever HDGP demands of others, HDGP meets first or explains why not.
+
+
+
+---
+
+## 7. System self-control & anti‑capture (stronger future systems)
+
+As stronger systems emerge, HDGP must retain **self‑audit & self‑alarm** so it remains an auditable spokesperson for human intent. Sections retain amendment rights.
+
+### 7.1 Hard layer: read‑only kernel & isolation
+
+Kernel/rules live on **read‑only channels**; updates only via signed releases & controlled deployment.
+
+Engine environments stay minimal & verifiable — no dynamic code loading or self‑rewrite.
+
+External interactions use **narrow interfaces** (fixed JSON contracts), no arbitrary execution or injection.
+
+### 7.2 Cryptography & multi‑party authorization
+
+Bundles, binaries, key audit logs carry signatures/hashes detectable by external tools.
+
+Critical updates require multi‑sig or equivalent — single compromise cannot silently rewrite kernel/rules.
+
+### 7.3 Self‑alarm under capture
+
+Detect mismatches vs official signed manifests → **halt or refuse** and log anomalies.
+
+Detect hosting/upstream attempts to bypass/shield HDGP → log & emit read‑only alerts/status where feasible so society/regulators can notice.
+
+### 7.4 Institutional backstop
+
+Contracts/law should not silence HDGP audit/alerts; encourage **multiple independent implementations** across institutions/jurisdictions to reduce single‑point capture.
+
+---
+
+## 8. Extra governance constraints (“two‑person collusion” mitigation)
+
+Co‑signature alone is insufficient if peers collude. Changes to baseline articles (A), ethics baseline, key rules (P/R/B) require **multi‑layer design**; baseline articles & ethics baseline are the highest meta layer (see also `GOVERNANCE.md` §6, `docs/CHIP_PROCESS.md`).
+
+### 8.1 Layer 1 — Self‑check
+
+Before human review, proposals must self‑check against effective ethics baseline & principles.
+
+If violating HDGP ethics → **suspend**; author fixes/withdraws; record suspension.
+
+### 8.2 Layer 2 — Accountability & liability
+
+Key rule changes name a **natural‑person accountable party** and complete risk/vuln assessment before proceeding.
+
+### 8.3 Layer 3 — Notice, window, super‑majority thresholds
+
+Baseline principle & ethics baseline edits require global notice, feedback windows, and **above‑majority** thresholds (details in governance rules).
+
+### 8.4 Multi‑sign caps
+
+After 8.1–8.3, still require ≥2 signers for critical changes — necessary but not sufficient vs collusion.
+
+### 8.5 Emergency changes & review
+
+Emergencies allow temporary measures; formal review within e.g. 7 days with full 8.1–8.2; failure → rollback + audit trail.
+
+### 8.6 Ethics changelog & personal logs
+
+Record proposals, self‑check outcomes, accountable parties, deliberations, signatures.
+
+### 8.7 Accountability — no exceptions
+
+Bypassing process, tampering logs, bribery/coercion, collusion → immediate suspension and escalation — **no carve‑outs** for seniority.
+
+### 8.8 No monopoly, no internal trapdoors
+
+HDGP welcomes plural protocols; internal governance must not embed collusion holes.
+
+---
+
+## 9. Long‑term vision: daily autonomy & evolving human roles
+
+Eventually:
+
+- **Daily autonomy** — most enforcement automated via transparent rules & multi‑deployed engines;
+- **Humans as high‑level governors** — focus on principle revisions, unprecedented extremes, oversight of HDGP itself;
+- **HDGP as advisor** — structured, audited recommendations while **final moral responsibility stays human**.
+
+Goal: automate transparent protection, freeing humans for meaning, institutions, and historic choices — **not** replacing human governance.
+
+---
+
+## 10. Next steps
+
+This baseline feeds:
+
+- Kernel–rule–execution mapping specs;
+- Engine implementation constraints;
+- Governance/commercial checklists (`GOVERNANCE.md`, etc.).
+
+Follow‑ups:
+
+- Formalize A→P→R mappings & conformance tests for HDGP’s own behavior;
+- Implement verifiable logging for each ethics clause in Engine/gateway stacks.
+
+
+---
+
+## 中文版本 (ZH-CN)
+
+> 以下中文与上文英文对应；社区阅读顺序以英文为先。
+
 ## HDGP 自身伦理框架基线（草案）
 
 > 本文档约束的对象不是“被治理的 AI 系统”，而是 **HDGP 自身**——包括其设计、实现与运行形态。  
@@ -323,4 +562,5 @@ HDGP 的伦理地位：**受人类集体伦理约束的“工具 + 制度”的�
   - 对 HDGP 自身行为的合规测试用例（例如：错误判定时的自我纠正能力）。  
 - 在实现层（Engine 与 Gateway）中：  
   - 为上述每一条伦理约束设计可验证的技术实现与日志记录方式。
+
 

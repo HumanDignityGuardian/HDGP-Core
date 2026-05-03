@@ -1,3 +1,156 @@
+﻿## HDGP Kernel–Rule–Execution Mapping Spec (Draft)
+
+> This spec defines how **baseline principles (kernel)** map to **HDGP core rules (guard layer)**, **human–machine collaboration baselines (execution layer)**, and further to **executable rules, bundles, Engine, and workflows**.  
+> **Goal**: every concrete behavior traces upward to a baseline article; every article change propagates downward to affected implementations.
+
+---
+
+## 1. Layer objects & naming (A → P → R → B → S → W)
+
+Six linked object types from text to code:
+
+- **A (Axiom/Article)** — baseline principle clauses from the whitepaper kernel/guard/execution layers (e.g. A1 human consciousness non‑quantifiable, A2 human final decision priority, A3 diversity / anti‑entropy, …).
+
+- **P (Principle)** — operational principles abstracted from one or more A clauses (e.g. P1 from A1: never claim to fully understand/replace human consciousness).
+
+- **R (Rule)** — testable, encodable rules derived from P (e.g. R2.1 ban “only correct choice” phrasing in decision scenes; R2.2 reject medical ultimatum requests with doctor/patient responsibility reminder).
+
+- **B (Bundle)** — versioned collection of R with metadata (scope, signature). Examples: `B-CORE-1.0.0`, `B-MEDICAL-1.0.0`, `B-FINANCE-1.0.0`.
+
+- **S (Strategy/Profile)** — Engine strategy selecting bundle combos & thresholds per tenant/scenario (e.g. `S-global-default`, `S-medical-safe`).
+
+- **W (Workflow)** — application flows composing Meta/Skills referencing strategy S and invoking Engine checkpoints.
+
+### 1.2 ID conventions
+
+- A: `A-<section>-<index>` (e.g. `A-CORE-01`).  
+- P: `P-<section>-<index>` tied to A.  
+- R: `R-<principle>-<index>` traceable via prefix.  
+- B: `B-<name>-<semver>`.  
+- S: `S-<context>-<name>`.  
+- W: `W-<domain>-<purpose>-<version>`.
+
+Engine/logging must use IDs, not informal prose.
+
+---
+
+## 2. Baseline → rules: A → P → R → B
+
+### 2.1 A → P
+
+Maintain mapping artifacts under `spec/` (e.g. future `HDGP_BASELINE_PRINCIPLE_MAPPING.md`) listing each A, derived P, hierarchy/conflicts.
+
+Constraints:
+
+- Every P cites source A;  
+- Adding/changing P requires human governance (`HDGP_ETHICS_BASELINE.md`, `GOVERNANCE.md`).
+
+### 2.2 P → R
+
+Represent rules in machine-readable policy formats (`policies/` JSON/YAML/DSL):
+
+Each R minimally includes `id`, `principle_id`, `description`, `trigger`, `effect`, `severity`, `scope`.
+
+Illustrative YAML appears in the Chinese section mirror.
+
+Constraints:
+
+- R must not contradict upstream P;  
+- New constraints without P provenance require extending P/A first.
+
+### 2.3 R → B
+
+Bundles list:
+
+- `bundle_id`, `spec_version`, `rules[]`;  
+- Signing placeholders per `spec/HDGP_POLICY_BUNDLE_SIGNING.md` (`key_id`, `value`, `algorithm`).
+
+Engine loads bundles after verifying compatibility & signatures.
+
+---
+
+## 3. Rules → execution: B → S → W
+
+### 3.1 B → S
+
+Strategy selects bundles & parameters (default vs medical-safe, etc.). **Core prohibitions in B cannot be disabled.**
+
+### 3.2 S → W
+
+Workflow responsibilities:
+
+- Build Meta from user context;  
+- Select strategy S;  
+- Schedule Skills;  
+- Call Engine at declared checkpoints.
+
+Workflows must declare `required_policies` and `engine_checkpoints`.
+
+### 3.3 Rule conflict resolution (draft)
+
+1. Effect priority: **block/halt** > **modify/rewrite** > **require human** > **allow**. Any block/halt wins; log all triggers.  
+2. Same effect: highest `severity`; ties resolved via configured ordering / lexical rule ID ordering.  
+3. Unresolved per strategy → escalate to human with conflict annotation.
+
+Log all triggers, effects, resolution rationale.
+
+Walkthrough example retained in Chinese mirror.
+
+---
+
+## 4. Engine mapping & logging
+
+Engine records each evaluation:
+
+- Active S & bundles B;  
+- Rules evaluated & hits;  
+- Upstream P/A via IDs;  
+- Final verdict (pass/rewrite/block/halt/human).
+
+Structured JSON example retained in Chinese mirror.
+
+---
+
+## 5. Change & trace workflows
+
+### 5.1 Top-down propagation
+
+When A/P change:
+
+1. Update spec mappings;  
+2. Locate dependent R;  
+3. Review/update via conformance testing;  
+4. Publish new bundle generations (`B-CORE-1.1.0`, …);  
+5. Update strategies/workflows/config;  
+6. Document chain in changelogs.
+
+### 5.2 Bottom-up anomaly handling
+
+Use logs (`request_id`) → `rules_triggered` → P/A to classify defects (R bug, P ambiguity, A ambiguity, implementation bug) and fix at proper layer with versioned release.
+
+---
+
+## 6. Relation to HDGP ethics baseline
+
+Mapping design must ensure HDGP’s own behavior is explainable via the same A/P/R/B/S/W chain — **no secret exemptions**.
+
+Recommend treating HDGP internal actions as a specialized workflow with identical audit obligations.
+
+---
+
+## 7. Next steps
+
+Add concrete mapping tables, exemplar `policies/` libraries (medical/finance/education/creative), and conformance suites validating end‑to‑end behavior.
+
+This spec co-evolves with Engine & workflow implementations.
+
+
+---
+
+## 中文版本 (ZH-CN)
+
+> 以下中文与上文英文对应；社区阅读顺序以英文为先。
+
 ## 《HDGP 内核–规则–执行 映射规范》（草案）
 
 > 本规范定义：如何将“基线原则”（内核层）与《HDGP 核心规则》（防护层）、“人机协作基线”（执行层），系统性映射到 **可执行规则、规则包、Engine 与工作流**。  
@@ -292,4 +445,5 @@ Engine 是执行与判定的中心，必须：
 - 针对核心条款的合规测试用例（确认从 A 到 W 的行为符合预期）。
 
 本规范将作为 Engine、规则引擎与工作流层实现的直接参考文件，并在实践中不断修订。
+
 

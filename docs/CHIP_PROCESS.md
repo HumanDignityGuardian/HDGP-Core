@@ -1,3 +1,66 @@
+# Baseline Improvement Proposal (CHIP) Process
+
+> **CHIP** = Baseline Improvement Proposal: a formal proposal to amend baseline principle clauses or the ethics baseline.  
+> This process aligns with **§6 “Multi-layer governance for ethics and baseline changes”** in `GOVERNANCE.md` and **§8** in `spec/HDGP_ETHICS_BASELINE.md`, so participants have a single reference when proposing or reviewing baseline/ethics changes.
+
+---
+
+## 1. When CHIP is required
+
+The following changes **must** go through CHIP (or an equivalent ethics-change process) and **must not** be merged by a routine PR alone:
+
+- Amending **baseline principle clauses (A)** in *HDGP Technical White Paper v1.0*;  
+- Amending the ethics baseline in **`spec/HDGP_ETHICS_BASELINE.md`** (including §7 anti‑capture and §8 governance & ethics changes);  
+- Amending **key principles (P)** or **core prohibition-class rules** derived directly from the baseline principles/ethics baseline when the change affects the “human dignity / human final decision priority” boundary.
+
+Pure implementation detail, wording polish, or normative additions that clearly do not touch baseline/ethics may follow the normal PR flow (still describe the nature of the change in an Issue first).
+
+---
+
+## 2. CHIP overview (multi-layer governance)
+
+1. **Proposal & system self-check (layer 1)**  
+   - File a proposal in an Issue prefixed with `CHIP` (use [.github/ISSUE_TEMPLATE/chip-proposal.md](.github/ISSUE_TEMPLATE/chip-proposal.md) if configured).  
+   - The proposal must state: intended change, rationale, affected clauses/rules, and expected risks.  
+   - **System self-check**: maintainers or a designated role assess consistency against the currently effective ethics baseline and baseline principles.  
+   - If the self-check concludes the proposal **contradicts HDGP’s own ethics**: the proposal is **suspended**; the author must correct or withdraw within a set period; reasons are recorded in the ethics change log.
+
+2. **Accountability & risk review (layer 2)**  
+   - For key rules (P/R/B), name an **accountable party** (a natural person who can bear legal consequence) and record it in the ethics Changelog.  
+   - Complete risk and gap analysis; unresolved major risks must be fixed or mitigated with the accountable party before proceeding.
+
+3. **Notice & time window (layer 3 — baseline principle / ethics baseline only)**  
+   - Changes to **baseline principles or the ethics baseline** require **at least one pre-announced time window** and official channels so global users can see and respond.  
+   - After the window, aggregate feedback; optional referendum or equivalent broad vote may apply; **a simple majority alone is insufficient** — higher thresholds in governance rules apply.
+
+4. **Multi-party sign-off & effectiveness**  
+   - **Target state**: after the layers above, changes are merged/released only after **at least two authorized natural persons** co-sign.  
+   - **Genesis / single-maintainer exception**: if only one accountable person exists objectively, follow the Single Maintainer mode in `GOVERNANCE.md` with compensating controls (owner, delay window, evidence chain, rollback) and public disclosure.  
+   - All ethics-related changes go to the **Ethics Changelog** and bump spec versions as required.
+
+---
+
+## 3. Emergency changes
+
+Under major security emergencies, temporary changes may follow `GOVERNANCE.md` §6.5, but **formal review must be filed within a preset window** (e.g. 7 days) with **self-check and accountability/risk review** completed; failure rolls back automatically with a full audit trail.
+
+---
+
+## 4. References
+
+- Roles & decision types: `GOVERNANCE.md` §§2–3  
+- Multi-layer governance for baseline/ethics: `GOVERNANCE.md` §6  
+- Ethics baseline (self-check, accountability, notice, high bar): `spec/HDGP_ETHICS_BASELINE.md` §8  
+- Kernel checklist (governance ticks): `spec/HDGP_KERNEL_CHECKLIST.md` §4 (mainline reference if not in Core)
+
+This document describes process only; notice windows and voting thresholds are defined in governance rules or future `GOVERNANCE` revisions.
+
+---
+
+## 中文版本 (ZH-CN)
+
+> 以下中文与上文英文对应；社区阅读顺序以英文为先。
+
 # 基线原则修订提案（CHIP）流程说明
 
 > **CHIP** = Baseline Improvement Proposal，指对 HDGP 基线原则条款或伦理基线进行的正式修订提案。  
