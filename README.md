@@ -10,6 +10,22 @@ This repository (`HDGP-Core`) provides an **open-source Meta ethics & safety bas
 - **Maintainer**: Yvaine He · `xyan8921@gmail.com` (general repository inquiries; use GitHub **Private vulnerability reporting** first for security issues — see `SECURITY.md`).  
 - **Product / mainline narrative** (Engine demos, PFaaS context — not part of Core materials): [hdgp-protocol.com](https://www.hdgp-protocol.com/).
 
+### Who Core is for · 面向谁（工程师与 Agent 基座，同一套规范）
+
+- **Product / application engineers** — Weave **Meta** fields at development time (domain, intent, risk, etc.); start with `spec/HDGP_INTEGRATION_SPEC.md` and `spec/HDGP_META_VS_JUDGE_SCOPE.md`.  
+- **Agent-base / platform builders** — Use the same contracts as **schema and routing hints** for tool and policy layers. Core does **not** ship a Judge/Engine; staying aligned is **semantic** (traceable, discussable) rather than claiming runtime enforcement.
+
+You do **not** need two separate documentation trees in this repository: **one Meta-only baseline**, **two integration personas** — same specs, different glue code.
+
+### Open Letters & White Paper (readable editions on main site)
+
+Canonical **styled** HTML (permanent record on the product site; not duplicated as HTML in Core):
+
+- **Open Letters** — [hdgp-protocol.com · letters](https://www.hdgp-protocol.com/docs/readable/letters.html) · Markdown mirror in repo: [`LETTERS.md`](LETTERS.md)  
+- **Technical White Paper v1.0** — [hdgp-protocol.com · whitepaper](https://www.hdgp-protocol.com/docs/readable/whitepaper.html)
+
+The white paper describes the **global** HDGP framework (including tracks beyond this repo’s Meta-only scope). For **what Core commits to**, use [`MATERIALS_ALLOWLIST.md`](MATERIALS_ALLOWLIST.md) and [`spec/HDGP_META_VS_JUDGE_SCOPE.md`](spec/HDGP_META_VS_JUDGE_SCOPE.md).
+
 ### 与闭源主系统及商业交付的关系（必须读）
 
 This repository (HDGP-Core) is an **open-source Meta baseline**, governed and evolved independently by the community. A corresponding **private mainline** (R&D) and **commercial deliveries** are maintained in separate non-public repositories and delivery tracks. **After open-source publication, there is no standing obligation to keep code synchronized between the two tracks.**
@@ -28,6 +44,7 @@ This repository (HDGP-Core) is an **open-source Meta baseline**, governed and ev
 
 - **In scope (Meta-only)**:
   - Semantic boundary between Meta and Judge/Audit (see `spec/HDGP_META_VS_JUDGE_SCOPE.md`)
+  - Open Letters narrative (`LETTERS.md`; styled HTML on [main site](https://www.hdgp-protocol.com/docs/readable/letters.html) — non-normative)
   - Ethics baseline (see `spec/HDGP_ETHICS_BASELINE.md`)
   - Mapping from principles to executable constraints (see `spec/HDGP_CORE_MAPPING_SPEC.md`)
   - Integration semantics (Meta-related excerpts only; see `spec/HDGP_INTEGRATION_SPEC.md`)
@@ -76,6 +93,22 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 - **维护联系人**：Yvaine He · `xyan8921@gmail.com`（一般仓库咨询；**安全问题**请优先使用 GitHub **私密漏洞报告**，见 `SECURITY.md`）。  
 - **产品与主系统叙事**（Engine 演示、PFaaS 语境 — **不属于** Core 材料正文）：[hdgp-protocol.com](https://www.hdgp-protocol.com/)
 
+### 面向谁（工程师与 Agent 基座 · 同一套规范）
+
+- **产品 / 应用工程师**：在开发期编织 **Meta** 字段；入门见 `spec/HDGP_INTEGRATION_SPEC.md`、`spec/HDGP_META_VS_JUDGE_SCOPE.md`。  
+- **Agent 基座 / 平台构建者**：将同一套契约当作 **字段模式与路由语义**；Core **不**提供 Judge/Engine，对齐停留在 **语义与可追溯**，而非宣称运行时执法。
+
+本仓库**不需要**两套并列文档树：**一套 Meta-only 基线**，**两种接入角色** —— 规范相同，集成胶水不同。
+
+### 公开信与技术白皮书（主站可读版）
+
+主站排版定稿（永久记录；Core **不**重复发布 HTML）：
+
+- **公开信** — [主站 letters 页面](https://www.hdgp-protocol.com/docs/readable/letters.html) · 仓库内 Markdown 镜像：[`LETTERS.md`](LETTERS.md)  
+- **技术白皮书 v1.0** — [主站 whitepaper 页面](https://www.hdgp-protocol.com/docs/readable/whitepaper.html)
+
+白皮书表述的是 **全域** HDGP 框架（含超出本仓 Meta-only 的方向）。**Core 承诺面**以 [`MATERIALS_ALLOWLIST.md`](MATERIALS_ALLOWLIST.md) 与 [`spec/HDGP_META_VS_JUDGE_SCOPE.md`](spec/HDGP_META_VS_JUDGE_SCOPE.md) 为准。
+
 ### 与闭源主系统及商业交付的关系（必须读）
 
 本仓库（HDGP-Core）是 **开源的 Meta 伦理安全基线**，由社区独立治理与演进。与之对应的 **主系统研发与商业交付** 在独立的闭源/非公开仓库与商业路径中维护，**双方仓库在开源发布后不承担代码层面的相互同步义务**。
@@ -94,6 +127,7 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 
 - **本仓库聚焦（Meta-only）**：
   - Meta 与 Judge/Audit 的语义边界（见 `spec/HDGP_META_VS_JUDGE_SCOPE.md`）
+  - 公开信叙事（`LETTERS.md`；主站排版见 [letters.html](https://www.hdgp-protocol.com/docs/readable/letters.html)，非规范性）
   - 伦理基线（见 `spec/HDGP_ETHICS_BASELINE.md`）
   - 原则到可执行映射（见 `spec/HDGP_CORE_MAPPING_SPEC.md`）
   - 集成语义（仅 Meta 相关节选，见 `spec/HDGP_INTEGRATION_SPEC.md`）

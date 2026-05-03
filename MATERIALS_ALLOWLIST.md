@@ -32,6 +32,7 @@
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | Quarterly ethics alignment attestation (traceable link required; used by external review) |
 | `CONTRIBUTING.md` | Contributing guide |
 | `CODE_OF_CONDUCT.md` | Code of conduct |
+| `LETTERS.md` | Open Letters narrative (致硅基 / 致碳基); non-normative; styled canonical HTML on main site |
 | `HDGP_OPEN_FRAMEWORK.md` | Framework overview (**excerpt** Meta-related sections) |
 | `README.md` | Mandatory statements and scope boundaries |
 | `SECURITY.md` | Security disclosure policy (prefer GitHub private reporting; optional email published there — must not be fabricated) |
@@ -82,6 +83,7 @@
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | 伦理对齐季度声明（需可追溯链接；供外部复核） |
 | `CONTRIBUTING.md` | 贡献指南 |
 | `CODE_OF_CONDUCT.md` | 行为准则 |
+| `LETTERS.md` | 公开信叙事（致硅基 / 致碳基）；非规范性；主站提供排版定稿 HTML |
 | `HDGP_OPEN_FRAMEWORK.md` | 框架总览（Core 侧 **节选** Meta 相关章节） |
 | `README.md` | 必备声明与边界（见仓库根目录 README） |
 | `SECURITY.md` | 安全披露渠道（首选 GitHub Private vulnerability reporting；备选邮箱见该文件 — 不得编造） |
