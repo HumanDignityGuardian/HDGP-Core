@@ -23,6 +23,17 @@ You do **not** need two separate documentation trees in this repository: **one M
 - Start here: **`docs/ADOPTION_BUNDLE.md`** — single-page “take-and-weave” entry with **hard boundary** (no Engine/Judge), attribution rules, and contact.  
 - Optional **machine-readable shape**: **`schemas/hdgp-core-meta.schema.json`** (JSON Schema Draft-07 for Meta weaving — not a verdict/Engine API).  
 - Optional **snippets**: **`snippets/`** (TypeScript + Python copy-paste starters) · **adoption wording**: **`docs/ADOPTION_STATEMENT_TEMPLATE.md`**.
+- **Adopter Pack (templates & examples)**: **`docs/adopter-pack/README.md`** — minimal field set, checklist, attribution wording, and 2–3 tiny examples to reduce ambiguity across adopters.
+
+### Do / Don’t (for external adopters)
+
+- **Do**
+  - Weave **Meta guidance fields** (e.g. `scene.domain` / `intent` / `risk_level`) to form a discussable, auditable “ethical input contract”.
+  - Use HDGP-Core materials to write an **adoption statement**, align governance docs, and make your boundary/assumptions explicit.
+  - Treat Meta as **routing + review hints** (development-time semantics), not as “runtime enforcement already exists”.
+- **Don’t**
+  - Don’t present HDGP-Core as shipping a runnable **Judge/Engine** or “runtime mandatory enforcement”.
+  - Don’t claim compliance, certification, audit hosting, or SLAs are provided by HDGP-Core.
 
 ### Open Letters & White Paper (readable editions on main site)
 

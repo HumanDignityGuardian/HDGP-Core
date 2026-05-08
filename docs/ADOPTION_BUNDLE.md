@@ -18,6 +18,7 @@ This document is a **pack-and-go entry** for adopting **HDGP-Core** as a **Meta-
 - **Machine-readable Meta shape (Draft-07 JSON Schema)**: `schemas/hdgp-core-meta.schema.json` — optional validator for weaving `scene` / `policy` hints; **not** an Engine/Judge API or verdict contract (see schema `$id` and descriptions).
 - **Starter snippets (TypeScript / Python)**: `snippets/` — copy-paste types/helpers; **not** a published SDK.
 - **Adoption statement template**: `docs/ADOPTION_STATEMENT_TEMPLATE.md` — optional wording for your project docs (attribution + Meta-only boundary).
+- **Adopter Pack (templates & examples)**: `docs/adopter-pack/README.md` — minimal template set for external teams (recommended Meta fields, checklist, attribution wording, examples).
 
 ---
 
@@ -77,6 +78,8 @@ When you adopt or excerpt HDGP-Core materials:
   - or the GitHub Pages index: `https://humandignityguardian.github.io/HDGP-Core/`
 
 This is not an “endorsement”; it is **basic attribution and traceability**.
+
+> If you want a short “how to attribute” guide (copying text vs adopting semantics), see `docs/adopter-pack/ATTRIBUTION_AND_CITATION.md`.
 
 ---
 

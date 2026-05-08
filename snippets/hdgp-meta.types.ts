@@ -31,6 +31,20 @@ export interface HdgpcPolicyRef {
   [key: string]: unknown;
 }
 
+export interface HdgpcAdopterExtensions {
+  /**
+   * Optional transparency info for adopters (relationship/promo disclosures, data boundary).
+   * Shape is adopter-defined and remains Meta-only semantics.
+   */
+  disclosure?: Record<string, unknown>;
+  /**
+   * Optional provenance/source hints for factual claims (citations, thresholds, timestamps).
+   * Shape is adopter-defined and remains Meta-only semantics.
+   */
+  sources?: Record<string, unknown>;
+  [key: string]: unknown;
+}
+
 /** Root object: `scene` is required by the JSON Schema. */
 export interface HdgpcCoreMeta {
   request_id?: string;
@@ -39,6 +53,7 @@ export interface HdgpcCoreMeta {
   actor?: HdgpcActor;
   scene: HdgpcScene;
   policy?: HdgpcPolicyRef;
+  adopter?: HdgpcAdopterExtensions;
   [key: string]: unknown;
 }
 

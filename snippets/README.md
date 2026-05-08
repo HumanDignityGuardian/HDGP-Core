@@ -8,3 +8,5 @@ Small **copy-paste** starters aligned with **`schemas/hdgp-core-meta.schema.json
 | [`hdgp_meta.py`](hdgp_meta.py) | Python 3.11+ `TypedDict` + default scene helper |
 
 Validate JSON payloads against the schema in CI if you need stricter checks than these types provide.
+
+Optional adopter extensions (transparency/provenance): the schema and snippets also support a top-level `adopter` object (e.g. `adopter.disclosure`, `adopter.sources`) while keeping `additionalProperties: true`.

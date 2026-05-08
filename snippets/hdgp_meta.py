@@ -30,6 +30,17 @@ class HdgpcPolicyRef(TypedDict, total=False):
     override_flags: list[str]
 
 
+class HdgpcAdopterExtensions(TypedDict, total=False):
+    """Optional adopter-defined extensions for transparency and provenance.
+
+    These remain Meta-only semantics and do not imply any runtime enforcement.
+    Shapes are adopter-defined.
+    """
+
+    disclosure: dict
+    sources: dict
+
+
 class HdgpcCoreMeta(TypedDict):
     """``scene`` is required by the JSON Schema; other fields are optional."""
 
@@ -39,6 +50,7 @@ class HdgpcCoreMeta(TypedDict):
     channel: NotRequired[str]
     actor: NotRequired[HdgpcActor]
     policy: NotRequired[HdgpcPolicyRef]
+    adopter: NotRequired[HdgpcAdopterExtensions]
 
 
 def hdgpc_default_scene() -> HdgpcScene:

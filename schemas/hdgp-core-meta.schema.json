@@ -26,6 +26,9 @@
     },
     "policy": {
       "$ref": "#/definitions/PolicyRef"
+    },
+    "adopter": {
+      "$ref": "#/definitions/AdopterExtensions"
     }
   },
   "required": ["scene"],
@@ -87,6 +90,23 @@
           "type": "array",
           "items": { "type": "string" },
           "description": "Non-normative flags your integration may record (optional)."
+        }
+      }
+    },
+    "AdopterExtensions": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "Optional adopter-defined extensions. Recommended keys: `disclosure` (relationship/promo transparency) and `sources` (provenance/source-quality hints). This stays Meta-only and does not imply any runtime enforcement.",
+      "properties": {
+        "disclosure": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Disclosure for transparency (sponsorship/affiliate/relationships, data boundary, commercial intent). Shape is adopter-defined."
+        },
+        "sources": {
+          "type": "object",
+          "additionalProperties": true,
+          "description": "Provenance/source hints for factual claims (e.g. citations list, thresholds, collection time). Shape is adopter-defined."
         }
       }
     },
