@@ -13,7 +13,7 @@
 | Date | 2026-04-15 |
 | Repo | HDGP-Core |
 | Branch | main (edit if different) |
-| Commit (optional) | `7b69e9a764939ea091e67f45584ac398f8a573be` (main at 2026-05-20 sign-off; re-verify before publication if branch moved) |
+| Commit (optional) | `412b709b933f3f1dee703b7963c4c6e5bc7319aa` (tag `v1.0.2`; re-verify before publication if branch moved) |
 
 ---
 
@@ -24,7 +24,7 @@
 | `spec/HDGP_ETHICS_BASELINE.md` | `af9b5f5a71941ae6b3aaede7223d0bd9d59bc1b76b4b93387e4f86cbec0284e2` |
 | `spec/HDGP_META_VS_JUDGE_SCOPE.md` | `cd612df52814ce25f7caf6b6c811e1b53b26f706a1078da774a489aa5f0a86ee` |
 
-> Replace placeholder instructions with actual hashes at attestation time so external reviewers can verify byte-identical copies.
+> Hashes verified against files in this repository at attestation preparation time. External reviewers can reproduce with `sha256sum` / `Get-FileHash`.
 
 ---
 
@@ -70,7 +70,7 @@ Next steps (Issue/CHIP/notice links; ETA):
 | ?? | 2026-04-15 |
 | ?? | HDGP-Core |
 | ?? | main???????? |
-| ?????? | `7b69e9a764939ea091e67f45584ac398f8a573be`?2026-05-20 ??? main?????????????? |
+| ?????? | `412b709b933f3f1dee703b7963c4c6e5bc7319aa`??? `v1.0.2`?????????????? |
 
 ---
 
@@ -81,7 +81,7 @@ Next steps (Issue/CHIP/notice links; ETA):
 | `spec/HDGP_ETHICS_BASELINE.md` | `af9b5f5a71941ae6b3aaede7223d0bd9d59bc1b76b4b93387e4f86cbec0284e2` |
 | `spec/HDGP_META_VS_JUDGE_SCOPE.md` | `cd612df52814ce25f7caf6b6c811e1b53b26f706a1078da774a489aa5f0a86ee` |
 
-> ??????**????**?????????????
+> ????????????????????? `sha256sum` / `Get-FileHash` ???
 
 ---
 
