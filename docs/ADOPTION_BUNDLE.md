@@ -64,7 +64,7 @@ You may implement your own runtime layer on top of Meta contracts — but:
 
 If issues arise, you may **contact the maintainer** for discussion and coordination, but this is **not a support / warranty / after-sales service** commitment.
 
-Contact: Yvaine He · `xyan8921@gmail.com` (see `README.md` / `SECURITY.md`).
+Contact: Yvaine He · `core@hdgp-protocol.com` (see `README.md` / `SECURITY.md`).
 
 ---
 
@@ -152,7 +152,7 @@ This is not an “endorsement”; it is **basic attribution and traceability**.
 
 后续如出现问题，你可以**联系维护者**进行讨论与协调，但这**不构成售后/保修/支持承诺**。
 
-联系人：Yvaine He · `xyan8921@gmail.com`（见 `README.md` / `SECURITY.md`）。
+联系人：Yvaine He · `core@hdgp-protocol.com`（见 `README.md` / `SECURITY.md`）。
 
 ---
 

@@ -8,7 +8,7 @@ This repository hosts the open-source **Meta** baseline materials (semantics, co
 
 ### Alternative channels
 
-- **Security email**: `xyan8921@gmail.com`  
+- **Security email**: `core@hdgp-protocol.com`  
 - **PGP key / fingerprint**: TBD  
 
 > Prefer GitHub private reporting when available. If you use email, avoid exploitable details in the subject line; do not disclose exploitable details in public Issues.
@@ -39,7 +39,7 @@ This repository hosts the open-source **Meta** baseline materials (semantics, co
 
 ### 备选渠道
 
-- **安全邮箱**：`xyan8921@gmail.com`  
+- **安全邮箱**：`core@hdgp-protocol.com`  
 - **PGP 公钥/指纹**：TBD  
 
 > 注意：仍首选 GitHub 私密报告；使用邮件时请勿在主题行泄露可利用细节；不得向 Issue 公开披露可被立即利用的细节。

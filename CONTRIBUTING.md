@@ -164,7 +164,7 @@ See `CODE_OF_CONDUCT.md` for more details.
 In early stages, the main channels are:
 
 - GitHub Issues / Discussions;  
-- **Primary contact (HDGP-Core maintainer)**: Yvaine He <xyan8921@gmail.com> — governance questions, appeals about this open repository, and general inquiries;  
+- **Primary contact (HDGP-Core maintainer)**: Yvaine He <core@hdgp-protocol.com> — governance questions, appeals about this open repository, and general inquiries;  
 - future mailing lists or community spaces (TBD).
 
 If you are unsure whether an idea is ready as a PR, feel free to start with a short Issue.  
@@ -329,7 +329,7 @@ HDGP 讨论的主题天然带有敏感性（伦理、价值观、风险评估等
 在项目早期，主要沟通渠道包括：
 
 - 仓库 Issue / Discussions；  
-- **主要联系人（HDGP-Core 维护者）**：Yvaine He · `xyan8921@gmail.com` — 本开源仓库相关的治理问题、申诉与一般咨询；  
+- **主要联系人（HDGP-Core 维护者）**：Yvaine He · `core@hdgp-protocol.com` — 本开源仓库相关的治理问题、申诉与一般咨询；  
 - 未来可能建立的邮件列表或社区空间。
 
 如果你不确定某个想法是否适合直接以 PR 形式提交，可以先开一个简短的 Issue 进行讨论。  

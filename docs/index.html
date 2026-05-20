@@ -222,7 +222,9 @@
     <section class="contact">
       <h2 style="border:none; margin-bottom:.5rem; padding:0;">Contact · 联系</h2>
       <p style="margin:.25rem 0;"><strong>Yvaine He</strong></p>
-      <p style="margin:.25rem 0;"><a href="mailto:xyan8921@gmail.com">xyan8921@gmail.com</a></p>
+      <p style="margin:.25rem 0;">
+        <a href="#" id="core-mailto" rel="noopener noreferrer">Email HDGP-Core · 邮件联系维护团队</a>
+      </p>
       <p style="margin:.75rem 0 0; font-size:.9rem; color:var(--muted);">
         For security vulnerabilities, prefer <strong>GitHub Private vulnerability reporting</strong> on the repository; see <a href="https://github.com/HumanDignityGuardian/HDGP-Core/blob/main/SECURITY.md">SECURITY.md</a>.
       </p>
@@ -248,5 +250,13 @@
       </p>
     </footer>
   </div>
+  <script>
+    (function () {
+      var el = document.getElementById('core-mailto');
+      if (!el) return;
+      var addr = 'core' + '@' + 'hdgp-protocol.com';
+      el.href = 'mailto:' + addr;
+    })();
+  </script>
 </body>
 </html>
