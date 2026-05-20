@@ -6,7 +6,8 @@
 
 This repository (`HDGP-Core`) provides an **open-source Meta ethics & safety baseline**: semantics, contracts, and community governance materials (Meta / ethics / mapping / governance). It helps adopters **weave Meta guidance fields** into their systems and establish an “ethical input contract” that is discussable and auditable.
 
-> **Release [`v1.0.1`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.1) · 2026-05-04** — patch: adoption ergonomics (JSON Schema, `snippets/`, `docs/ADOPTION_STATEMENT_TEMPLATE.md`); **Meta-only scope unchanged**.  
+> **Release [`v1.0.2`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.2) · 2026-05-20** — patch: public site (`core.hdgp-protocol.com`), examples, CI validation, governance/docs backlog; **Meta-only scope unchanged**.  
+> **Release [`v1.0.1`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.1) · 2026-05-04** — patch: adoption ergonomics (JSON Schema, `snippets/`, `docs/ADOPTION_STATEMENT_TEMPLATE.md`).  
 > **Release [`v1.0.0`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.0) · 2026-05-03** — first stable Meta-only baseline. Formal mainline handoff acceptance & freeze are summarized in **`docs/CORE_EXTRACT_SNAPSHOT.md`** (cross-reference to mainline `docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`, not shipped in Core).
 
 ### Website & contact
@@ -111,7 +112,8 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 
 本仓库（`HDGP-Core`）提供 **开源的 Meta 伦理安全基线**：语义、契约与社区治理材料（Meta / 伦理 / 映射 / 治理流程）。它用于帮助采用方在自己的系统里**编织 Meta 指导字段**、形成可讨论与可审计的“伦理输入契约”。
 
-> **发布 [`v1.0.1`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.1) · 2026-05-04** — 补丁：采用侧配套（JSON Schema、`snippets/`、`docs/ADOPTION_STATEMENT_TEMPLATE.md）；**Meta-only 范围不变**。  
+> **发布 [`v1.0.2`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.2) · 2026-05-20** — 补丁：公开站点（`core.hdgp-protocol.com`）、示例、CI 校验、治理/文档 backlog；**Meta-only 范围不变**。  
+> **发布 [`v1.0.1`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.1) · 2026-05-04** — 补丁：采用侧配套（JSON Schema、`snippets/`、`docs/ADOPTION_STATEMENT_TEMPLATE.md`）。  
 > **正式发布 [`v1.0.0`](https://github.com/HumanDignityGuardian/HDGP-Core/releases/tag/v1.0.0) · 2026-05-03** — 首个稳定 Meta-only 公开基线。主系统终局验收与冻结口径摘要见 **`docs/CORE_EXTRACT_SNAPSHOT.md`**（交叉引用主系统 `docs/HDGP_CORE_FINAL_HANDOFF_ACCEPTANCE_2026-05-03.md`，**未**纳入 Core）。
 
 ### 站点与联系
