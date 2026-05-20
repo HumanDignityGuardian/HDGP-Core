@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/hdgp-banner.png" alt="HDGP — Human Dignity Guardian Protocol" width="640" />
+</p>
+
 ## HDGP-Core（Meta-only）：Human Dignity Guardian Protocol · Open Meta Baseline
 
 This repository (`HDGP-Core`) provides an **open-source Meta ethics & safety baseline**: semantics, contracts, and community governance materials (Meta / ethics / mapping / governance). It helps adopters **weave Meta guidance fields** into their systems and establish an “ethical input contract” that is discussable and auditable.
@@ -7,7 +11,7 @@ This repository (`HDGP-Core`) provides an **open-source Meta ethics & safety bas
 
 ### Website & contact
 
-- **GitHub Pages**: `https://humandignityguardian.github.io/HDGP-Core/` — lightweight index for this repository (links into specs & governance on GitHub).  
+- **Public site**: [core.hdgp-protocol.com](https://core.hdgp-protocol.com/) — lightweight index for this repository (links into specs & governance on GitHub). Mirror: [GitHub Pages](https://humandignityguardian.github.io/HDGP-Core/).  
 - **Maintainer**: Yvaine He · `xyan8921@gmail.com` (general repository inquiries; use GitHub **Private vulnerability reporting** first for security issues — see `SECURITY.md`).  
 - **Product / mainline narrative** (Engine demos, PFaaS context — not part of Core materials): [hdgp-protocol.com](https://www.hdgp-protocol.com/).
 
@@ -99,6 +103,10 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 
 ---
 
+<p align="center">
+  <img src="docs/assets/hdgp-banner.png" alt="HDGP — Human Dignity Guardian Protocol" width="640" />
+</p>
+
 ## HDGP-Core（Meta-only）：Human Dignity Guardian Protocol · Open Meta Baseline (ZH-CN)
 
 本仓库（`HDGP-Core`）提供 **开源的 Meta 伦理安全基线**：语义、契约与社区治理材料（Meta / 伦理 / 映射 / 治理流程）。它用于帮助采用方在自己的系统里**编织 Meta 指导字段**、形成可讨论与可审计的“伦理输入契约”。
@@ -108,7 +116,7 @@ Please read `CONTRIBUTING.md` and `CODE_OF_CONDUCT.md`. For changes touching bas
 
 ### 站点与联系
 
-- **GitHub Pages**：`https://humandignityguardian.github.io/HDGP-Core/` — 本仓库的轻量索引页（链向 GitHub 上的规范与治理文档）。  
+- **公开站点**：[core.hdgp-protocol.com](https://core.hdgp-protocol.com/) — 本仓库轻量索引页（链向 GitHub 上的规范与治理文档）。镜像：[GitHub Pages](https://humandignityguardian.github.io/HDGP-Core/)。  
 - **维护联系人**：Yvaine He · `xyan8921@gmail.com`（一般仓库咨询；**安全问题**请优先使用 GitHub **私密漏洞报告**，见 `SECURITY.md`）。  
 - **产品与主系统叙事**（Engine 演示、PFaaS 语境 — **不属于** Core 材料正文）：[hdgp-protocol.com](https://www.hdgp-protocol.com/)
 
