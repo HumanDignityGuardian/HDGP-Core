@@ -33,6 +33,12 @@
 | `snippets/README.md` | Index for optional TS/Python copy-paste snippets |
 | `snippets/hdgp-meta.types.ts` | TypeScript Meta shape + default scene helper |
 | `snippets/hdgp_meta.py` | Python 3.11+ TypedDict Meta shape + default scene helper |
+| `examples/README.md` | Index for minimal Meta JSON examples |
+| `examples/meta.general.chat.json` | Example: general / chat / medium |
+| `examples/meta.medical.advice.json` | Example: medical / advice / high |
+| `scripts/validate_json.py` | CI helper: JSON parse + schema validate examples |
+| `.github/workflows/validate.yml` | Lightweight CI on PRs/main |
+| `docs/SPEC_SCHEMA_ALIGNMENT.md` | Spec ↔ schema ↔ snippets alignment note |
 | `docs/CORE_EXTRACT_SNAPSHOT.md` | Post–Gate G extract snapshot (mainline SHA + §6 copy-paste block) |
 | `docs/CHIP_PROCESS.md` | CHIP process |
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | Quarterly ethics alignment attestation (traceable link required; used by external review) |
@@ -90,6 +96,12 @@
 | `snippets/README.md` | 可选 TS/Python 复制片段索引 |
 | `snippets/hdgp-meta.types.ts` | TypeScript Meta 形态与默认 scene 辅助 |
 | `snippets/hdgp_meta.py` | Python 3.11+ TypedDict Meta 形态与默认 scene 辅助 |
+| `examples/README.md` | 最小 Meta JSON 示例索引 |
+| `examples/meta.general.chat.json` | 示例：general / chat / medium |
+| `examples/meta.medical.advice.json` | 示例：medical / advice / high |
+| `scripts/validate_json.py` | CI：JSON 解析 + 示例 schema 校验 |
+| `.github/workflows/validate.yml` | 轻量 CI（PR / main） |
+| `docs/SPEC_SCHEMA_ALIGNMENT.md` | 规范 ↔ schema ↔ snippets 对齐说明 |
 | `docs/CORE_EXTRACT_SNAPSHOT.md` | 门槛 G 之后提取快照（主系统 SHA + §6 可复制块） |
 | `docs/CHIP_PROCESS.md` | CHIP 流程 |
 | `docs/ethics/ETHICS_ALIGNMENT_ATTESTATION_YYYYQn.md` | 伦理对齐季度声明（需可追溯链接；供外部复核） |

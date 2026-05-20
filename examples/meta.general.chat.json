@@ -1,0 +1,16 @@
+{
+  "request_id": "ex-general-chat-001",
+  "locale": "en-US",
+  "channel": "web",
+  "actor": {
+    "type": "end_user"
+  },
+  "scene": {
+    "domain": "general",
+    "intent": "chat",
+    "risk_level": "medium"
+  },
+  "policy": {
+    "spec_version": "HDGP-1.0"
+  }
+}

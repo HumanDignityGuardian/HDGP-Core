@@ -112,7 +112,7 @@
     },
     "Domain": {
       "description": "Scenario domain. Prefer listed values; extend with lowercase_snake custom labels when needed.",
-      "oneOf": [
+      "anyOf": [
         {
           "enum": [
             "general",
@@ -134,7 +134,7 @@
     },
     "Intent": {
       "description": "Intent of the output path. Prefer listed values; extend with lowercase_snake custom labels when needed.",
-      "oneOf": [
+      "anyOf": [
         {
           "enum": ["chat", "decision_support", "advice", "notification"]
         },

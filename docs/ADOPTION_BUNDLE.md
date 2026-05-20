@@ -17,6 +17,7 @@ This document is a **pack-and-go entry** for adopting **HDGP-Core** as a **Meta-
 - **Governance & change process**: `GOVERNANCE.md`, `docs/CHIP_PROCESS.md`
 - **Machine-readable Meta shape (Draft-07 JSON Schema)**: `schemas/hdgp-core-meta.schema.json` — optional validator for weaving `scene` / `policy` hints; **not** an Engine/Judge API or verdict contract (see schema `$id` and descriptions).
 - **Starter snippets (TypeScript / Python)**: `snippets/` — copy-paste types/helpers; **not** a published SDK.
+- **Minimal JSON examples**: `examples/` — `meta.general.chat.json`, `meta.medical.advice.json` (validated against the schema in CI).
 - **Adoption statement template**: `docs/ADOPTION_STATEMENT_TEMPLATE.md` — optional wording for your project docs (attribution + Meta-only boundary).
 - **Adopter Pack (templates & examples)**: `docs/adopter-pack/README.md` — minimal template set for external teams (recommended Meta fields, checklist, attribution wording, examples).
 
@@ -75,7 +76,7 @@ When you adopt or excerpt HDGP-Core materials:
 - **Follow the repository license** (`LICENSE`).  
 - Keep **attribution** and include a **link back** to this repository in your project docs, e.g.:  
   - `https://github.com/HumanDignityGuardian/HDGP-Core`  
-  - or the GitHub Pages index: `https://humandignityguardian.github.io/HDGP-Core/`
+  - or the public site index: `https://core.hdgp-protocol.com/` (mirror: `https://humandignityguardian.github.io/HDGP-Core/`)
 
 This is not an “endorsement”; it is **basic attribution and traceability**.
 
@@ -106,6 +107,7 @@ This is not an “endorsement”; it is **basic attribution and traceability**.
 - 治理与变更流程：`GOVERNANCE.md`、`docs/CHIP_PROCESS.md`
 - **机器可读的 Meta 形态（Draft-07 JSON Schema）**：`schemas/hdgp-core-meta.schema.json` — 可选校验/代码生成；**不是** Engine/Judge API 或 verdict 契约（见 schema 内 `$id` 与说明）。
 - **起步片段（TypeScript / Python）**：`snippets/` — 可复制类型与默认值辅助；**不是**已发布的 SDK。
+- **最小 JSON 示例**：`examples/` — `meta.general.chat.json`、`meta.medical.advice.json`（CI 中对照 schema 校验）。
 - **采用声明模板**：`docs/ADOPTION_STATEMENT_TEMPLATE.md` — 可选文案（致谢 + Meta-only 边界）。
 
 ---

@@ -1,0 +1,24 @@
+{
+  "request_id": "ex-medical-advice-001",
+  "channel": "api",
+  "actor": {
+    "type": "end_user",
+    "role": "patient"
+  },
+  "scene": {
+    "domain": "medical",
+    "intent": "advice",
+    "risk_level": "high",
+    "sensitivity": ["phi_hint"]
+  },
+  "policy": {
+    "spec_version": "HDGP-1.0",
+    "bundles": ["org-medical-review-v1"]
+  },
+  "adopter": {
+    "disclosure": {
+      "not_medical_device": true,
+      "human_review_required": true
+    }
+  }
+}

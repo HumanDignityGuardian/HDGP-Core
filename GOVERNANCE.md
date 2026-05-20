@@ -156,6 +156,14 @@ Releases announce version, applicable HDGP spec version, verification instructio
 
 Serious issues → revocation notices, “unsafe / not recommended”, blocklists if needed.
 
+### 4.4 HDGP-Core open-repository tags (immutable after publish)
+
+For the public **HDGP-Core** repository:
+
+- **Prefer immutable Git tags** after a release is announced (e.g. `v1.0.1` must not be moved to a different commit).
+- If post-release documentation or adoption materials need correction, publish a **new patch tag** (e.g. `v1.0.2`) rather than retagging an existing release.
+- GitHub Release notes should reference the tag SHA; adopters may pin to tags for reproducible Meta-only snapshots.
+
 ---
 
 ## 5. Conflict & appeals
@@ -416,6 +424,14 @@ Suggestions via Issues/PRs welcome.
   - 可发布“撤销声明（Revocation Notice）”；  
   - 将版本标记为“不安全 / 不再推荐”，必要时添加到黑名单列表。
   - 撤销公告模板见：`docs/HDGP_GOVERNANCE_PUBLIC_NOTICE_TEMPLATES.md`（Revocation Notice）
+
+### 4.4 HDGP-Core 开源仓库 Tag 策略（发布后不可移动）
+
+针对公开仓库 **HDGP-Core**：
+
+- **发布后优先保持 Git tag 不可变**（例如 `v1.0.1` 不得指向不同 commit）。
+- 若发布后仅需修正文档或采用侧材料，应发布**新的补丁 tag**（如 `v1.0.2`），而非移动既有 tag。
+- GitHub Release 应注明 tag 对应 SHA；采用方可 pin 到 tag 以获得可复现的 Meta-only 快照。
 
 ---
 

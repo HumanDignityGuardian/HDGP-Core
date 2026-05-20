@@ -9,7 +9,7 @@ This repository hosts the open-source **Meta** baseline materials (semantics, co
 ### Alternative channels
 
 - **Security email**: `core@hdgp-protocol.com`  
-- **PGP key / fingerprint**: TBD  
+- **PGP key / fingerprint**: TBD — **decision (2026-05-20)**: no maintainer PGP key is published for HDGP-Core yet; keep TBD until a key is registered here. GitHub private reporting remains preferred.
 
 > Prefer GitHub private reporting when available. If you use email, avoid exploitable details in the subject line; do not disclose exploitable details in public Issues.
 
@@ -40,7 +40,7 @@ This repository hosts the open-source **Meta** baseline materials (semantics, co
 ### 备选渠道
 
 - **安全邮箱**：`core@hdgp-protocol.com`  
-- **PGP 公钥/指纹**：TBD  
+- **PGP 公钥/指纹**：TBD — **决定（2026-05-20）**：HDGP-Core 尚未公布维护者 PGP 公钥，暂保持 TBD，待在此登记后再更新；仍首选 GitHub 私密报告。
 
 > 注意：仍首选 GitHub 私密报告；使用邮件时请勿在主题行泄露可利用细节；不得向 Issue 公开披露可被立即利用的细节。
 
